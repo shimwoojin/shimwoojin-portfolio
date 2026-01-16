@@ -51,3 +51,16 @@
   color: #2980b9;
   text-decoration: underline;
 }
+
+/* 다크모드 스타일 */
+.App.dark .contact-intro {
+  color: #bbb;
+}
+
+.App.dark .contact-item {
+  background: #1f2940;
+}
+
+.App.dark .contact-item h3 {
+  color: #eee;
+}

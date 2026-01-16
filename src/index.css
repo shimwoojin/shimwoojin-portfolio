@@ -9,6 +9,14 @@ body {
   line-height: 1.6;
   color: #333;
   background-color: #f4f4f4;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* 다크모드 전역 스타일 */
+.dark body,
+.App.dark {
+  background-color: #1a1a2e;
+  color: #eee;
 }
 
 html {

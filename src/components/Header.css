@@ -39,3 +39,25 @@
 .nav-links a:hover {
   color: #3498db;
 }
+
+/* 다크모드 토글 버튼 */
+.dark-mode-toggle {
+  background: none;
+  border: 2px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.dark-mode-toggle:hover {
+  transform: scale(1.1);
+  background-color: rgba(52, 152, 219, 0.2);
+}
+
+/* 다크모드 헤더 */
+.App.dark .header {
+  background-color: #16213e;
+}

@@ -9,6 +9,19 @@
   flex-shrink: 0;
 }
 
+.profile-image img {
+  width: 220px;
+  height: 280px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s;
+}
+
+.profile-image img:hover {
+  transform: scale(1.02);
+}
+
 .image-placeholder {
   width: 200px;
   height: 200px;
@@ -69,4 +82,27 @@
     flex-direction: column;
     text-align: center;
   }
+}
+
+/* 다크모드 스타일 */
+.App.dark .about-text h3,
+.App.dark .skills h4 {
+  color: #eee;
+}
+
+.App.dark .about-text p {
+  color: #bbb;
+}
+
+.skill-tag.tool {
+  background-color: #9b59b6;
+}
+
+.App.dark .skill-tag {
+  background-color: #3498db;
+  color: white;
+}
+
+.App.dark .skill-tag.tool {
+  background-color: #8e44ad;
 }

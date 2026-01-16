@@ -1,0 +1,242 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 15px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 2em;
+  cursor: pointer;
+  color: #7f8c8d;
+  transition: color 0.3s;
+  z-index: 10;
+}
+
+.modal-close:hover {
+  color: #e74c3c;
+}
+
+.modal-header {
+  padding: 30px 30px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-header h2 {
+  color: #2c3e50;
+  font-size: 1.8em;
+  margin-bottom: 8px;
+  padding-right: 40px;
+}
+
+.modal-period {
+  color: #3498db;
+  font-weight: 600;
+  font-size: 1em;
+}
+
+/* YouTube 동영상 */
+.modal-video {
+  width: 100%;
+  padding: 20px 30px;
+}
+
+.modal-video iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+}
+
+.modal-body {
+  padding: 20px 30px 30px;
+}
+
+.modal-description {
+  color: #555;
+  font-size: 1.1em;
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+
+.modal-details {
+  margin-bottom: 25px;
+}
+
+.modal-details h3,
+.modal-tech h3 {
+  color: #2c3e50;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+
+.modal-details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.modal-details li {
+  padding: 8px 0;
+  padding-left: 20px;
+  position: relative;
+  color: #555;
+  line-height: 1.6;
+}
+
+.modal-details li::before {
+  content: '•';
+  color: #3498db;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.modal-tech {
+  margin-bottom: 20px;
+}
+
+.modal-tech .tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.modal-tech .tech-badge {
+  background-color: #e8f4f8;
+  color: #3498db;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.95em;
+  font-weight: 500;
+}
+
+.modal-links {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.modal-links a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05em;
+  transition: color 0.3s;
+}
+
+.modal-links a:hover {
+  color: #2980b9;
+}
+
+/* 다크모드 */
+.App.dark .modal-content {
+  background: #1a1a2e;
+}
+
+.App.dark .modal-close {
+  color: #a0aec0;
+}
+
+.App.dark .modal-close:hover {
+  color: #e74c3c;
+}
+
+.App.dark .modal-header {
+  border-bottom-color: #2a3f5f;
+}
+
+.App.dark .modal-header h2 {
+  color: #eee;
+}
+
+.App.dark .modal-period {
+  color: #5dade2;
+}
+
+.App.dark .modal-description {
+  color: #bbb;
+}
+
+.App.dark .modal-details h3,
+.App.dark .modal-tech h3 {
+  color: #eee;
+}
+
+.App.dark .modal-details li {
+  color: #bbb;
+}
+
+.App.dark .modal-details li::before {
+  color: #5dade2;
+}
+
+.App.dark .modal-tech .tech-badge {
+  background-color: #2a3f5f;
+  color: #5dade2;
+}
+
+.App.dark .modal-links {
+  border-top-color: #2a3f5f;
+}
+
+.App.dark .modal-links a {
+  color: #5dade2;
+}
+
+/* 반응형 */
+@media (max-width: 640px) {
+  .modal-content {
+    margin: 10px;
+    max-height: 95vh;
+  }
+
+  .modal-header {
+    padding: 20px;
+  }
+
+  .modal-header h2 {
+    font-size: 1.4em;
+  }
+
+  .modal-video {
+    padding: 10px 20px;
+  }
+
+  .modal-body {
+    padding: 15px 20px 20px;
+  }
+}

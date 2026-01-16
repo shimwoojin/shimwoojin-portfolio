@@ -1,0 +1,212 @@
+.timeline {
+  position: relative;
+  margin-top: 30px;
+  padding-left: 30px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #3498db;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -30px;
+  top: 5px;
+  width: 15px;
+  height: 15px;
+  background: #3498db;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 0 3px #3498db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.timeline-content {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+/* 경력 항목 강조 스타일 */
+.timeline-item.career {
+  border-left: 4px solid #2196F3;
+  padding-left: 20px;
+  margin-left: -24px;
+}
+
+.timeline-item.career .timeline-content {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+  border: 1px solid rgba(33, 150, 243, 0.2);
+}
+
+.timeline-item.career .timeline-marker {
+  width: 20px;
+  height: 20px;
+  background: #2196F3;
+  box-shadow: 0 0 0 4px #2196F3;
+  border: 3px solid white;
+  z-index: 2;
+}
+
+/* 교육 항목 절제된 스타일 */
+.timeline-item.education {
+  opacity: 0.85;
+}
+
+.timeline-item.education .timeline-marker {
+  width: 14px;
+  height: 14px;
+  background: #95a5a6;
+  box-shadow: 0 0 0 3px #95a5a6;
+}
+
+/* 경력 뱃지 */
+.career-badge {
+  background: #2196F3;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.timeline-header h3 {
+  color: #2c3e50;
+  font-size: 1.3em;
+  margin: 0;
+}
+
+.period {
+  color: #3498db;
+  font-weight: 600;
+  font-size: 0.95em;
+}
+
+.position {
+  color: #555;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.description {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.exp-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.exp-skill-tag {
+  background-color: #e8f4f8;
+  color: #3498db;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.85em;
+  font-weight: 500;
+}
+
+/* 다크모드 스타일 */
+.App.dark .timeline::before {
+  background: #5dade2;
+}
+
+.App.dark .timeline-marker {
+  background: #5dade2;
+  border-color: #16213e;
+  box-shadow: 0 0 0 3px #5dade2;
+}
+
+.App.dark .timeline-item.career {
+  border-left-color: #5dade2;
+}
+
+.App.dark .timeline-item.career .timeline-content {
+  background: linear-gradient(135deg, rgba(93, 173, 226, 0.12) 0%, rgba(118, 75, 162, 0.12) 100%);
+  box-shadow: 0 4px 12px rgba(93, 173, 226, 0.2);
+  border: 1px solid rgba(93, 173, 226, 0.3);
+}
+
+.App.dark .timeline-item.career .timeline-marker {
+  background: #5dade2;
+  box-shadow: 0 0 0 4px #5dade2;
+  border-color: #16213e;
+}
+
+.App.dark .timeline-item.education .timeline-marker {
+  background: #7f8c8d;
+  box-shadow: 0 0 0 3px #7f8c8d;
+}
+
+.App.dark .career-badge {
+  background: #5dade2;
+  color: #16213e;
+}
+
+.App.dark .timeline-content {
+  background: #1f2940;
+}
+
+.App.dark .timeline-header h3 {
+  color: #eee;
+}
+
+.App.dark .period {
+  color: #5dade2;
+}
+
+.App.dark .position {
+  color: #ccc;
+}
+
+.App.dark .description {
+  color: #bbb;
+}
+
+.App.dark .exp-skill-tag {
+  background-color: #2a3f5f;
+  color: #5dade2;
+}
+
+@media (max-width: 640px) {
+  .timeline-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
