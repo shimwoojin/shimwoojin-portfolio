@@ -10,7 +10,7 @@ function Experience() {
       position: "클라이언트 엔지니어",
       period: "2024.04.15 - 2025.07.31",
       description: "언리얼 엔진5를 활용한 MMORPG 개발과 유니티 엔진 2022.3을 활용한 모바일 캐주얼 게임 개발",
-      skills: ["Unreal", "C++", "Untiy", "C#", "Python"]
+      skills: ["Unreal", "C++", "Untiy", "C#", "SVN", "GitLab", "SqliteDB"]
     },
     {
       id: 2,

@@ -148,6 +148,9 @@
   margin-top: 20px;
   padding-top: 20px;
   border-top: 1px solid #eee;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .modal-links a {
@@ -160,6 +163,24 @@
 
 .modal-links a:hover {
   color: #2980b9;
+}
+
+.resume-link-btn {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.resume-link-btn:hover {
+  background: linear-gradient(135deg, #2980b9, #1c6ea4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
 }
 
 /* 다크모드 */
@@ -215,6 +236,15 @@
 
 .App.dark .modal-links a {
   color: #5dade2;
+}
+
+.App.dark .resume-link-btn {
+  background: linear-gradient(135deg, #2980b9, #1c6ea4);
+}
+
+.App.dark .resume-link-btn:hover {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
 }
 
 /* 반응형 */

@@ -1,0 +1,479 @@
+.resume-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+  min-height: 100vh;
+}
+
+/* Navigation */
+.resume-nav {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  padding: 15px 0;
+  border-bottom: 1px solid #e0e0e0;
+  z-index: 100;
+  margin-bottom: 30px;
+}
+
+.back-link {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.back-link:hover {
+  color: #2980b9;
+  text-decoration: underline;
+}
+
+/* Header */
+.resume-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #3498db;
+}
+
+.resume-header h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.resume-info h2 {
+  font-size: 1.4rem;
+  color: #34495e;
+  margin-bottom: 10px;
+}
+
+.resume-info p {
+  color: #7f8c8d;
+  font-size: 0.95rem;
+}
+
+/* Summary Section */
+.resume-summary {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+.resume-summary h2 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.resume-summary ul {
+  list-style: none;
+  padding: 0;
+}
+
+.resume-summary li {
+  margin-bottom: 10px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Project Sections */
+.resume-project {
+  margin-bottom: 50px;
+  padding: 30px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  scroll-margin-top: 80px;
+}
+
+.resume-project:target {
+  animation: highlight 2s ease-out;
+}
+
+@keyframes highlight {
+  0% {
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.6);
+    background: #ebf5fb;
+  }
+  100% {
+    box-shadow: none;
+    background: #fff;
+  }
+}
+
+.project-header {
+  margin-bottom: 30px;
+}
+
+.project-header h2 {
+  color: #3498db;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #3498db;
+}
+
+/* Project Info Table */
+.project-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.project-info-table th,
+.project-info-table td {
+  padding: 10px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.project-info-table th {
+  width: 120px;
+  background: #f8f9fa;
+  color: #555;
+  font-weight: 600;
+}
+
+.project-info-table td {
+  color: #333;
+}
+
+/* Project Tasks */
+.project-task {
+  margin-bottom: 35px;
+  padding-bottom: 35px;
+  border-bottom: 1px dashed #ddd;
+}
+
+.project-task:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.project-task h3 {
+  color: #2c3e50;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  border-left: 4px solid #3498db;
+}
+
+/* STAR Sections */
+.star-section {
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.star-section h4 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.star-section ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.star-section li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.star-section li ul {
+  margin-top: 5px;
+}
+
+.star-section.situation {
+  background: #fff5f5;
+}
+
+.star-section.situation h4 {
+  color: #e74c3c;
+}
+
+.star-section.task {
+  background: #fffbeb;
+}
+
+.star-section.task h4 {
+  color: #f39c12;
+}
+
+.star-section.action {
+  background: #f0f9ff;
+}
+
+.star-section.action h4 {
+  color: #3498db;
+}
+
+.star-section.result {
+  background: #f0fff4;
+}
+
+.star-section.result h4 {
+  color: #27ae60;
+}
+
+/* Other Tasks */
+.other-tasks .task-category {
+  margin-bottom: 25px;
+}
+
+.other-tasks .task-category h4 {
+  color: #2c3e50;
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #eee;
+}
+
+.other-tasks .task-category > ul {
+  padding-left: 20px;
+}
+
+.other-tasks .task-category li {
+  margin-bottom: 8px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.other-tasks .task-category li ul {
+  margin-top: 5px;
+  color: #777;
+}
+
+/* Skills Summary */
+.resume-skills-summary {
+  margin-bottom: 40px;
+  padding: 30px;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.resume-skills-summary h2 {
+  color: #2c3e50;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.skill-category {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.skill-category h3 {
+  color: #3498db;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #3498db;
+}
+
+.skill-category ul {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.skill-category li {
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Conclusion */
+.resume-conclusion {
+  padding: 30px;
+  background: #2c3e50;
+  color: #fff;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.resume-conclusion h2 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.resume-conclusion p {
+  line-height: 1.8;
+  margin-bottom: 15px;
+  color: #ecf0f1;
+}
+
+.resume-conclusion p:last-child {
+  margin-bottom: 0;
+}
+
+/* Footer */
+.resume-footer {
+  text-align: center;
+  padding: 20px;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .resume-page {
+    padding: 15px;
+  }
+
+  .resume-header h1 {
+    font-size: 2rem;
+  }
+
+  .resume-project {
+    padding: 20px;
+  }
+
+  .project-info-table th {
+    width: 100px;
+  }
+
+  .star-section {
+    padding: 12px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Dark mode support */
+.dark .resume-page {
+  background: #1a1a2e;
+  color: #eee;
+}
+
+.dark .resume-nav {
+  background: #1a1a2e;
+  border-color: #333;
+}
+
+.dark .resume-header h1 {
+  color: #fff;
+}
+
+.dark .resume-info h2 {
+  color: #ccc;
+}
+
+.dark .resume-summary {
+  background: #16213e;
+}
+
+.dark .resume-project {
+  background: #16213e;
+  border-color: #333;
+}
+
+.dark .resume-project:target {
+  animation: highlight-dark 2s ease-out;
+}
+
+@keyframes highlight-dark {
+  0% {
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.6);
+    background: #1a3a5c;
+  }
+  100% {
+    box-shadow: none;
+    background: #16213e;
+  }
+}
+
+.dark .project-header h2 {
+  color: #5dade2;
+}
+
+.dark .project-info-table th {
+  background: #1a1a2e;
+  color: #aaa;
+}
+
+.dark .project-info-table td {
+  color: #ddd;
+}
+
+.dark .project-info-table th,
+.dark .project-info-table td {
+  border-color: #333;
+}
+
+.dark .project-task h3 {
+  color: #fff;
+}
+
+.dark .project-task {
+  border-color: #333;
+}
+
+.dark .star-section.situation {
+  background: #2d1f1f;
+}
+
+.dark .star-section.task {
+  background: #2d2a1f;
+}
+
+.dark .star-section.action {
+  background: #1f2a3d;
+}
+
+.dark .star-section.result {
+  background: #1f2d22;
+}
+
+.dark .star-section li {
+  color: #ccc;
+}
+
+.dark .other-tasks .task-category h4 {
+  color: #ddd;
+  border-color: #444;
+}
+
+.dark .other-tasks .task-category li {
+  color: #bbb;
+}
+
+.dark .resume-skills-summary {
+  background: #16213e;
+}
+
+.dark .skill-category {
+  background: #1a1a2e;
+  border-color: #333;
+}
+
+.dark .skill-category h3 {
+  color: #5dade2;
+}
+
+.dark .skill-category li {
+  color: #bbb;
+}
+
+.dark .resume-conclusion {
+  background: #0f3460;
+}
+
+.dark .resume-footer {
+  color: #888;
+}

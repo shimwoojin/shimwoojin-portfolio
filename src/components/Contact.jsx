@@ -33,7 +33,7 @@ function Contact() {
             <div className="contact-icon">💬</div>
             <h3>Blog</h3>
             <a href="https://woojin-record.tistory.com/" target="_blank" rel="noopener noreferrer">
-              https://woojin-record.tistory.com/
+              woojin-record.tistory.com/
             </a>
           </div>
         </div>

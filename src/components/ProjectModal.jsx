@@ -1,7 +1,10 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import './ProjectModal.css'
 
 function ProjectModal({ project, onClose }) {
+  const navigate = useNavigate()
+
   if (!project) return null
 
   // ESC 키로 닫기
@@ -12,6 +15,14 @@ function ProjectModal({ project, onClose }) {
     window.addEventListener('keydown', handleEsc)
     return () => window.removeEventListener('keydown', handleEsc)
   }, [onClose])
+
+  // 경력기술서 페이지로 이동
+  const handleViewResume = () => {
+    if (project.resumeSection) {
+      onClose()
+      navigate(`/resume#${project.resumeSection}`)
+    }
+  }
 
   // 배경 클릭 시 닫기
   const handleBackdropClick = (e) => {
@@ -71,13 +82,18 @@ function ProjectModal({ project, onClose }) {
           </div>
 
           {/* 링크 */}
-          {project.github && (
-            <div className="modal-links">
+          <div className="modal-links">
+            {project.resumeSection && (
+              <button className="resume-link-btn" onClick={handleViewResume}>
+                경력기술서 상세보기 →
+              </button>
+            )}
+            {project.github && (
               <a href={project.github} target="_blank" rel="noopener noreferrer">
                 GitHub 저장소 →
               </a>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -25,7 +25,8 @@ function Projects() {
         "UI 시스템 개발",
         "개발 도구 제작"
       ],
-      github: ""
+      github: "",
+      resumeSection: "project-ark"  // 경력기술서 섹션 ID
     },
     {
       id: 3,
@@ -41,7 +42,8 @@ function Projects() {
         "UI 시스템 구현",
         "게임 로직 개발"
       ],
-      github: ""
+      github: "",
+      resumeSection: "project-vir"  // 경력기술서 섹션 ID
     },
     // 개인 프로젝트
     {
