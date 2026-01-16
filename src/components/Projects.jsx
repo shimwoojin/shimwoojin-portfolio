@@ -59,7 +59,7 @@ function Projects() {
         "멀티플레이어 세션 관리",
         "다양한 게임 모드 구현"
       ],
-      github: ""
+      github: "https://github.com/shimwoojin/WjWorld"
     },
     {
       id: 5,
