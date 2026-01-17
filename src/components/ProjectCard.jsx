@@ -10,10 +10,30 @@ function ProjectCard({ project, onViewProject }) {
     onViewProject()
   }
 
+  // YouTube 썸네일 또는 커스텀 이미지 결정
+  const getProjectImage = () => {
+    if (project.youtubeId) {
+      return `https://img.youtube.com/vi/${project.youtubeId}/hqdefault.jpg`
+    }
+    if (project.image) {
+      return project.image
+    }
+    return null
+  }
+
+  const imageUrl = getProjectImage()
+
   return (
     <div className={`project-card ${typeClass} ${project.featured ? 'featured' : ''}`}>
       <div className="project-image">
-        <div className="image-placeholder">프로젝트 이미지</div>
+        {imageUrl ? (
+          <img src={imageUrl} alt={project.title} className="project-thumbnail" />
+        ) : (
+          <div className={`image-placeholder placeholder-${project.category.toLowerCase()}`}>
+            <span className="placeholder-category">{project.category}</span>
+            <span className="placeholder-title">{project.title}</span>
+          </div>
+        )}
         <span className={`project-badge ${typeClass}`}>{typeLabel}</span>
         {project.featured && <span className="featured-badge">★ 대표</span>}
       </div>

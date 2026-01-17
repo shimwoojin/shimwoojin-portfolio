@@ -1,86 +1,61 @@
 # Shim Woojin Portfolio
 
-React로 만든 개인 포트폴리오 웹사이트입니다.
+React로 제작한 게임 클라이언트 프로그래머 포트폴리오 웹사이트입니다.
 
-## 🚀 시작하기
+**Live Demo**: https://shimwoojin-portfolio.vercel.app
 
-### 필요한 것
-- Node.js (18.0 이상)
-- npm 또는 yarn
+## 주요 기능
 
-### 설치 방법
+- **포트폴리오 메인 페이지**: About, Experience, Projects, Contact 섹션
+- **프로젝트 상세 모달**: YouTube 동영상 임베드, GitHub 링크
+- **경력기술서 페이지**: STAR 기법 기반 상세 업무 성과
+- **다크 모드**: 테마 토글 지원
+- **프로젝트 필터링**: 대표/경력/개인 + 세부 카테고리
 
-1. 프로젝트 폴더로 이동
+## 기술 스택
+
+- React 18 + React Router
+- Vite
+- CSS3
+- Vercel (배포)
+
+## 시작하기
+
 ```bash
-cd C:\EtcProjects\shimwoojin-portfolio
-```
-
-2. 필요한 패키지 설치
-```bash
+# 설치
 npm install
-```
 
-3. 개발 서버 실행
-```bash
+# 개발 서버 실행
 npm run dev
-```
 
-4. 브라우저에서 열기
-- 터미널에 표시된 주소(보통 http://localhost:5173)를 브라우저에 입력
-
-## 📁 프로젝트 구조
-
-```
-shimwoojin-portfolio/
-├── src/
-│   ├── components/      # 재사용 가능한 컴포넌트들
-│   │   ├── Header.jsx   # 네비게이션 헤더
-│   │   ├── About.jsx    # 소개 섹션
-│   │   ├── Projects.jsx # 프로젝트 섹션
-│   │   └── Contact.jsx  # 연락처 섹션
-│   ├── App.jsx          # 메인 앱 컴포넌트
-│   ├── App.css          # 앱 스타일
-│   ├── main.jsx         # 진입점
-│   └── index.css        # 전역 스타일
-├── index.html           # HTML 템플릿
-├── package.json         # 프로젝트 설정
-└── vite.config.js       # Vite 설정
-```
-
-## 🎨 커스터마이징
-
-### 개인 정보 수정하기
-1. `src/components/About.jsx` - 자기소개 및 스킬 수정
-2. `src/components/Projects.jsx` - 프로젝트 정보 수정
-3. `src/components/Contact.jsx` - 이메일, GitHub, LinkedIn 링크 수정
-
-### 색상 변경하기
-- CSS 파일들에서 색상 코드를 변경하세요
-- 주요 색상: `#3498db` (파란색), `#2c3e50` (네이비)
-
-## 📦 빌드
-
-프로덕션 빌드 생성:
-```bash
+# 프로덕션 빌드
 npm run build
 ```
 
-빌드 결과 미리보기:
-```bash
-npm run preview
+## 프로젝트 구조
+
+```
+src/
+├── components/     # 재사용 컴포넌트 (Header, About, Projects 등)
+├── pages/          # 페이지 컴포넌트 (Resume)
+├── App.jsx         # 라우팅 및 메인 레이아웃
+└── main.jsx        # 진입점
 ```
 
-## 🛠️ 사용 기술
+## 배포
 
-- React 18
-- Vite
-- CSS3
+GitHub에 push하면 Vercel이 자동으로 빌드 및 배포합니다.
 
-## 📝 다음 단계
+```bash
+git add .
+git commit -m "Update"
+git push
+```
 
-- [ ] 실제 프로젝트 정보로 업데이트
-- [ ] 프로필 이미지 추가
-- [ ] GitHub Pages 또는 Vercel에 배포
-- [ ] 다크 모드 추가
-- [ ] 애니메이션 효과 추가
+## 라이선스
 
+MIT License
+
+---
+
+© 2026 Shim Woojin
