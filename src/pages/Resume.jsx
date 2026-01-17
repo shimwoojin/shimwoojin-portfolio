@@ -1,10 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, Link } from 'react-router-dom'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import './Resume.css'
 
-// 일반화된 코드 예시 컴포넌트
+// 언어 매핑 (표시명 → syntax highlighter 언어)
+const languageMap = {
+  'C++': 'cpp',
+  'C#': 'csharp',
+  'JavaScript': 'javascript',
+  'Python': 'python'
+}
+
+// 코드 예시 컴포넌트 with Syntax Highlighting
 function CodeExample({ title, language, children }) {
   const [isOpen, setIsOpen] = useState(false)
+  const syntaxLang = languageMap[language] || language.toLowerCase()
 
   return (
     <div className="code-example-wrapper">
@@ -17,7 +28,18 @@ function CodeExample({ title, language, children }) {
             <span>{title}</span>
             <span className="lang-tag">{language}</span>
           </div>
-          <pre><code>{children}</code></pre>
+          <SyntaxHighlighter
+            language={syntaxLang}
+            style={vscDarkPlus}
+            customStyle={{
+              margin: 0,
+              borderRadius: '0 0 8px 8px',
+              fontSize: '0.85rem'
+            }}
+            showLineNumbers={true}
+          >
+            {children}
+          </SyntaxHighlighter>
         </div>
       )}
     </div>
