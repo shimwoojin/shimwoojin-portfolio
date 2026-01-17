@@ -58,24 +58,91 @@ shimwoojin-portfolio/
 - STAR 기법으로 작성된 업무 성과
 - 해시 기반 섹션 스크롤 지원
 
-## React 학습 완료 항목
+---
 
-- [x] 컴포넌트 구조, JSX, Import/Export
-- [x] Props: 컴포넌트 간 데이터 전달
-- [x] useState: 상태 관리 (다크모드, 필터링)
-- [x] useEffect: 생명주기, 이벤트 리스너
-- [x] map() 반복 렌더링
-- [x] 이벤트 핸들링
-- [x] React Router: 페이지 라우팅 (Routes, Route, Link, useLocation)
-- [x] 컴포넌트 분리 및 설계
+## PROJECT ARK 원본 코드 참조
 
-## 다음 학습 목표
+경력기술서에 작성된 프로젝트의 원본 코드가 별도 경로에 보관되어 있습니다.
 
-- [ ] API 연동 (GitHub API 등)
-- [ ] Form 처리 및 유효성 검사
-- [ ] 커스텀 Hook 만들기
-- [ ] Context API: 전역 상태 관리
-- [ ] TypeScript 전환
+**코드 경로**: `C:\OldProjectsRewriteReadme\ProjectArk`
+
+### 디렉토리 구조
+
+```
+ProjectArk/
+├── Source/                    # 메인 게임 모듈 (언리얼 엔진)
+│   └── ProjectArk/
+│       ├── Quest/             # 퀘스트 시스템
+│       ├── Character/         # 캐릭터 시스템
+│       ├── Components/        # 캐릭터 컴포넌트들
+│       ├── NPCTalk/           # NPC 대화 컨트롤러
+│       ├── Networking/        # 패킷 통신
+│       ├── Instance/          # GameMode, HUD 등
+│       └── UI/                # 월드맵, UI 위젯
+├── DialogueTreeBuild/         # NPC 대화 플러그인 (커스터마이징)
+├── Slack/                     # Slack 버그 리포트 플러그인
+└── CustomEditorSubSystem/     # 에디터 확장 플러그인
+```
+
+### Resume 항목별 코드 매핑
+
+#### 1. State Pattern 기반 퀘스트 시스템
+| 설명 | 파일 경로 |
+|------|-----------|
+| State 패턴 베이스 | `Source/ProjectArk/Quest/State/ArkQuestTIDInstanceState.h` |
+| Active 상태 | `Source/ProjectArk/Quest/State/ArkQuestState_Active.h/.cpp` |
+| CompletablePending 상태 | `Source/ProjectArk/Quest/State/ArkQuestState_CompleteablePending.h/.cpp` |
+| Completed 상태 | `Source/ProjectArk/Quest/State/ArkQuestState_Completed.h/.cpp` |
+| Factory 패턴 | `Source/ProjectArk/Quest/ArkQuestFactory.h/.cpp` |
+| Quest Subsystem | `Source/ProjectArk/Instance/Subsystem/ArkQuestSubSystem.h/.cpp` |
+| 서버 통신 | `Source/ProjectArk/Networking/PacketBuilder/PacketBuilder_Quest.h/.cpp` |
+
+#### 2. NPC 대화 시스템 (DialogueTree 플러그인 커스터마이징)
+| 설명 | 파일 경로 |
+|------|-----------|
+| 대화 컨트롤러 | `Source/ProjectArk/NPCTalk/ArkDialogueController.h/.cpp` |
+| 대화 Speaker 컴포넌트 | `Source/ProjectArk/Components/ArkDialogueSpeakerComponent.h/.cpp` |
+| 플러그인 에디터 | `DialogueTreeBuild/Source/DialogueTreeEditor/` |
+| 플러그인 런타임 | `DialogueTreeBuild/Source/DialogueTreeRuntime/` |
+| 커스텀 노드 (MakeChild) | `DialogueTreeBuild/Source/DialogueTreeEditor/Private/Graph/Nodes/ArkGraphNodeDialogueMakeChild.cpp` |
+| 커스텀 노드 (ManyBranch) | `DialogueTreeBuild/Source/DialogueTreeEditor/Private/Graph/Nodes/ArkGraphNodeDialogueManyBranch.cpp` |
+| 퀘스트 이벤트 연동 | `DialogueTreeBuild/Source/DialogueTreeRuntime/Public/Events/ArkQuestAcceptReqEvent.h` |
+
+#### 3. 월드맵 자동 생성 도구
+| 설명 | 파일 경로 |
+|------|-----------|
+| 맵 로드 매니저 | `Source/ProjectArk/UI/GameContents/Rootkit/Map/ArkMapLoadManager.h/.cpp` |
+| 맵 패널 | `Source/ProjectArk/UI/GameContents/Rootkit/Map/ArkMapPanel.h/.cpp` |
+| 월드맵 위젯 | `Source/ProjectArk/UI/GameContents/Rootkit/Map/MapWidget/ArkWorldMapWidget_Base.h/.cpp` |
+| 맵 오브젝트 위젯 | `Source/ProjectArk/UI/GameContents/Rootkit/Map/MapObjectWidget/` |
+
+#### 4. 캐릭터 클래스 리팩토링 (컴포넌트화)
+| 설명 | 파일 경로 |
+|------|-----------|
+| 컴포넌트 Provider 인터페이스 | `Source/ProjectArk/Character/ArkCharacterComponentProvider.h` |
+| 캐릭터 베이스 | `Source/ProjectArk/Character/ArkCharacter_Base.h/.cpp` |
+| Debug 컴포넌트 | `Source/ProjectArk/Components/ArkCharacterDebugComponent.h/.cpp` |
+| Movement 컴포넌트 | `Source/ProjectArk/Components/ArkCharacterMovementComponent.h/.cpp` |
+| Entity 컴포넌트 | `Source/ProjectArk/Components/ArkCharacterEntityComponent.h/.cpp` |
+| Condition 컴포넌트 | `Source/ProjectArk/Components/ArkCharacterConditionComponent.h/.cpp` |
+| Mesh 컴포넌트 | `Source/ProjectArk/Components/ArkCharacterMeshComponent.h/.cpp` |
+| VFX 컴포넌트 | `Source/ProjectArk/Components/ArkCharacterVFXComponent.h/.cpp` |
+
+#### 5. 패킷 녹화/재생 디버깅 시스템
+| 설명 | 파일 경로 |
+|------|-----------|
+| 재생 GameMode | `Source/ProjectArk/Instance/GameMode/ArkGameMode_PacketReplay.h/.cpp` |
+| 재생 HUD | `Source/ProjectArk/Instance/HUD/ArkHUD_PacketReplay.h/.cpp` |
+| 패킷 정의 | `Source/ProjectArk/DefinePublic/Packet/Packet.h/.cpp` |
+| 패킷 빌더 | `Source/ProjectArk/Networking/PacketBuilder/PacketBuilder.h/.cpp` |
+
+#### 6. Slack 버그 제보 연동
+| 설명 | 파일 경로 |
+|------|-----------|
+| Slack Reporter | `Slack/Source/Slack/Public/SlackReporter.h` |
+| Slack 모듈 | `Slack/Source/Slack/Private/SlackReporter.cpp` |
+
+---
 
 ## 개발 명령어
 
@@ -97,7 +164,6 @@ git push
 ## 참고 링크
 
 - 배포: https://shimwoojin-portfolio.vercel.app
-- Vercel 대시보드: https://vercel.com/dashboard
 - React 공식: https://react.dev
 - Vite: https://vitejs.dev
 
