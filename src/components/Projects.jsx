@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
+import { useLanguage } from '../context/LanguageContext'
+import { useScrollFadeIn } from '../hooks/useScrollFadeIn'
 import './Projects.css'
 import ProjectCard from './ProjectCard'
 import ProjectModal from './ProjectModal'
 
 function Projects() {
+  const { t } = useLanguage()
+  const { ref, isVisible } = useScrollFadeIn()
   const [filter, setFilter] = useState('Featured')
   const [subFilter, setSubFilter] = useState('All')
   const [selectedProject, setSelectedProject] = useState(null)
@@ -134,9 +138,9 @@ function Projects() {
   ]
 
   const filters = [
-    { key: 'Featured', label: '대표' },
-    { key: 'Career', label: '경력' },
-    { key: 'Personal', label: '개인' }
+    { key: 'Featured', label: t.projects.filters.featured },
+    { key: 'Career', label: t.projects.filters.career },
+    { key: 'Personal', label: t.projects.filters.personal }
   ]
 
   // 세부 필터 옵션
@@ -175,9 +179,23 @@ function Projects() {
     return result
   })()
 
+  // 번역된 프로젝트 데이터 가져오기
+  const getTranslatedProject = (project) => {
+    const translated = t.projects.items[project.title]
+    if (translated) {
+      return {
+        ...project,
+        title: translated.title,
+        description: translated.description,
+        details: translated.details
+      }
+    }
+    return project
+  }
+
   return (
-    <section id="projects" className="projects">
-      <h2>Projects</h2>
+    <section id="projects" className={`projects fade-in-section ${isVisible ? 'visible' : ''}`} ref={ref}>
+      <h2>{t.projects.title}</h2>
       <div className="filter-buttons">
         {filters.map(f => (
           <button
@@ -197,7 +215,7 @@ function Projects() {
               className={`sub-filter-btn ${subFilter === sub ? 'active' : ''}`}
               onClick={() => setSubFilter(sub)}
             >
-              {sub === 'All' ? '전체' : sub}
+              {sub === 'All' ? t.projects.subFilterAll : sub}
             </button>
           ))}
         </div>
@@ -206,8 +224,8 @@ function Projects() {
         {filteredProjects.map(project => (
           <ProjectCard
             key={project.id}
-            project={project}
-            onViewProject={() => setSelectedProject(project)}
+            project={getTranslatedProject(project)}
+            onViewProject={() => setSelectedProject(getTranslatedProject(project))}
           />
         ))}
       </div>

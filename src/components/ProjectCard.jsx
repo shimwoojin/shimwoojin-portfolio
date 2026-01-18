@@ -1,8 +1,10 @@
 import React from 'react'
+import { useLanguage } from '../context/LanguageContext'
 
 // Props: 부모 컴포넌트(Projects)에서 데이터를 전달받음
 function ProjectCard({ project, onViewProject }) {
-  const typeLabel = project.type === 'career' ? '경력' : '개인'
+  const { t } = useLanguage()
+  const typeLabel = project.type === 'career' ? t.projects.filters.career : t.projects.filters.personal
   const typeClass = project.type === 'career' ? 'career' : 'personal'
 
   const handleClick = (e) => {
@@ -35,7 +37,7 @@ function ProjectCard({ project, onViewProject }) {
           </div>
         )}
         <span className={`project-badge ${typeClass}`}>{typeLabel}</span>
-        {project.featured && <span className="featured-badge">★ 대표</span>}
+        {project.featured && <span className="featured-badge">★ {t.projects.filters.featured}</span>}
       </div>
       <div className="project-info">
         <h3>{project.title}</h3>
@@ -48,7 +50,7 @@ function ProjectCard({ project, onViewProject }) {
             ))}
           </div>
           <button className="project-link" onClick={handleClick}>
-            View Project →
+            {t.projects.viewProject} →
           </button>
         </div>
       </div>

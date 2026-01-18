@@ -40,6 +40,31 @@
   color: #3498db;
 }
 
+/* 헤더 컨트롤 (언어, 다크모드) */
+.header-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* 언어 토글 버튼 */
+.lang-toggle {
+  background: none;
+  border: 2px solid #3498db;
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: #3498db;
+  font-size: 0.9em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.lang-toggle:hover {
+  background-color: #3498db;
+  color: white;
+}
+
 /* 다크모드 토글 버튼 */
 .dark-mode-toggle {
   background: none;

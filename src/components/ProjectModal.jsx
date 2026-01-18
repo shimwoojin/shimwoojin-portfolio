@@ -1,9 +1,11 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useLanguage } from '../context/LanguageContext'
 import './ProjectModal.css'
 
 function ProjectModal({ project, onClose }) {
   const navigate = useNavigate()
+  const { t } = useLanguage()
 
   if (!project) return null
 
@@ -62,7 +64,7 @@ function ProjectModal({ project, onClose }) {
           {/* 상세 내용 */}
           {project.details && (
             <div className="modal-details">
-              <h3>주요 기능 및 구현 내용</h3>
+              <h3>{t.projects.keyFeatures}</h3>
               <ul>
                 {project.details.map((detail, index) => (
                   <li key={index}>{detail}</li>
@@ -73,7 +75,7 @@ function ProjectModal({ project, onClose }) {
 
           {/* 기술 스택 */}
           <div className="modal-tech">
-            <h3>기술 스택</h3>
+            <h3>{t.projects.techStack}</h3>
             <div className="tech-tags">
               {project.tech.map((tech, index) => (
                 <span key={index} className="tech-badge">{tech}</span>
@@ -85,12 +87,12 @@ function ProjectModal({ project, onClose }) {
           <div className="modal-links">
             {project.resumeSection && (
               <button className="resume-link-btn" onClick={handleViewResume}>
-                경력기술서 상세보기 →
+                {t.projects.viewResume} →
               </button>
             )}
             {project.github && (
               <a href={project.github} target="_blank" rel="noopener noreferrer">
-                GitHub 저장소 →
+                {t.projects.viewGithub} →
               </a>
             )}
           </div>

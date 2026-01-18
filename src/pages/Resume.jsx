@@ -3,6 +3,7 @@ import { useLocation, Link } from 'react-router-dom'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import html2pdf from 'html2pdf.js'
+import { useLanguage } from '../context/LanguageContext'
 import './Resume.css'
 
 // 언어 매핑 (표시명 → syntax highlighter 언어)
@@ -51,6 +52,7 @@ function Resume() {
   const location = useLocation()
   const contentRef = useRef(null)
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false)
+  const { t, language } = useLanguage()
 
   // 해시로 이동 시 해당 섹션으로 스크롤
   useEffect(() => {
@@ -114,21 +116,21 @@ function Resume() {
   return (
     <div className="resume-page" ref={contentRef}>
       <nav className="resume-nav">
-        <Link to="/" className="back-link">← 포트폴리오로 돌아가기</Link>
+        <Link to="/" className="back-link">{t.resume.backLink}</Link>
         <button
           className="pdf-download-btn"
           onClick={handleDownloadPdf}
           disabled={isGeneratingPdf}
         >
-          {isGeneratingPdf ? 'PDF 생성 중...' : 'PDF 다운로드'}
+          {isGeneratingPdf ? t.resume.generatingPdf : t.resume.downloadPdf}
         </button>
       </nav>
 
       <header className="resume-header">
-        <h1>경력 기술서</h1>
+        <h1>{t.resume.title}</h1>
         <div className="resume-info">
-          <h2>심우진 | 게임 클라이언트 프로그래머</h2>
-          <p>Email: ggoggal@gmail.com | Phone: 010-5794-0627</p>
+          <h2>{t.resume.subtitle}</h2>
+          <p>{t.resume.contactInfo}</p>
         </div>
       </header>
 

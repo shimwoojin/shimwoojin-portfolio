@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { Analytics } from '@vercel/analytics/react'
+import { useLanguage } from './context/LanguageContext'
 import './App.css'
 import Header from './components/Header'
 import About from './components/About'
@@ -10,6 +11,8 @@ import Contact from './components/Contact'
 import Resume from './pages/Resume'
 
 function Home({ isDarkMode, toggleDarkMode }) {
+  const { t } = useLanguage()
+
   return (
     <>
       <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
@@ -20,7 +23,7 @@ function Home({ isDarkMode, toggleDarkMode }) {
         <Contact />
       </main>
       <footer>
-        <p>© 2026 Shim Woojin. All rights reserved.</p>
+        <p>{t.footer.copyright}</p>
       </footer>
     </>
   )

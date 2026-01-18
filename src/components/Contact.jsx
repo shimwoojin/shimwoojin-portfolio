@@ -1,13 +1,18 @@
 import React from 'react'
+import { useLanguage } from '../context/LanguageContext'
+import { useScrollFadeIn } from '../hooks/useScrollFadeIn'
 import './Contact.css'
 
 function Contact() {
+  const { t } = useLanguage()
+  const { ref, isVisible } = useScrollFadeIn()
+
   return (
-    <section id="contact" className="contact">
-      <h2>Contact</h2>
+    <section id="contact" className={`contact fade-in-section ${isVisible ? 'visible' : ''}`} ref={ref}>
+      <h2>{t.contact.title}</h2>
       <div className="contact-content">
         <p className="contact-intro">
-          프로젝트 협업이나 문의사항이 있으시면 언제든지 연락주세요!
+          {t.contact.intro}
         </p>
         <div className="contact-methods">
           <div className="contact-item">
