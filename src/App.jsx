@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
 import './App.css'
 import Header from './components/Header'
 import About from './components/About'
@@ -38,6 +39,7 @@ function App() {
         <Route path="/" element={<Home isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />} />
         <Route path="/resume" element={<Resume />} />
       </Routes>
+      <Analytics />
     </div>
   )
 }

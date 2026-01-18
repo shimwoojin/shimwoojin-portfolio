@@ -15,6 +15,35 @@
   border-bottom: 1px solid #e0e0e0;
   z-index: 100;
   margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* PDF Download Button */
+.pdf-download-btn {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+.pdf-download-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #2980b9, #1f6aa5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+}
+
+.pdf-download-btn:disabled {
+  background: #95a5a6;
+  cursor: not-allowed;
+  box-shadow: none;
 }
 
 .back-link {
@@ -334,6 +363,17 @@
     padding: 15px;
   }
 
+  .resume-nav {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .pdf-download-btn {
+    width: 100%;
+    padding: 12px 20px;
+  }
+
   .resume-header h1 {
     font-size: 2rem;
   }
@@ -364,6 +404,14 @@
 .dark .resume-nav {
   background: #1a1a2e;
   border-color: #333;
+}
+
+.dark .pdf-download-btn {
+  background: linear-gradient(135deg, #5dade2, #3498db);
+}
+
+.dark .pdf-download-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #3498db, #2980b9);
 }
 
 .dark .resume-header h1 {

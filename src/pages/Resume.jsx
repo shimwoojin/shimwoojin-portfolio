@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import html2pdf from 'html2pdf.js'
 import './Resume.css'
 
 // 언어 매핑 (표시명 → syntax highlighter 언어)
@@ -48,6 +49,8 @@ function CodeExample({ title, language, children }) {
 
 function Resume() {
   const location = useLocation()
+  const contentRef = useRef(null)
+  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false)
 
   // 해시로 이동 시 해당 섹션으로 스크롤
   useEffect(() => {
@@ -63,10 +66,62 @@ function Resume() {
     }
   }, [location])
 
+  // PDF 다운로드 함수
+  const handleDownloadPdf = async () => {
+    if (!contentRef.current || isGeneratingPdf) return
+
+    setIsGeneratingPdf(true)
+
+    // PDF 생성을 위한 클론 생성 (원본 DOM 변경 방지)
+    const element = contentRef.current.cloneNode(true)
+
+    // 클론에서 네비게이션과 다운로드 버튼 제거
+    const nav = element.querySelector('.resume-nav')
+    if (nav) nav.remove()
+
+    // 코드 토글 버튼 숨기기
+    const toggleButtons = element.querySelectorAll('.code-toggle')
+    toggleButtons.forEach(btn => btn.style.display = 'none')
+
+    // PDF 옵션 설정
+    const opt = {
+      margin: [10, 10, 10, 10],
+      filename: '심우진_경력기술서.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: {
+        scale: 2,
+        useCORS: true,
+        letterRendering: true
+      },
+      jsPDF: {
+        unit: 'mm',
+        format: 'a4',
+        orientation: 'portrait'
+      },
+      pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+    }
+
+    try {
+      await html2pdf().set(opt).from(element).save()
+    } catch (error) {
+      console.error('PDF 생성 오류:', error)
+      alert('PDF 생성 중 오류가 발생했습니다.')
+    } finally {
+      setIsGeneratingPdf(false)
+    }
+  }
+
   return (
-    <div className="resume-page">
+    <div className="resume-page" ref={contentRef}>
       <nav className="resume-nav">
         <Link to="/" className="back-link">← 포트폴리오로 돌아가기</Link>
+        <button
+          className="pdf-download-btn"
+          onClick={handleDownloadPdf}
+          disabled={isGeneratingPdf}
+        >
+          {isGeneratingPdf ? 'PDF 생성 중...' : 'PDF 다운로드'}
+        </button>
       </nav>
 
       <header className="resume-header">
