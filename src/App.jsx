@@ -9,6 +9,7 @@ import Experience from './components/Experience'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Resume from './pages/Resume'
+import NotFound from './pages/NotFound'
 
 function Home({ isDarkMode, toggleDarkMode }) {
   const { t } = useLanguage()
@@ -41,6 +42,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />} />
         <Route path="/resume" element={<Resume />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Analytics />
     </div>
