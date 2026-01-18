@@ -190,7 +190,7 @@ function Resume() {
               </li>
               <li>Factory Pattern으로 서버 패킷 데이터(PacketStruct::FQuestBase)와 DB 템플릿 기반 클라이언트 퀘스트 인스턴스 생성</li>
               <li>QuestSubsystem에서 서버 패킷(QuestLoadNtf, QuestAcceptAck, QuestUpdateAck 등) 처리 및 UI 업데이트 분리</li>
-              <li>ArkQuestHelper 정적 클래스로 Subsystem 접근 통합 → 전역 접근 편의성 제공</li>
+              <li>QuestHelper 정적 클래스로 Subsystem 접근 통합 → 전역 접근 편의성 제공</li>
             </ul>
           </div>
 
@@ -203,27 +203,27 @@ function Resume() {
             </ul>
           </div>
 
-          <CodeExample title="State Pattern 기반 퀘스트 시스템 (실제 구조)" language="C++">
+          <CodeExample title="State Pattern 기반 퀘스트 시스템" language="C++">
 {`// State 베이스 클래스 - 상태 전이 인터페이스 정의
-class ArkQuestTIDInstanceState
+class QuestInstanceState
 {
-    friend class UArkQuestTIDInstance;
-    static TMap<EQuestState, TSharedPtr<ArkQuestTIDInstanceState>> QuestStateMap;
+    friend class UQuestInstance;
+    static TMap<EQuestState, TSharedPtr<QuestInstanceState>> QuestStateMap;
 
 public:
-    virtual void OnEnter(UArkQuestTIDInstance* InQuestInst) = 0;
-    virtual void OnExit(UArkQuestTIDInstance* InQuestInst) = 0;
-    virtual bool CanProcessEvent(UArkQuestTIDInstance* InQuestInst,
+    virtual void OnEnter(UQuestInstance* InQuestInst) = 0;
+    virtual void OnExit(UQuestInstance* InQuestInst) = 0;
+    virtual bool CanProcessEvent(UQuestInstance* InQuestInst,
                                   const FQuestUpdateParam& InUpdateParam) = 0;
-    virtual void ProcessEvent(UArkQuestTIDInstance* InQuestInst,
+    virtual void ProcessEvent(UQuestInstance* InQuestInst,
                                const FQuestUpdateParam& InUpdateParam) = 0;
     virtual EQuestState GetState() { return EQuestState::None; }
 };
 
 // Active 상태 - 목표 달성 시 CompletablePending으로 전이
-class ArkQuestState_Active : public ArkQuestTIDInstanceState
+class QuestState_Active : public QuestInstanceState
 {
-    virtual void ProcessEvent(UArkQuestTIDInstance* InQuestInst,
+    virtual void ProcessEvent(UQuestInstance* InQuestInst,
                                const FQuestUpdateParam& InUpdateParam) final
     {
         const FActiveQuestData& ActiveQuestData = InQuestInst->GetActiveQuestData();
@@ -238,14 +238,14 @@ class ArkQuestState_Active : public ArkQuestTIDInstanceState
 };
 
 // Factory - 서버 패킷 + DB 템플릿 기반 인스턴스 생성
-class UArkQuestFactory : public UObject
+class UQuestFactory : public UObject
 {
-    UArkQuestTIDInstance* CreateQuestInstFromTemplate(
+    UQuestInstance* CreateQuestInstFromTemplate(
         const PacketStruct::FQuestBase& InQuestBase)
     {
         // DB에서 퀘스트 템플릿 조회
         TArray<const FQuestTemplate*> QuestTemplates =
-            ArkDBHelper::Quest::GetQuestTemplate(InQuestBase.QuestTID);
+            DBHelper::Quest::GetQuestTemplate(InQuestBase.QuestTID);
 
         // 서버 패킷 데이터로 ActiveQuestData 구성
         FActiveQuestData ActiveQuestData;
@@ -253,7 +253,7 @@ class UArkQuestFactory : public UObject
         // ... Objective 정보 설정
 
         // 인스턴스 생성 및 초기화
-        UArkQuestTIDInstance* NewQuestInst = NewObject<UArkQuestTIDInstance>();
+        UQuestInstance* NewQuestInst = NewObject<UQuestInstance>();
         NewQuestInst->SetActiveQuestData(ActiveQuestData);
         NewQuestInst->Initialize();
         return NewQuestInst;
@@ -287,7 +287,7 @@ class UArkQuestFactory : public UObject
             <ul>
               <li>Epic Store에서 3개 후보 플러그인 비교 분석 (Dialogue Tree, Mountea Framework 등)</li>
               <li>프로젝트 요구사항에 최적인 Dialogue Tree 플러그인 선정 및 도입</li>
-              <li>ArkDialogueController 클래스로 플러그인 베이스(ADialogueController) 상속 후 프로젝트 UI 시스템(ArkUIHelper)과 통합
+              <li>DialogueController 클래스로 플러그인 베이스 클래스 상속 후 프로젝트 UI 시스템과 통합
                 <ul>
                   <li>OnDisplaySpeech, OnDisplayOptions 등 UI 콜백 커스터마이징</li>
                   <li>카메라 연출(Forward/Face/Custom 등) 연동</li>
@@ -338,7 +338,7 @@ class UArkQuestFactory : public UObject
           <div className="star-section action">
             <h4>⚙️ 실행</h4>
             <ul>
-              <li>ArkMapLineDrawActor 에디터 액터 개발
+              <li>MapLineDrawActor 에디터 액터 개발
                 <ul>
                   <li>스플라인 컴포넌트로 레벨 디자이너가 마을/지역 경계선 직접 배치</li>
                   <li>Sequence 번호로 영역 ID 관리 (고유성 검증 포함)</li>
@@ -372,10 +372,10 @@ class UArkQuestFactory : public UObject
             </ul>
           </div>
 
-          <CodeExample title="BFS 기반 영역 채우기 (실제 구조)" language="C++">
-{`// ArkMapLineDrawActor::FillBitMapSameSpace
+          <CodeExample title="BFS 기반 영역 채우기" language="C++">
+{`// MapLineDrawActor::FillBitMapSameSpace
 // 스플라인 액터 위치를 시작점으로 BFS 영역 채우기
-void AArkMapLineDrawActor::FillBitMapSameSpace(
+void AMapLineDrawActor::FillBitMapSameSpace(
     const TArray<FVector2D>& InIndicies,  // 각 영역의 시작점 (스플라인 액터 위치)
     TArray<FColor>& OutBits,              // 출력 비트맵 데이터
     uint32 X, uint32 Y,                   // 텍스처 크기
@@ -427,7 +427,7 @@ void AArkMapLineDrawActor::FillBitMapSameSpace(
 
 // 텍스처 생성 후 자동 임포트
 FFileHelper::CreateBitmap(*FinalDir, X, Y, Bits.GetData());
-ArkUtilities::ImportBitMapAsTexture2D(FinalDir, TextureSavePath, TextureName);`}
+GameUtilities::ImportBitMapAsTexture2D(FinalDir, TextureSavePath, TextureName);`}
           </CodeExample>
         </article>
 
@@ -456,17 +456,17 @@ ArkUtilities::ImportBitMapAsTexture2D(FinalDir, TextureSavePath, TextureName);`}
             <ul>
               <li>단일 캐릭터 클래스를 역할별 컴포넌트로 분리
                 <ul>
-                  <li>UArkCharacterMovementComponent: 이동, 점프, 텔레포트 처리</li>
-                  <li>UArkCharacterEntityComponent: 엔티티 정보 (TID, UID, 상태 등)</li>
-                  <li>UArkCharacterConditionComponent: 상태이상, CC 처리</li>
-                  <li>UArkCharacterMeshComponent: 메시, 커스터마이징</li>
-                  <li>UArkCharacterVFXComponent: 이펙트, 파티클</li>
-                  <li>UDialogueSpeakerComponent: NPC 대화 연동</li>
+                  <li>CharacterMovementComponent: 이동, 점프, 텔레포트 처리</li>
+                  <li>CharacterEntityComponent: 엔티티 정보 (TID, UID, 상태 등)</li>
+                  <li>CharacterConditionComponent: 상태이상, CC 처리</li>
+                  <li>CharacterMeshComponent: 메시, 커스터마이징</li>
+                  <li>CharacterVFXComponent: 이펙트, 파티클</li>
+                  <li>DialogueSpeakerComponent: NPC 대화 연동</li>
                 </ul>
               </li>
-              <li>IArkCharacterComponentProvider 인터페이스로 컴포넌트 접근 통합
+              <li>ICharacterComponentProvider 인터페이스로 컴포넌트 접근 통합
                 <ul>
-                  <li>레퍼런스 반환: <code>ArkMovement().Move()</code> - Null 체크 불필요</li>
+                  <li>레퍼런스 반환: <code>GetMovement().Move()</code> - Null 체크 불필요</li>
                   <li>GetOrCreate 패턴으로 컴포넌트 지연 생성</li>
                 </ul>
               </li>
@@ -484,58 +484,58 @@ ArkUtilities::ImportBitMapAsTexture2D(FinalDir, TextureSavePath, TextureName);`}
             </ul>
           </div>
 
-          <CodeExample title="Component Provider 패턴 (실제 구조)" language="C++">
-{`// IArkCharacterComponentProvider 인터페이스
-class IArkCharacterComponentProvider
+          <CodeExample title="Component Provider 패턴" language="C++">
+{`// ICharacterComponentProvider 인터페이스
+class ICharacterComponentProvider
 {
 public:
     // 레퍼런스 반환으로 Null 체크 불필요
 #if UE_BUILD_DEVELOPMENT
-    virtual UArkCharacterDebugComponent& ArkDebug() = 0;
+    virtual UCharacterDebugComponent& GetDebug() = 0;
 #endif
-    virtual UArkCharacterMovementComponent& ArkMovement() const = 0;
-    virtual UArkCharacterMeshComponent& ArkCharMesh() = 0;
-    virtual UArkCharacterConditionComponent& ArkCondition() = 0;
-    virtual UArkCharacterEntityComponent& ArkEntity() = 0;
-    virtual const UArkCharacterEntityComponent& ArkEntity() const = 0;
-    virtual UArkCharacterVFXComponent& ArkVFX() = 0;
-    virtual UDialogueSpeakerComponent& ArkDialogueSpeaker() = 0;
+    virtual UCharacterMovementComponent& GetMovement() const = 0;
+    virtual UCharacterMeshComponent& GetCharMesh() = 0;
+    virtual UCharacterConditionComponent& GetCondition() = 0;
+    virtual UCharacterEntityComponent& GetEntity() = 0;
+    virtual const UCharacterEntityComponent& GetEntity() const = 0;
+    virtual UCharacterVFXComponent& GetVFX() = 0;
+    virtual UDialogueSpeakerComponent& GetDialogueSpeaker() = 0;
 };
 
-// AArkCharacter_Base - 인터페이스 구현
-class AArkCharacter_Base
+// AGameCharacter_Base - 인터페이스 구현
+class AGameCharacter_Base
     : public ACharacter
-    , public IArkCharacterComponentProvider
+    , public ICharacterComponentProvider
 {
     UPROPERTY()
-    TObjectPtr<UArkCharacterMovementComponent> CharacterMovementComponent;
+    TObjectPtr<UCharacterMovementComponent> CharacterMovementComponent;
     UPROPERTY()
-    TObjectPtr<UArkCharacterEntityComponent> CharacterEntityComponent;
+    TObjectPtr<UCharacterEntityComponent> CharacterEntityComponent;
     // ... 기타 컴포넌트
 
     // GetOrCreate 패턴 - 필요 시 컴포넌트 생성
-    UArkCharacterEntityComponent* GetOrCreateCharacterEntityComponent()
+    UCharacterEntityComponent* GetOrCreateCharacterEntityComponent()
     {
         if (CharacterEntityComponent == nullptr)
         {
-            CharacterEntityComponent = NewObject<UArkCharacterEntityComponent>(this);
+            CharacterEntityComponent = NewObject<UCharacterEntityComponent>(this);
             CharacterEntityComponent->RegisterComponent();
         }
         return CharacterEntityComponent;
     }
 
-    virtual UArkCharacterEntityComponent& ArkEntity() final
+    virtual UCharacterEntityComponent& GetEntity() final
     {
         return *GetOrCreateCharacterEntityComponent();
     }
 };
 
 // 사용 예시 - 간결하고 안전한 컴포넌트 접근
-void ProcessCharacter(IArkCharacterComponentProvider& Provider)
+void ProcessCharacter(ICharacterComponentProvider& Provider)
 {
-    Provider.ArkMovement().UpdateMovementSpeed();  // Null 체크 불필요
-    Provider.ArkEntity().GetEntityID();
-    Provider.ArkCondition().ApplyStatusEffect(Effect);
+    Provider.GetMovement().UpdateMovementSpeed();  // Null 체크 불필요
+    Provider.GetEntity().GetEntityID();
+    Provider.GetCondition().ApplyStatusEffect(Effect);
 }`}
           </CodeExample>
         </article>
@@ -581,7 +581,7 @@ void ProcessCharacter(IArkCharacterComponentProvider& Provider)
               </li>
               <li>재생 전용 환경 구축
                 <ul>
-                  <li>AArkGameMode_PacketReplay: 재생 전용 GameMode</li>
+                  <li>AGameMode_PacketReplay: 재생 전용 GameMode</li>
                   <li>재생 속도 조절, 일시정지, 시점 이동 기능</li>
                   <li>녹화 파일 자동 관리 (30개 초과 시 오래된 파일 삭제)</li>
                 </ul>
@@ -599,7 +599,7 @@ void ProcessCharacter(IArkCharacterComponentProvider& Provider)
             </ul>
           </div>
 
-          <CodeExample title="패킷 녹화/재생 시스템 (실제 구조)" language="C++">
+          <CodeExample title="패킷 녹화/재생 시스템" language="C++">
 {`// FRecordPacket 구조체 - 타임스탬프 + 패킷 데이터
 struct FRecordPacketHeader
 {
@@ -637,7 +637,7 @@ class UPacketRecorder : public FTickableGameObject
     void TryRecordStart()
     {
         TArray<FString> Cheats = { TEXT("#record 1") };
-        ArkCheatHelper::CheatChat(Cheats);  // 서버에 녹화 시작 요청
+        CheatHelper::CheatChat(Cheats);  // 서버에 녹화 시작 요청
         bRecording = true;
         ClientTime.Init();
     }
