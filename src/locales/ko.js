@@ -56,6 +56,7 @@ const ko = {
     viewProject: '프로젝트 보기',
     viewResume: '경력기술서 상세보기',
     viewGithub: 'GitHub 저장소',
+    viewDeploy: '배포 사이트',
     techStack: '기술 스택',
     keyFeatures: '주요 기능',
     items: {
@@ -93,6 +94,11 @@ const ko = {
         title: 'DirectX 11로 구현한 Kirby',
         description: '2D 게임 제작 방식과 그래픽 파이프라인을 학습할 수 있었던 고전 게임 Kirby 핵심 기능 구현',
         details: ['DirectX 11 그래픽 파이프라인', '2D 스프라이트 렌더링', '게임 핵심 기능 구현']
+      },
+      'Claude Learning Docs': {
+        title: 'Claude Learning Docs',
+        description: 'Claude Code와 함께한 프로젝트별 학습 기록을 체계적으로 문서화한 VitePress 기반 정적 사이트',
+        details: ['VitePress 기반 문서 사이트 구축', 'GitHub Actions 자동 동기화', '프로젝트별 학습 기록 관리']
       }
     }
   },

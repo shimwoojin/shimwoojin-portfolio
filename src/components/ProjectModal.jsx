@@ -95,6 +95,11 @@ function ProjectModal({ project, onClose }) {
                 {t.projects.viewGithub} →
               </a>
             )}
+            {project.deployUrl && (
+              <a href={project.deployUrl} target="_blank" rel="noopener noreferrer">
+                {t.projects.viewDeploy} →
+              </a>
+            )}
           </div>
         </div>
       </div>

@@ -56,6 +56,7 @@ const en = {
     viewProject: 'View Project',
     viewResume: 'View Resume Details',
     viewGithub: 'GitHub Repository',
+    viewDeploy: 'Live Demo',
     techStack: 'Tech Stack',
     keyFeatures: 'Key Features',
     items: {
@@ -93,6 +94,11 @@ const en = {
         title: 'Kirby with DirectX 11',
         description: 'Classic Kirby game implementation to learn 2D game development and graphics pipeline',
         details: ['DirectX 11 graphics pipeline', '2D sprite rendering', 'Core game feature implementation']
+      },
+      'Claude Learning Docs': {
+        title: 'Claude Learning Docs',
+        description: 'A VitePress-based static site documenting project learning records from Claude Code sessions',
+        details: ['VitePress documentation site setup', 'GitHub Actions auto-sync', 'Project-based learning record management']
       }
     }
   },

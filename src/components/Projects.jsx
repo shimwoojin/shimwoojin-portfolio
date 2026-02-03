@@ -134,6 +134,24 @@ function Projects() {
         "게임 핵심 기능 구현"
       ],
       github: "https://github.com/shimwoojin/Kirby"
+    },
+    {
+      id: 9,
+      title: "Claude Learning Docs",
+      description: "Claude Code와 함께한 프로젝트별 학습 기록을 체계적으로 문서화한 VitePress 기반 정적 사이트",
+      tech: ["VitePress", "Markdown", "GitHub Actions"],
+      type: "personal",
+      category: "Web",
+      period: "2026.01 - 현재",
+      featured: true,
+      youtubeId: "",
+      details: [
+        "VitePress 기반 문서 사이트 구축",
+        "GitHub Actions 자동 동기화",
+        "프로젝트별 학습 기록 관리"
+      ],
+      github: "https://github.com/shimwoojin/claude-learning",
+      deployUrl: "https://claude-learning-three.vercel.app/"
     }
   ]
 
@@ -146,7 +164,7 @@ function Projects() {
   // 세부 필터 옵션
   const subFilters = {
     Career: ['All', 'Unreal', 'Unity'],
-    Personal: ['All', 'Unreal5', 'Unreal4', 'DirectX11']
+    Personal: ['All', 'Unreal5', 'Unreal4', 'DirectX11', 'Web']
   }
 
   // 메인 필터 변경 시 세부 필터 초기화
