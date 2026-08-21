@@ -8,9 +8,10 @@ function Experience() {
   const { ref, isVisible } = useScrollFadeIn()
 
   const experienceSkills = [
-    ["Unreal", "C++", "Unity", "C#", "SVN", "GitLab", "SqliteDB"],
-    ["C", "C++", "Windows API", "DirectX11", "Unreal"],
-    ["Network"]
+    ["DirectX11", "C++20", "HLSL", "PhysX", "Lua", "Unreal5", "Perforce"],
+    ["Unreal5", "C++", "TCP/IP", "SQLite", "SVN", "Unity", "C#", "Git"],
+    ["C++", "DirectX11", "Unreal4", "Blueprint", "Windows API"],
+    ["Network", "Database", "IoT", "C"]
   ]
 
   return (
@@ -18,7 +19,7 @@ function Experience() {
       <h2>{t.experience.title}</h2>
       <div className="timeline">
         {t.experience.items.map((exp, index) => {
-          const type = index === 0 ? 'career' : 'education'
+          const type = exp.type || 'education'
           return (
             <div key={index} className={`timeline-item ${type}`}>
               <div className="timeline-marker">

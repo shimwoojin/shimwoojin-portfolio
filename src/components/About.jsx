@@ -23,18 +23,18 @@ function About() {
             <div className="skill-tags">
               <span className="skill-tag">C++</span>
               <span className="skill-tag">Unreal Engine</span>
-              <span className="skill-tag">C#</span>
-              <span className="skill-tag">Unity</span>
+              <span className="skill-tag">DirectX11</span>
+              <span className="skill-tag">HLSL</span>
             </div>
           </div>
           <div className="skills">
             <h4>{t.about.devTools}</h4>
             <div className="skill-tags">
+              <span className="skill-tag tool">Perforce</span>
               <span className="skill-tag tool">Git</span>
               <span className="skill-tag tool">SVN</span>
               <span className="skill-tag tool">Visual Studio</span>
               <span className="skill-tag tool">Rider</span>
-              <span className="skill-tag tool">VS Code</span>
               <span className="skill-tag tool">Claude Code</span>
             </div>
           </div>

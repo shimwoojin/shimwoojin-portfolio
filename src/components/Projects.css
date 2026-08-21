@@ -117,6 +117,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  cursor: pointer;
 }
 
 .project-card::before {
@@ -176,6 +177,11 @@
 
 .project-badge.personal {
   background: #9b59b6;
+  color: white;
+}
+
+.project-badge.jungle {
+  background: #e67e22;
   color: white;
 }
 
@@ -362,6 +368,11 @@
   background: linear-gradient(135deg, #0d7377 0%, #14a3a8 50%, #0d7377 100%);
 }
 
+/* GameJam 카테고리 */
+.placeholder-gamejam {
+  background: linear-gradient(135deg, #6a1b9a 0%, #ad1457 50%, #4a148c 100%);
+}
+
 .placeholder-directx11::before {
   content: "";
   position: absolute;
@@ -397,6 +408,42 @@
   color: #666;
   line-height: 1.6;
   margin-bottom: 15px;
+}
+
+/* 성과 칩 */
+.project-headline {
+  display: inline-block;
+  align-self: flex-start;
+  background: rgba(52, 152, 219, 0.12);
+  color: #2471a3;
+  font-size: 0.85em;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+/* 핵심 불릿 */
+.project-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+
+.project-highlights li {
+  position: relative;
+  padding-left: 14px;
+  color: #555;
+  font-size: 0.92em;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.project-highlights li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #3498db;
 }
 
 .project-footer {
@@ -493,6 +540,19 @@
   color: #bbb;
 }
 
+.App.dark .project-headline {
+  background: rgba(93, 173, 226, 0.15);
+  color: #5dade2;
+}
+
+.App.dark .project-highlights li {
+  color: #bbb;
+}
+
+.App.dark .project-highlights li::before {
+  color: #5dade2;
+}
+
 .App.dark .tech-badge {
   background-color: #2a3f5f;
   color: #5dade2;
@@ -505,6 +565,11 @@
 
 .App.dark .project-badge.personal {
   background: #8e44ad;
+  color: white;
+}
+
+.App.dark .project-badge.jungle {
+  background: #d35400;
   color: white;
 }
 

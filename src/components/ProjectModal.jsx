@@ -95,6 +95,16 @@ function ProjectModal({ project, onClose }) {
                 {t.projects.viewGithub} →
               </a>
             )}
+            {project.fabUrl && (
+              <a href={project.fabUrl} target="_blank" rel="noopener noreferrer">
+                {t.projects.viewFab} →
+              </a>
+            )}
+            {project.docsUrl && (
+              <a href={project.docsUrl} target="_blank" rel="noopener noreferrer">
+                {t.projects.viewDocs} →
+              </a>
+            )}
             {project.deployUrl && (
               <a href={project.deployUrl} target="_blank" rel="noopener noreferrer">
                 {t.projects.viewDeploy} →

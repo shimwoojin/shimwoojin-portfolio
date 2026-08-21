@@ -1040,6 +1040,15 @@ public class RedDotController
               <li>새로운 기술 스택 학습 및 실무 적용 경험</li>
             </ul>
           </div>
+
+          <div className="skill-category">
+            <h3>AI 활용 개발 워크플로</h3>
+            <ul>
+              <li>Claude Code 기반 개발·학습 문서화 자동화 (VitePress 학습 기록 사이트 운영)</li>
+              <li>AI 도구를 활용한 리팩토링·프로토타이핑·코드 리뷰 워크플로 적용</li>
+              <li>구현은 AI로 가속하고, 설계 판단·검증·트레이드오프에 집중하는 개발 방식</li>
+            </ul>
+          </div>
         </div>
       </section>
 
