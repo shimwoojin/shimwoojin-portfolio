@@ -2,7 +2,7 @@ import React from 'react'
 import { useLanguage } from '../context/LanguageContext'
 
 // Props: 부모 컴포넌트(Projects)에서 데이터를 전달받음
-function ProjectCard({ project, onViewProject }) {
+function ProjectCard({ project, onViewProject, variant }) {
   const { t } = useLanguage()
   const typeKey = ['career', 'jungle'].includes(project.type) ? project.type : 'personal'
   const typeLabel = t.projects.filters[typeKey]
@@ -35,7 +35,7 @@ function ProjectCard({ project, onViewProject }) {
 
   return (
     <div
-      className={`project-card ${typeClass} ${project.featured ? 'featured' : ''}`}
+      className={`project-card ${typeClass} ${project.featured ? 'featured' : ''} ${variant === 'signature' ? 'signature' : ''}`}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       role="button"

@@ -1,13 +1,57 @@
-/* 필터 버튼 스타일 */
-.filter-buttons {
+/* 시그니처 프로젝트 - 전폭 카드 */
+.signature-list {
   display: flex;
-  gap: 10px;
-  margin-top: 20px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 30px;
 }
 
-.filter-btn {
-  padding: 10px 20px;
+.project-card.signature {
+  flex-direction: row;
+}
+
+.project-card.signature .project-image {
+  width: 45%;
+  height: auto;
+  min-height: 280px;
+  flex-shrink: 0;
+}
+
+.project-card.signature .project-info {
+  padding: 28px 32px;
+}
+
+.project-card.signature .project-info h3 {
+  font-size: 1.7em;
+}
+
+@media (max-width: 768px) {
+  .project-card.signature {
+    flex-direction: column;
+  }
+
+  .project-card.signature .project-image {
+    width: 100%;
+    height: 200px;
+    min-height: 0;
+  }
+}
+
+/* 아카이브 섹션 */
+.archive-title {
+  margin-top: 60px;
+  font-size: 1.4em;
+  color: #2c3e50;
+}
+
+.App.dark .archive-title {
+  color: #eee;
+}
+
+.show-older-btn {
+  display: block;
+  margin: 30px auto 0;
+  padding: 10px 24px;
   border: 2px solid #3498db;
   background: transparent;
   color: #3498db;
@@ -18,77 +62,18 @@
   transition: all 0.3s;
 }
 
-.filter-btn:hover {
+.show-older-btn:hover {
   background: rgba(52, 152, 219, 0.1);
 }
 
-.filter-btn.active {
-  background: #3498db;
-  color: white;
-}
-
-/* 다크모드 필터 버튼 */
-.App.dark .filter-btn {
+.App.dark .show-older-btn {
   border-color: #5dade2;
   color: #5dade2;
 }
 
-.App.dark .filter-btn:hover {
+.App.dark .show-older-btn:hover {
   background: rgba(93, 173, 226, 0.1);
 }
-
-.App.dark .filter-btn.active {
-  background: #5dade2;
-  color: #1a1a2e;
-}
-
-/* 세부 필터 버튼 */
-.sub-filter-buttons {
-  display: flex;
-  gap: 8px;
-  margin-top: 12px;
-  flex-wrap: wrap;
-}
-
-.sub-filter-btn {
-  padding: 6px 14px;
-  border: 1px solid #bdc3c7;
-  background: transparent;
-  color: #7f8c8d;
-  border-radius: 15px;
-  cursor: pointer;
-  font-size: 0.85em;
-  transition: all 0.3s;
-}
-
-.sub-filter-btn:hover {
-  border-color: #3498db;
-  color: #3498db;
-}
-
-.sub-filter-btn.active {
-  background: #ecf0f1;
-  border-color: #3498db;
-  color: #3498db;
-}
-
-/* 다크모드 세부 필터 */
-.App.dark .sub-filter-btn {
-  border-color: #4a5568;
-  color: #a0aec0;
-}
-
-.App.dark .sub-filter-btn:hover {
-  border-color: #5dade2;
-  color: #5dade2;
-}
-
-.App.dark .sub-filter-btn.active {
-  background: #2a3f5f;
-  border-color: #5dade2;
-  color: #5dade2;
-}
-
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -260,11 +245,12 @@
   opacity: 1;
 }
 
-.image-placeholder {
+/* About.css의 원형 .image-placeholder 스타일이 전역으로 적용되므로 여기서 직사각형으로 재정의 */
+.project-image .image-placeholder {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  background-size: 200% 200%;
+  border-radius: 0;
+  background: #111;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -274,34 +260,8 @@
   text-align: center;
   padding: 20px;
   gap: 8px;
-  transition: all 0.5s ease;
   position: relative;
   overflow: hidden;
-}
-
-.image-placeholder::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent 30%,
-    rgba(255,255,255,0.1) 50%,
-    transparent 70%
-  );
-  transform: translateX(-100%);
-  transition: transform 0.6s ease;
-}
-
-.project-card:hover .image-placeholder {
-  background-position: 100% 100%;
-}
-
-.project-card:hover .image-placeholder::after {
-  transform: translateX(100%);
 }
 
 .placeholder-category {
@@ -327,62 +287,6 @@
   transform: scale(1.05);
 }
 
-/* Unreal Engine 카테고리 */
-.placeholder-unreal,
-.placeholder-unreal5,
-.placeholder-unreal4 {
-  background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 50%, #16213e 100%);
-}
-
-.placeholder-unreal::before,
-.placeholder-unreal5::before,
-.placeholder-unreal4::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='55' font-size='40' text-anchor='middle' fill='rgba(255,255,255,0.1)'%3EU%3C/text%3E%3C/svg%3E") center/80px no-repeat;
-  pointer-events: none;
-}
-
-/* Unity 카테고리 */
-.placeholder-unity {
-  background: linear-gradient(135deg, #222222 0%, #434343 50%, #2d2d2d 100%);
-}
-
-.placeholder-unity::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='55' font-size='40' text-anchor='middle' fill='rgba(255,255,255,0.1)'%3EU%3C/text%3E%3C/svg%3E") center/80px no-repeat;
-  pointer-events: none;
-}
-
-/* DirectX 카테고리 */
-.placeholder-directx11 {
-  background: linear-gradient(135deg, #0d7377 0%, #14a3a8 50%, #0d7377 100%);
-}
-
-/* GameJam 카테고리 */
-.placeholder-gamejam {
-  background: linear-gradient(135deg, #6a1b9a 0%, #ad1457 50%, #4a148c 100%);
-}
-
-.placeholder-directx11::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='55' font-size='30' text-anchor='middle' fill='rgba(255,255,255,0.1)'%3EDX%3C/text%3E%3C/svg%3E") center/80px no-repeat;
-  pointer-events: none;
-}
 
 .project-info {
   padding: 20px;

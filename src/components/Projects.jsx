@@ -8,8 +8,7 @@ import ProjectModal from './ProjectModal'
 function Projects() {
   const { t } = useLanguage()
   const { ref, isVisible } = useScrollFadeIn()
-  const [filter, setFilter] = useState('Featured')
-  const [subFilter, setSubFilter] = useState('All')
+  const [showOlder, setShowOlder] = useState(false)
   const [selectedProject, setSelectedProject] = useState(null)
 
   const projects = [
@@ -250,51 +249,16 @@ function Projects() {
     }
   ]
 
-  const filters = [
-    { key: 'Featured', label: t.projects.filters.featured },
-    { key: 'Career', label: t.projects.filters.career },
-    { key: 'Jungle', label: t.projects.filters.jungle },
-    { key: 'Personal', label: t.projects.filters.personal }
-  ]
+  // 기간 시작 시점 기준 정렬 키 (예: "2026.03 - 2026.08" → 202603)
+  const periodStart = (p) => parseInt(p.period.slice(0, 7).replace('.', ''), 10) || 0
 
-  // 세부 필터 옵션
-  const subFilters = {
-    Career: ['All', 'Unreal', 'Unity'],
-    Personal: ['All', 'Unreal5', 'Unreal4', 'DirectX11', 'Web']
-  }
-
-  // 메인 필터 변경 시 세부 필터 초기화
-  const handleFilterChange = (newFilter) => {
-    setFilter(newFilter)
-    setSubFilter('All')
-  }
-
-  const filteredProjects = (() => {
-    let result = []
-
-    switch (filter) {
-      case 'Featured':
-        return projects.filter(p => p.featured)
-      case 'Career':
-        result = projects.filter(p => p.type === 'career')
-        break
-      case 'Jungle':
-        result = projects.filter(p => p.type === 'jungle')
-        break
-      case 'Personal':
-        result = projects.filter(p => p.type === 'personal')
-        break
-      default:
-        return projects
-    }
-
-    // 세부 필터 적용
-    if (subFilter !== 'All') {
-      result = result.filter(p => p.category === subFilter)
-    }
-
-    return result
-  })()
+  // 시그니처(featured)는 전폭 카드, 나머지는 최신순 아카이브 그리드
+  const signatureProjects = projects.filter(p => p.featured)
+  const archiveProjects = projects
+    .filter(p => !p.featured)
+    .sort((a, b) => periodStart(b) - periodStart(a))
+  const recentProjects = archiveProjects.filter(p => periodStart(p) >= 202400)
+  const olderProjects = archiveProjects.filter(p => periodStart(p) < 202400)
 
   // 번역된 프로젝트 데이터 가져오기
   const getTranslatedProject = (project) => {
@@ -315,32 +279,30 @@ function Projects() {
   return (
     <section id="projects" className={`projects fade-in-section ${isVisible ? 'visible' : ''}`} ref={ref}>
       <h2>{t.projects.title}</h2>
-      <div className="filter-buttons">
-        {filters.map(f => (
-          <button
-            key={f.key}
-            className={`filter-btn ${filter === f.key ? 'active' : ''}`}
-            onClick={() => handleFilterChange(f.key)}
-          >
-            {f.label}
-          </button>
+
+      {/* 시그니처 프로젝트 - 전폭 카드 */}
+      <div className="signature-list">
+        {signatureProjects.map(project => (
+          <ProjectCard
+            key={project.id}
+            variant="signature"
+            project={getTranslatedProject(project)}
+            onViewProject={() => setSelectedProject(getTranslatedProject(project))}
+          />
         ))}
       </div>
-      {subFilters[filter] && (
-        <div className="sub-filter-buttons">
-          {subFilters[filter].map(sub => (
-            <button
-              key={sub}
-              className={`sub-filter-btn ${subFilter === sub ? 'active' : ''}`}
-              onClick={() => setSubFilter(sub)}
-            >
-              {sub === 'All' ? t.projects.subFilterAll : sub}
-            </button>
-          ))}
-        </div>
-      )}
+
+      {/* 전체 프로젝트 아카이브 - 최신순 */}
+      <h3 className="archive-title">{t.projects.allTitle}</h3>
       <div className="projects-grid">
-        {filteredProjects.map(project => (
+        {recentProjects.map(project => (
+          <ProjectCard
+            key={project.id}
+            project={getTranslatedProject(project)}
+            onViewProject={() => setSelectedProject(getTranslatedProject(project))}
+          />
+        ))}
+        {showOlder && olderProjects.map(project => (
           <ProjectCard
             key={project.id}
             project={getTranslatedProject(project)}
@@ -348,6 +310,11 @@ function Projects() {
           />
         ))}
       </div>
+      {olderProjects.length > 0 && (
+        <button className="show-older-btn" onClick={() => setShowOlder(!showOlder)}>
+          {showOlder ? `${t.projects.hideOlder} ▲` : `${t.projects.showOlder} ▼`}
+        </button>
+      )}
 
       {selectedProject && (
         <ProjectModal

@@ -63,7 +63,9 @@ const ko = {
       jungle: '정글',
       personal: '개인'
     },
-    subFilterAll: '전체',
+    allTitle: '전체 프로젝트',
+    showOlder: '이전 프로젝트 더 보기',
+    hideOlder: '이전 프로젝트 접기',
     viewProject: '프로젝트 보기',
     viewResume: '경력기술서 상세보기',
     viewGithub: 'GitHub 저장소',

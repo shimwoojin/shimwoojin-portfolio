@@ -63,7 +63,9 @@ const en = {
       jungle: 'Jungle',
       personal: 'Personal'
     },
-    subFilterAll: 'All',
+    allTitle: 'All Projects',
+    showOlder: 'Show earlier projects',
+    hideOlder: 'Hide earlier projects',
     viewProject: 'View Project',
     viewResume: 'View Resume Details',
     viewGithub: 'GitHub Repository',
