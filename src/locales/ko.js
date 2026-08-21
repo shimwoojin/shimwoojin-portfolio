@@ -11,7 +11,7 @@ const ko = {
   about: {
     title: 'About Me',
     greeting: '안녕하세요, 심우진입니다!',
-    intro1: '1년 4개월의 MMORPG·모바일 게임 실무 경험에 더해, 크래프톤 정글 게임테크 랩에서 14주간 DirectX11 자체 게임엔진을 주 설계자로 개발한 게임 클라이언트 프로그래머입니다. C++과 Unreal Engine을 주력으로 렌더링 파이프라인부터 퀘스트·UI·개발 도구까지 폭넓은 시스템을 설계하고 구현합니다.',
+    intro1: '1년 4개월의 MMORPG·모바일 게임 실무 경험에 더해, 크래프톤 정글 게임테크랩에서 14주간 DirectX11 자체 게임엔진을 주 설계자로 개발한 게임 클라이언트 프로그래머입니다. C++과 Unreal Engine을 주력으로 렌더링 파이프라인부터 퀘스트·UI·개발 도구까지 폭넓은 시스템을 설계하고 구현합니다.',
     intro2: '유지보수 가능한 구조 설계와 팀 생산성을 높이는 도구 제작에 관심이 많으며, GPU 물리 플러그인 Dynamic Rope를 Fab 마켓플레이스에 출시하는 등 설계부터 출시까지 완결하는 개발을 지향합니다. AI 도구를 적극 활용하는 개발 워크플로를 실무에 적용하고 있습니다.',
     skills: 'Skills',
     devTools: 'Development Tools',
@@ -25,7 +25,7 @@ const ko = {
     items: [
       {
         type: 'education',
-        company: '크래프톤 정글 게임테크 랩',
+        company: '크래프톤 정글 게임테크랩',
         position: '교육생',
         period: '2026.03.09 - 2026.08.24',
         description: '14주간 DirectX11 자체 게임엔진 개발(주 설계자), 게임잼 3회 진행, UE5 물리 플러그인 Dynamic Rope 개발 및 Fab 마켓플레이스 출시'

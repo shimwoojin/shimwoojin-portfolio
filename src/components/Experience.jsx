@@ -1,11 +1,9 @@
 import React from 'react'
 import { useLanguage } from '../context/LanguageContext'
-import { useScrollFadeIn } from '../hooks/useScrollFadeIn'
 import './Experience.css'
 
 function Experience() {
   const { t } = useLanguage()
-  const { ref, isVisible } = useScrollFadeIn()
 
   const experienceSkills = [
     ["DirectX11", "C++20", "HLSL", "PhysX", "Lua", "Unreal5", "Perforce"],
@@ -15,7 +13,7 @@ function Experience() {
   ]
 
   return (
-    <section id="experience" className={`experience fade-in-section ${isVisible ? 'visible' : ''}`} ref={ref}>
+    <section id="experience" className="experience">
       <h2>{t.experience.title}</h2>
       <div className="timeline">
         {t.experience.items.map((exp, index) => {

@@ -8,7 +8,7 @@ function Header({ isDarkMode, toggleDarkMode }) {
   return (
     <header className="header">
       <nav className="nav">
-        <div className="logo">Shim Woojin</div>
+        <div className="logo" onClick={() => window.location.reload()}>Shim Woojin</div>
         <ul className="nav-links">
           <li><a href="#about">{t.header.about}</a></li>
           <li><a href="#experience">{t.header.experience}</a></li>

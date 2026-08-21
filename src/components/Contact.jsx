@@ -1,14 +1,12 @@
 import React from 'react'
 import { useLanguage } from '../context/LanguageContext'
-import { useScrollFadeIn } from '../hooks/useScrollFadeIn'
 import './Contact.css'
 
 function Contact() {
   const { t } = useLanguage()
-  const { ref, isVisible } = useScrollFadeIn()
 
   return (
-    <section id="contact" className={`contact fade-in-section ${isVisible ? 'visible' : ''}`} ref={ref}>
+    <section id="contact" className="contact">
       <h2>{t.contact.title}</h2>
       <div className="contact-content">
         <p className="contact-intro">

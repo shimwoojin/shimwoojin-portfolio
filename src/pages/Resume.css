@@ -110,12 +110,21 @@
 
 /* Project Sections */
 .resume-project {
-  margin-bottom: 50px;
+  margin-bottom: 70px;
   padding: 30px;
   background: #fff;
   border: 1px solid #e0e0e0;
   border-radius: 12px;
   scroll-margin-top: 80px;
+}
+
+/* 프로젝트별 액센트 색 - 경계 구분용 */
+.project-accent-blue {
+  border-top: 6px solid #3498db;
+}
+
+.project-accent-purple {
+  border-top: 6px solid #9b59b6;
 }
 
 .resume-project:target {
@@ -135,39 +144,74 @@
 
 .project-header {
   margin-bottom: 30px;
-}
-
-.project-header h2 {
-  color: #3498db;
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #3498db;
-}
-
-/* Project Info Table */
-.project-info-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.9rem;
-}
-
-.project-info-table th,
-.project-info-table td {
-  padding: 10px 15px;
-  text-align: left;
+  padding-bottom: 20px;
   border-bottom: 1px solid #e0e0e0;
 }
 
-.project-info-table th {
-  width: 120px;
-  background: #f8f9fa;
-  color: #555;
-  font-weight: 600;
+/* 프로젝트 배너 */
+.project-banner {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  margin-bottom: 12px;
 }
 
-.project-info-table td {
-  color: #333;
+.project-number {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  opacity: 0.3;
+}
+
+.project-accent-blue .project-number,
+.project-accent-blue .project-header h2 {
+  color: #3498db;
+}
+
+.project-accent-purple .project-number,
+.project-accent-purple .project-header h2 {
+  color: #9b59b6;
+}
+
+.project-header h2 {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.project-genre {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 12px;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
+.project-accent-blue .project-genre {
+  background: #3498db;
+}
+
+.project-accent-purple .project-genre {
+  background: #9b59b6;
+}
+
+.project-meta {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.project-meta-sub {
+  color: #95a5a6;
+  font-size: 0.85rem;
+}
+
+.project-desc {
+  color: #666;
+  font-size: 0.92rem;
+  line-height: 1.6;
 }
 
 /* Project Tasks */
@@ -186,21 +230,40 @@
 .project-task h3 {
   color: #2c3e50;
   font-size: 1.2rem;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   padding-left: 10px;
   border-left: 4px solid #3498db;
 }
 
-/* STAR Sections */
+/* 과제 헤드라인 - 핵심 성과 한 줄 */
+.task-headline {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+}
+
+.project-accent-blue .task-headline {
+  background: #eaf4fc;
+  color: #2471a3;
+}
+
+.project-accent-purple .task-headline {
+  background: #f4ecf7;
+  color: #7d3c98;
+}
+
+/* STAR Sections - 배경/실행은 플레인, 결과만 색 박스로 강조 */
 .star-section {
   margin-bottom: 15px;
-  padding: 15px;
-  border-radius: 8px;
 }
 
 .star-section h4 {
-  font-size: 1rem;
-  margin-bottom: 10px;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  color: #7f8c8d;
 }
 
 .star-section ul {
@@ -209,7 +272,7 @@
 }
 
 .star-section li {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   line-height: 1.6;
   color: #555;
 }
@@ -218,32 +281,10 @@
   margin-top: 5px;
 }
 
-.star-section.situation {
-  background: #fff5f5;
-}
-
-.star-section.situation h4 {
-  color: #e74c3c;
-}
-
-.star-section.task {
-  background: #fffbeb;
-}
-
-.star-section.task h4 {
-  color: #f39c12;
-}
-
-.star-section.action {
-  background: #f0f9ff;
-}
-
-.star-section.action h4 {
-  color: #3498db;
-}
-
 .star-section.result {
   background: #f0fff4;
+  padding: 15px;
+  border-radius: 8px;
 }
 
 .star-section.result h4 {
@@ -382,12 +423,8 @@
     padding: 20px;
   }
 
-  .project-info-table th {
-    width: 100px;
-  }
-
-  .star-section {
-    padding: 12px;
+  .project-number {
+    font-size: 2.2rem;
   }
 
   .skills-grid {
@@ -446,22 +483,40 @@
   }
 }
 
-.dark .project-header h2 {
+.dark .project-header {
+  border-color: #333;
+}
+
+.dark .project-accent-blue .project-number,
+.dark .project-accent-blue .project-header h2 {
   color: #5dade2;
 }
 
-.dark .project-info-table th {
-  background: #1a1a2e;
+.dark .project-accent-purple .project-number,
+.dark .project-accent-purple .project-header h2 {
+  color: #af7ac5;
+}
+
+.dark .project-meta {
+  color: #bbb;
+}
+
+.dark .project-meta-sub {
+  color: #777;
+}
+
+.dark .project-desc {
   color: #aaa;
 }
 
-.dark .project-info-table td {
-  color: #ddd;
+.dark .project-accent-blue .task-headline {
+  background: #1f2a3d;
+  color: #5dade2;
 }
 
-.dark .project-info-table th,
-.dark .project-info-table td {
-  border-color: #333;
+.dark .project-accent-purple .task-headline {
+  background: #2d1f3d;
+  color: #af7ac5;
 }
 
 .dark .project-task h3 {
@@ -472,16 +527,8 @@
   border-color: #333;
 }
 
-.dark .star-section.situation {
-  background: #2d1f1f;
-}
-
-.dark .star-section.task {
-  background: #2d2a1f;
-}
-
-.dark .star-section.action {
-  background: #1f2a3d;
+.dark .star-section h4 {
+  color: #95a5a6;
 }
 
 .dark .star-section.result {

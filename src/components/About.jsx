@@ -1,14 +1,12 @@
 import React from 'react'
 import { useLanguage } from '../context/LanguageContext'
-import { useScrollFadeIn } from '../hooks/useScrollFadeIn'
 import './About.css'
 
 function About() {
   const { t } = useLanguage()
-  const { ref, isVisible } = useScrollFadeIn()
 
   return (
-    <section id="about" className={`about fade-in-section ${isVisible ? 'visible' : ''}`} ref={ref}>
+    <section id="about" className="about">
       <h2>{t.about.title}</h2>
       <div className="about-content">
         <div className="profile-image">

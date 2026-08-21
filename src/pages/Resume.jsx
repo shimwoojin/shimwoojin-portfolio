@@ -144,23 +144,23 @@ function Resume() {
       </section>
 
       {/* PROJECT ARK */}
-      <section id="project-ark" className="resume-project">
+      <section id="project-ark" className="resume-project project-accent-blue">
         <div className="project-header">
-          <h2>프로젝트 1. PROJECT ARK (MMORPG)</h2>
-          <table className="project-info-table">
-            <tbody>
-              <tr><th>회사</th><td>슈퍼빌런랩스</td></tr>
-              <tr><th>기간</th><td>2024.04 ~ 2025.05 (13개월)</td></tr>
-              <tr><th>역할</th><td>클라이언트 프로그래머</td></tr>
-              <tr><th>기술 스택</th><td>Unreal Engine 5.3~5.5, C++, TCP/IP, SQLite, SVN</td></tr>
-              <tr><th>프로젝트 설명</th><td>PC 기반 MMORPG 개발 프로젝트. 퀘스트, NPC, 전투, UI 등 핵심 시스템 개발 담당</td></tr>
-            </tbody>
-          </table>
+          <div className="project-banner">
+            <span className="project-number">01</span>
+            <div className="project-banner-text">
+              <h2>PROJECT ARK <span className="project-genre">MMORPG</span></h2>
+              <p className="project-meta">슈퍼빌런랩스 · 클라이언트 프로그래머 · 2024.04 ~ 2025.05 (13개월)</p>
+              <p className="project-meta-sub">Unreal Engine 5.3~5.5 · C++ · TCP/IP · SQLite · SVN</p>
+            </div>
+          </div>
+          <p className="project-desc">PC 기반 MMORPG 개발 프로젝트. 퀘스트, NPC, 전투, UI 등 핵심 시스템 개발 담당</p>
         </div>
 
         {/* 1. 퀘스트 시스템 */}
         <article className="project-task">
           <h3>1. State Pattern 기반 퀘스트 시스템 설계 및 구현</h3>
+          <p className="task-headline">⭐ 상태 클래스 추가만으로 확장되는 퀘스트 구조 정착</p>
 
           <div className="star-section situation">
             <h4>📌 배경 및 과제</h4>
@@ -249,6 +249,7 @@ class UQuestFactory : public UObject
         {/* 2. NPC 대화 시스템 */}
         <article className="project-task">
           <h3>2. 플러그인 커스터마이징으로 NPC 대화 시스템 개발</h3>
+          <p className="task-headline">⭐ 기획팀이 코드 수정 없이 노드 그래프로 대화 제작</p>
 
           <div className="star-section situation">
             <h4>📌 배경 및 과제</h4>
@@ -279,6 +280,7 @@ class UQuestFactory : public UObject
         {/* 3. 월드맵 도구 */}
         <article className="project-task">
           <h3>3. 스플라인 기반 월드맵 자동 생성 도구 개발</h3>
+          <p className="task-headline">⭐ 수작업 지도 재작업 → 버튼 클릭 한 번으로 자동화</p>
 
           <div className="star-section situation">
             <h4>📌 배경 및 과제</h4>
@@ -308,6 +310,7 @@ class UQuestFactory : public UObject
         {/* 4. 리팩토링 */}
         <article className="project-task">
           <h3>4. 12,000줄 캐릭터 클래스 리팩토링 (컴포넌트화)</h3>
+          <p className="task-headline">⭐ 코드량 80% 감소 (12,000줄 → 2,500줄)</p>
 
           <div className="star-section situation">
             <h4>📌 배경 및 과제</h4>
@@ -394,6 +397,7 @@ void ProcessCharacter(ICharacterComponentProvider& Provider)
         {/* 5. 패킷 녹화/재생 */}
         <article className="project-task">
           <h3>5. 패킷 녹화/재생 디버깅 시스템 개발</h3>
+          <p className="task-headline">⭐ 재현 불가능하던 동기화 버그를 녹화 파일로 즉시 재현</p>
 
           <div className="star-section situation">
             <h4>📌 배경 및 과제</h4>
@@ -469,24 +473,23 @@ void ProcessCharacter(ICharacterComponentProvider& Provider)
       </section>
 
       {/* PROJECT VIR (슈빌) */}
-      <section id="project-vir" className="resume-project">
+      <section id="project-vir" className="resume-project project-accent-purple">
         <div className="project-header">
-          <h2>프로젝트 2. PROJECT VIR (모바일 캐주얼 게임)</h2>
-          <table className="project-info-table">
-            <tbody>
-              <tr><th>회사</th><td>슈퍼빌런랩스</td></tr>
-              <tr><th>기간</th><td>2025.05 ~ 2025.07 (3개월)</td></tr>
-              <tr><th>역할</th><td>클라이언트 프로그래머 (라이브 운영 지원)</td></tr>
-              <tr><th>기술 스택</th><td>Unity Engine 2022.3, C#, Git</td></tr>
-              <tr><th>프로젝트 설명</th><td>라이브 서비스 중인 모바일 캐주얼 게임 유지보수 및 대규모 업데이트</td></tr>
-              <tr><th>투입 배경</th><td>기존 개발팀 인원 감소로 PROJECT ARK 팀 대거 투입</td></tr>
-            </tbody>
-          </table>
+          <div className="project-banner">
+            <span className="project-number">02</span>
+            <div className="project-banner-text">
+              <h2>PROJECT VIR <span className="project-genre">모바일 캐주얼</span></h2>
+              <p className="project-meta">슈퍼빌런랩스 · 클라이언트 프로그래머 (라이브 운영 지원) · 2025.05 ~ 2025.07 (3개월)</p>
+              <p className="project-meta-sub">Unity Engine 2022.3 · C# · Git</p>
+            </div>
+          </div>
+          <p className="project-desc">라이브 서비스 중인 모바일 캐주얼 게임 유지보수 및 대규모 업데이트 (기존 개발팀 인원 감소로 PROJECT ARK 팀 대거 투입)</p>
         </div>
 
         {/* 1. 레드닷 시스템 */}
         <article className="project-task">
           <h3>1. 레드닷(알림 마커) 시스템 구조 개선</h3>
+          <p className="task-headline">⭐ 인수인계 직후 레드닷 버그 80% 감소</p>
 
           <div className="star-section situation">
             <h4>📌 배경 및 과제</h4>
@@ -517,6 +520,7 @@ void ProcessCharacter(ICharacterComponentProvider& Provider)
         {/* 2. Unity 환경 적응 */}
         <article className="project-task">
           <h3>2. Unity 환경 적응 및 대규모 업데이트 개발</h3>
+          <p className="task-headline">⭐ 3개월 내 Unity C# 실무 투입 수준 도달, 대규모 업데이트 출시</p>
 
           <div className="star-section situation">
             <h4>📌 배경 및 과제</h4>

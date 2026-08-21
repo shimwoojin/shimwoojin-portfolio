@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import { useLanguage } from '../context/LanguageContext'
-import { useScrollFadeIn } from '../hooks/useScrollFadeIn'
 import './Projects.css'
 import ProjectCard from './ProjectCard'
 import ProjectModal from './ProjectModal'
 
 function Projects() {
   const { t } = useLanguage()
-  const { ref, isVisible } = useScrollFadeIn()
   const [showOlder, setShowOlder] = useState(false)
   const [selectedProject, setSelectedProject] = useState(null)
 
@@ -228,6 +226,8 @@ function Projects() {
       ],
       github: "https://github.com/shimwoojin/Kirby"
     },
+    // 임시 숨김 처리
+    /*
     {
       id: 9,
       title: "Claude Learning Docs",
@@ -247,6 +247,7 @@ function Projects() {
       github: "https://github.com/shimwoojin/claude-learning",
       deployUrl: "https://claude-learning-three.vercel.app/"
     }
+    */
   ]
 
   // 기간 시작 시점 기준 정렬 키 (예: "2026.03 - 2026.08" → 202603)
@@ -277,7 +278,7 @@ function Projects() {
   }
 
   return (
-    <section id="projects" className={`projects fade-in-section ${isVisible ? 'visible' : ''}`} ref={ref}>
+    <section id="projects" className="projects">
       <h2>{t.projects.title}</h2>
 
       {/* 시그니처 프로젝트 - 전폭 카드 */}
