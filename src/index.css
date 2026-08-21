@@ -32,7 +32,9 @@ html {
 
 .fade-in-section.visible {
   opacity: 1;
-  transform: translateY(0);
+  /* translateY(0) 대신 none: transform이 남아 있으면 내부 position:fixed 요소(모달)의
+     기준이 뷰포트가 아닌 이 섹션이 되어 버림 */
+  transform: none;
 }
 
 /* 다양한 방향의 fade-in */

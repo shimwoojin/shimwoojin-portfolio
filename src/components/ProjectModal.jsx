@@ -18,6 +18,15 @@ function ProjectModal({ project, onClose }) {
     return () => window.removeEventListener('keydown', handleEsc)
   }, [onClose])
 
+  // 모달이 열려 있는 동안 배경 페이지 스크롤 잠금
+  React.useEffect(() => {
+    const prevOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = prevOverflow
+    }
+  }, [])
+
   // 경력기술서 페이지로 이동
   const handleViewResume = () => {
     if (project.resumeSection) {
