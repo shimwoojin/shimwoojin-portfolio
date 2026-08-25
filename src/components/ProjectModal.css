@@ -115,6 +115,36 @@
   font-size: 1em;
 }
 
+/* 프로젝트 개요 - 팀 구성/역할/기간 */
+.modal-overview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 40px;
+  padding: 18px 30px;
+  border-bottom: 1px solid #eee;
+  background: rgba(52, 152, 219, 0.04);
+}
+
+.overview-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.overview-label {
+  font-size: 0.75em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #95a5a6;
+}
+
+.overview-value {
+  font-size: 1em;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
 /* YouTube 동영상 */
 .modal-video {
   width: 100%;
@@ -443,6 +473,19 @@
   color: #5dade2;
 }
 
+.App.dark .modal-overview {
+  border-bottom-color: #2a3f5f;
+  background: rgba(93, 173, 226, 0.06);
+}
+
+.App.dark .overview-label {
+  color: #8a9bb0;
+}
+
+.App.dark .overview-value {
+  color: #eee;
+}
+
 .App.dark .modal-description {
   color: #bbb;
 }
@@ -548,6 +591,11 @@
 
   .modal-header h2 {
     font-size: 1.4em;
+  }
+
+  .modal-overview {
+    padding: 14px 20px;
+    gap: 10px 24px;
   }
 
   .modal-video {

@@ -322,11 +322,28 @@
   font-size: 1.5em;
 }
 
+/* 기간 + 팀 구성 */
+.project-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
 .project-period {
-  display: block;
   color: #7f8c8d;
   font-size: 0.9em;
-  margin-bottom: 10px;
+}
+
+.project-team {
+  font-size: 0.78em;
+  font-weight: 600;
+  color: #5d6d7e;
+  background: #edf1f4;
+  border-radius: 12px;
+  padding: 3px 10px;
+  white-space: nowrap;
 }
 
 .project-info p {
@@ -516,6 +533,11 @@
 
 .App.dark .project-period {
   color: #a0aec0;
+}
+
+.App.dark .project-team {
+  color: #cbd5e0;
+  background: #2a3f5f;
 }
 
 .App.dark .project-info p {

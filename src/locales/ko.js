@@ -76,6 +76,9 @@ const ko = {
     techStack: '기술 스택',
     keyFeatures: '주요 기능',
     videoLabel: '영상',
+    overviewTeam: '팀 구성',
+    overviewRole: '역할',
+    overviewDuration: '기간',
     items: {
       'PROJECT ARK': {
         title: 'PROJECT ARK',

@@ -76,7 +76,12 @@ function ProjectCard({ project, onViewProject, variant }) {
       </div>
       <div className="project-info">
         <h3>{project.title}</h3>
-        <span className="project-period">{project.period}</span>
+        <div className="project-meta">
+          <span className="project-period">{project.period}</span>
+          {project.overview?.team && (
+            <span className="project-team">{project.overview.team}</span>
+          )}
+        </div>
         {project.headline && (
           <span className="project-headline">⭐ {project.headline}</span>
         )}

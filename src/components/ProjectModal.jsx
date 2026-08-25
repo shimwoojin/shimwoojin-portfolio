@@ -34,6 +34,13 @@ function ProjectModal({ project, onClose }) {
 
   const currentVideo = videos[activeVideo] || videos[0]
 
+  const overview = project.overview || {}
+  const overviewItems = [
+    { label: t.projects.overviewTeam, value: overview.team },
+    { label: t.projects.overviewRole, value: overview.role },
+    { label: t.projects.overviewDuration, value: overview.duration }
+  ].filter(item => item.value)
+
   // 경력기술서 페이지로 이동
   const handleViewResume = () => {
     if (project.resumeSection) {
@@ -59,6 +66,18 @@ function ProjectModal({ project, onClose }) {
           <h2>{project.title}</h2>
           <span className="modal-period">{project.period}</span>
         </div>
+
+        {/* 프로젝트 개요 - 있는 항목만 렌더링 */}
+        {overviewItems.length > 0 && (
+          <div className="modal-overview">
+            {overviewItems.map(item => (
+              <div className="overview-item" key={item.label}>
+                <span className="overview-label">{item.label}</span>
+                <span className="overview-value">{item.value}</span>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* YouTube 동영상 (여러 개면 아래 썸네일로 전환) */}
         {currentVideo && (

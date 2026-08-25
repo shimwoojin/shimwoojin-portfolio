@@ -25,6 +25,11 @@ function Projects() {
       type: "career",
       category: "Unreal",
       period: "2024.04 - 2025.05",
+      // TODO: 팀 규모 확인 후 team 추가
+      overview: {
+        role: "클라이언트 프로그래머",
+        duration: "13개월"
+      },
       featured: true,
       youtubeId: "",  // YouTube 영상 ID (예: "dQw4w9WgXcQ")
       details: [
@@ -52,6 +57,11 @@ function Projects() {
       type: "career",
       category: "Unity",
       period: "2025.05 - 2025.07",
+      // TODO: 팀 규모 확인 후 team 추가
+      overview: {
+        role: "클라이언트 프로그래머",
+        duration: "3개월"
+      },
       featured: false,
       youtubeId: "",
       image: "/shuville-keyart.jpg",  // 슈퍼빌런랩스 공식 키아트 (인벤 기사 배포본)
@@ -82,6 +92,11 @@ function Projects() {
       type: "jungle",
       category: "DirectX11",
       period: "2026.03 - 2026.06",
+      overview: {
+        team: "매주 재편성되는 팀",
+        role: "주 설계자 (본인 커밋 1,292개)",
+        duration: "14주"
+      },
       featured: true,
       youtubeId: "",
       details: [
@@ -107,6 +122,7 @@ function Projects() {
       type: "jungle",
       category: "Unreal5",
       period: "2026.08 Fab 출시",
+      // TODO: 팀 규모 확인 후 overview.team 추가
       featured: true,
       youtubeId: "iRLpnem_LfQ",
       details: [
@@ -134,6 +150,11 @@ function Projects() {
       type: "jungle",
       category: "GameJam",
       period: "2026.03 / 2026.05 / 2026.06",
+      // TODO: Week 14 팀 규모 확인 (Week 1은 4인, Week 9는 3인)
+      overview: {
+        team: "매회 3~4인 팀",
+        duration: "매회 1주 이내"
+      },
       featured: false,
       videos: [
         { id: "O12syUQLmXA", label: "Week 1 · Rhythm Dungeon" },
@@ -163,6 +184,7 @@ function Projects() {
       type: "personal",
       category: "Unreal5",
       period: "2026.01 - 현재",
+      overview: { team: "1인 개발" },
       featured: false,
       youtubeId: "",
       details: [
@@ -181,6 +203,7 @@ function Projects() {
       type: "personal",
       category: "Unreal4",
       period: "2023.04 - 2023.04",
+      overview: { team: "1인 개발" },
       featured: false,
       youtubeId: "jydxblyq4mM",
       details: [
@@ -199,6 +222,7 @@ function Projects() {
       type: "personal",
       category: "Unreal4",
       period: "2023.07 - 2023.08",
+      overview: { team: "1인 개발" },
       featured: false,
       youtubeId: "N8sijH3GqfE",
       details: [
@@ -217,6 +241,7 @@ function Projects() {
       type: "personal",
       category: "Unreal4",
       period: "2023.03 - 2023.04",
+      overview: { team: "1인 개발" },
       featured: false,
       youtubeId: "31g7Hj3bfow",
       details: [
@@ -235,6 +260,7 @@ function Projects() {
       type: "personal",
       category: "DirectX11",
       period: "2022.12 - 2023.01",
+      overview: { team: "1인 개발" },
       featured: false,
       youtubeId: "YUSV_vlYPQU",
       details: [
@@ -291,6 +317,7 @@ function Projects() {
         headline: translated.headline ?? project.headline,
         cardHighlights: translated.cardHighlights ?? project.cardHighlights,
         pressName: translated.pressName ?? project.pressName,
+        overview: translated.overview ?? project.overview,
         // 영상 라벨 / 저장소 이름은 locale에 대응 배열이 있을 때만 인덱스 순으로 교체
         videos: project.videos && translated.videoLabels
           ? project.videos.map((video, index) => ({

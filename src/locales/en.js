@@ -76,6 +76,9 @@ const en = {
     techStack: 'Tech Stack',
     keyFeatures: 'Key Features',
     videoLabel: 'Video',
+    overviewTeam: 'Team',
+    overviewRole: 'Role',
+    overviewDuration: 'Duration',
     items: {
       'PROJECT ARK': {
         title: 'PROJECT ARK',
@@ -93,7 +96,8 @@ const en = {
           'Spline-based world map generation tool - replaced manual map rework with a single button click',
           'Customized dialogue plugin for NPCs - designers author dialogue as node graphs without code changes',
           'Inventory/HUD/settings UI, StandAlone mode and cheat system for the dev environment, AreaGroup priority loading (3s stall → 0.1s)'
-        ]
+        ],
+        overview: { role: 'Client Programmer', duration: '13 months' }
       },
       '슈빌': {
         title: 'Shuville',
@@ -111,7 +115,8 @@ const en = {
           'Editor extensions such as an Attribute exposing DB data as Inspector dropdowns, reducing data-entry mistakes',
           'Analyzed the full patch → loading → login → in-game flow, reaching production-level Unity C# within 3 months'
         ],
-        pressName: 'Inven'
+        pressName: 'Inven',
+        overview: { role: 'Client Programmer', duration: '3 months' }
       },
       'KraftonEngine - DirectX11 자체 게임엔진': {
         title: 'KraftonEngine - Custom DirectX11 Game Engine',
@@ -128,7 +133,12 @@ const en = {
           'AnimGraph runtime - State machine, montage, root motion, GPU skinning',
           'PhysX physics/ragdoll, FBX import, Lua scripting, ImGui editor',
           'Maintained engine design consistency as lead architect through weekly team reshuffles'
-        ]
+        ],
+        overview: {
+          team: 'Weekly-reshuffled teams',
+          role: 'Lead architect (1,292 personal commits)',
+          duration: '14 weeks'
+        }
       },
       'Dynamic Rope - Fab 출시 UE5 플러그인': {
         title: 'Dynamic Rope - UE5 Plugin on Fab',
@@ -171,37 +181,43 @@ const en = {
           'Rhythm Dungeon (Week 1)',
           'Omniscient Jungle Perspective (Week 9)',
           'Jungle Musou (Week 14)'
-        ]
+        ],
+        overview: { team: '3-4 people per jam', duration: 'Under a week each' }
       },
       'GAS를 활용한 멀티 플레이 게임': {
         title: 'Multiplayer Game with GAS',
         description: 'A game supporting various game modes and sessions using Unreal GAS plugin',
         headline: 'GAS-based multiplayer · ongoing',
-        details: ['GameplayAbilitySystem-based skill system', 'Multiplayer session management', 'Various game mode implementation']
+        details: ['GameplayAbilitySystem-based skill system', 'Multiplayer session management', 'Various game mode implementation'],
+        overview: { team: 'Solo project' }
       },
       'LOL 모작': {
         title: 'LOL Recreation',
         description: "A 1v1 action game reinterpreted with 'LOL' Playable Characters",
         headline: '1v1 action · AI opponent',
-        details: ['Character skill system implementation', '1v1 battle system', 'AI opponent implementation']
+        details: ['Character skill system implementation', '1v1 battle system', 'AI opponent implementation'],
+        overview: { team: 'Solo project' }
       },
       '다양한 무기를 구현한 게임': {
         title: 'Various Weapons Game',
         description: 'A game featuring various weapons (guns, swords, bows, shields, magic), inventory, and AI',
         headline: '5 weapon types · inventory · AI',
-        details: ['Various weapon systems (guns, swords, bows, shields, magic)', 'Inventory system', 'AI implementation']
+        details: ['Various weapon systems (guns, swords, bows, shields, magic)', 'Inventory system', 'AI implementation'],
+        overview: { team: 'Solo project' }
       },
       '자체 아이디어로 개발한 디펜스 게임': {
         title: 'Original Defense Game',
         description: 'A defense game featuring 3 role classes (Attack, Build, Farm) with skills, AI (Behaviour Tree), and multiple monsters',
         headline: '3 role classes · Behaviour Tree AI',
-        details: ['3 role class system (Attack, Build, Farm)', 'Skills and montage implementation', 'Behaviour Tree-based AI']
+        details: ['3 role class system (Attack, Build, Farm)', 'Skills and montage implementation', 'Behaviour Tree-based AI'],
+        overview: { team: 'Solo project' }
       },
       'DirectX 11로 구현한 Kirby': {
         title: 'Kirby with DirectX 11',
         description: 'Classic Kirby game implementation to learn 2D game development and graphics pipeline',
         headline: 'Hand-built graphics pipeline',
-        details: ['DirectX 11 graphics pipeline', '2D sprite rendering', 'Core game feature implementation']
+        details: ['DirectX 11 graphics pipeline', '2D sprite rendering', 'Core game feature implementation'],
+        overview: { team: 'Solo project' }
       },
       'Claude Learning Docs': {
         title: 'Claude Learning Docs',
