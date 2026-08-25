@@ -108,7 +108,7 @@ const ko = {
         description: '크래프톤 정글에서 14주간 주 설계자로 개발한 DirectX11 자체 게임엔진. 20-Pass 렌더 파이프라인부터 게임플레이 프레임워크까지 풀스택 구현 (본인 커밋 1,292개)',
         details: [
           'UE 스타일 오브젝트 모델 - RTTI/코드젠, UUID 기반 안전 포인터로 댕글링 참조 O(1) 차단',
-          '20-Pass 렌더 파이프라인 - Deferred, CSM/EVSM 그림자, 컴퓨트 셰이더 라이트 컬링, 포스트프로세스',
+          '20-Pass 렌더 파이프라인 - CSM/EVSM 그림자, 컴퓨트 셰이더 라이트 컬링, 포스트프로세스',
           'AnimGraph 런타임 - State Machine, Montage, Root Motion, GPU 스키닝',
           'PhysX 물리/래그돌, FBX 임포트, Lua 스크립팅, ImGui 에디터',
           '매주 팀이 재편되는 환경에서 주 설계자로 엔진 설계 일관성 유지'

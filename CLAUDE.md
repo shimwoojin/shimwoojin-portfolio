@@ -94,7 +94,7 @@ shimwoojin-portfolio/
 
 ## 보류 중인 작업
 
-- **팀 규모 미확인**: PROJECT ARK, 슈빌, Dynamic Rope의 `overview.team`이 비어 있음 (코드에 TODO). 게임잼 카드는 Week 14 인원 미확인으로 "매회 3~4인 팀"으로 표기
+- **팀 규모 미확인**: PROJECT ARK, 슈빌의 `overview.team`이 비어 있음 (코드에 TODO)
 - **우여곡절 섹션**: 프로젝트별 문제/해결 서술(`challenges`)은 미구현. 경력 2건은 경력기술서가 STAR로 담당하므로 정글·개인 프로젝트 대상
 
 - **Claude Learning Docs**: `Projects.jsx`에서 주석 처리로 임시 숨김 상태. 주석 해제로 복구 가능

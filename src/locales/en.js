@@ -123,13 +123,13 @@ const en = {
         description: 'Custom DirectX11 game engine built over 14 weeks at KRAFTON JUNGLE as lead architect. Full-stack implementation from a 20-pass render pipeline to a gameplay framework (1,292 personal commits)',
         headline: '1,292 commits · lead architect',
         cardHighlights: [
-          '20-pass render pipeline (deferred, shadows, PP)',
+          '20-pass render pipeline (shadows, light culling, PP)',
           'UE-style object model · UUID safe pointers',
           'AnimGraph · PhysX ragdoll · Lua scripting'
         ],
         details: [
           'UE-style object model - RTTI/codegen, UUID-based safe pointers for O(1) dangling reference detection',
-          '20-pass render pipeline - Deferred shading, CSM/EVSM shadows, compute shader light culling, post-processing',
+          '20-pass render pipeline - CSM/EVSM shadows, compute shader light culling, post-processing',
           'AnimGraph runtime - State machine, montage, root motion, GPU skinning',
           'PhysX physics/ragdoll, FBX import, Lua scripting, ImGui editor',
           'Maintained engine design consistency as lead architect through weekly team reshuffles'
@@ -155,7 +155,8 @@ const en = {
           'Ragdoll support (Chaos physics constraints), tension-based pull, reel-in, distance-based release',
           'Dual collision backends (analytic capsules / baked SDF volumes) + SDF authoring editor tool',
           'Stat dashboard, sleep/LOD/culling optimizations, full C++ source included (UE 5.5-5.8)'
-        ]
+        ],
+        overview: { team: 'Team of 3' }
       },
       '정글 게임잼 3회': {
         title: '3 Game Jams at JUNGLE',
