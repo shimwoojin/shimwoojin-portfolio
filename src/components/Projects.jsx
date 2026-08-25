@@ -27,11 +27,13 @@ function Projects() {
       period: "2024.04 - 2025.05",
       // TODO: 팀 규모 확인 후 team 추가
       overview: {
+        company: "슈퍼빌런랩스",
         role: "클라이언트 프로그래머",
         duration: "13개월"
       },
       featured: true,
       youtubeId: "",  // YouTube 영상 ID (예: "dQw4w9WgXcQ")
+      image: "/project-ark.jpg",  // 슈퍼빌런랩스 PROJECT ARK 스닉피크 영상 프레임
       details: [
         "State Pattern 기반 퀘스트 시스템 설계 - 상태 클래스 추가만으로 확장되는 구조 정착",
         "12,000줄 캐릭터 클래스 컴포넌트화 - 코드량 80% 감소 (12,000줄 → 2,500줄)",
@@ -41,6 +43,9 @@ function Projects() {
         "인벤토리·HUD·설정 UI 전반, StandAlone 모드·치트 시스템 등 개발 환경 구축, AreaGroup 우선순위 로딩 최적화 (3초 멈춤 → 0.1초)"
       ],
       github: "",
+      pressUrl: "https://reports.tiger-research.com/p/2024-supervlabs",
+      pressName: "Tiger Research",
+      pressLabel: "리서치 리포트",
       resumeSection: "project-ark"  // 경력기술서 섹션 ID
     },
     {
@@ -59,6 +64,7 @@ function Projects() {
       period: "2025.05 - 2025.07",
       // TODO: 팀 규모 확인 후 team 추가
       overview: {
+        company: "슈퍼빌런랩스",
         role: "클라이언트 프로그래머",
         duration: "3개월"
       },
@@ -317,6 +323,7 @@ function Projects() {
         headline: translated.headline ?? project.headline,
         cardHighlights: translated.cardHighlights ?? project.cardHighlights,
         pressName: translated.pressName ?? project.pressName,
+        pressLabel: translated.pressLabel ?? project.pressLabel,
         overview: translated.overview ?? project.overview,
         // 영상 라벨 / 저장소 이름은 locale에 대응 배열이 있을 때만 인덱스 순으로 교체
         videos: project.videos && translated.videoLabels

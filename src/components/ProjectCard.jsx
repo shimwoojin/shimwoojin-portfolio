@@ -34,9 +34,11 @@ function ProjectCard({ project, onViewProject, variant }) {
       ? t.projects.viewDocs
       : t.projects.viewDeploy
 
+  // pressLabel로 자료 성격을 덮어쓸 수 있다 (언론 보도 / 리서치 리포트 등)
+  const pressBase = project.pressLabel || t.projects.viewPress
   const pressLabel = project.pressName
-    ? `${t.projects.viewPress} · ${project.pressName}`
-    : t.projects.viewPress
+    ? `${pressBase} · ${project.pressName}`
+    : pressBase
 
   // 직접 지정한 image가 우선, 없으면 대표 영상의 YouTube 썸네일
   const getProjectImage = () => {
@@ -78,6 +80,9 @@ function ProjectCard({ project, onViewProject, variant }) {
         <h3>{project.title}</h3>
         <div className="project-meta">
           <span className="project-period">{project.period}</span>
+          {project.overview?.company && (
+            <span className="project-company">{project.overview.company}</span>
+          )}
           {project.overview?.team && (
             <span className="project-team">{project.overview.team}</span>
           )}

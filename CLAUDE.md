@@ -65,7 +65,7 @@ shimwoojin-portfolio/
 - **프로젝트 영상**: 단일 `youtubeId` 또는 다중 `videos: [{ id, label }]`. `utils/projectVideos.js`가 둘 다 같은 배열로 정규화하므로 기존 프로젝트는 수정 불필요
   - 영상 2개 이상이면 모달에 썸네일 그리드(균등 분할), 카드 썸네일에 `▶ n` 배지. `id`가 빈 항목은 자동 제외되므로 미수령 영상은 라벨만 두면 됨
   - `primary: true`를 붙인 영상이 카드 썸네일 + 모달 초기 선택이 됨 (없으면 배열 첫 항목). 배열은 시간순 유지
-- **프로젝트 개요**: `overview: { team, role, duration }`. 모달 헤더 바로 아래 라벨/값 스트립으로, 값이 있는 항목만 렌더링. `team`은 카드의 기간 옆 칩으로도 노출
+- **프로젝트 개요**: `overview: { company, team, role, duration }`. 모달 헤더 바로 아래 라벨/값 스트립으로, 값이 있는 항목만 렌더링. `company`(파란 칩)와 `team`(회색 칩)은 카드의 기간 옆에도 노출
 - **모달 링크**: `resumeSection`(경력기술서 해시 이동), `github`, `repos: [{ name, url }]`(저장소 여러 개), `pressUrl`+`pressName`(언론 보도), `fabUrl`, `docsUrl`, `deployUrl`
 - **카드 이미지**: `image`(`public/` 경로) > `videos[0]`/`youtubeId` YouTube 썸네일 > 카테고리 플레이스홀더 순. 외부 이미지는 핫링크하지 말고 `public/`에 받아서 쓸 것
 - **다국어**: 화면 문구는 `locales/ko.js`·`en.js`에서 관리. 프로젝트 번역은 한국어 title을 키로 매칭

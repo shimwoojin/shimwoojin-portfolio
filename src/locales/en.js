@@ -76,6 +76,7 @@ const en = {
     techStack: 'Tech Stack',
     keyFeatures: 'Key Features',
     videoLabel: 'Video',
+    overviewCompany: 'Company',
     overviewTeam: 'Team',
     overviewRole: 'Role',
     overviewDuration: 'Duration',
@@ -97,7 +98,13 @@ const en = {
           'Customized dialogue plugin for NPCs - designers author dialogue as node graphs without code changes',
           'Inventory/HUD/settings UI, StandAlone mode and cheat system for the dev environment, AreaGroup priority loading (3s stall → 0.1s)'
         ],
-        overview: { role: 'Client Programmer', duration: '13 months' }
+        pressName: 'Tiger Research',
+        pressLabel: 'Research Report',
+        overview: {
+          company: 'Super Villain Labs',
+          role: 'Client Programmer',
+          duration: '13 months'
+        }
       },
       '슈빌': {
         title: 'Shuville',
@@ -116,7 +123,11 @@ const en = {
           'Analyzed the full patch → loading → login → in-game flow, reaching production-level Unity C# within 3 months'
         ],
         pressName: 'Inven',
-        overview: { role: 'Client Programmer', duration: '3 months' }
+        overview: {
+          company: 'Super Villain Labs',
+          role: 'Client Programmer',
+          duration: '3 months'
+        }
       },
       'KraftonEngine - DirectX11 자체 게임엔진': {
         title: 'KraftonEngine - Custom DirectX11 Game Engine',

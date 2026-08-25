@@ -336,14 +336,23 @@
   font-size: 0.9em;
 }
 
-.project-team {
+.project-team,
+.project-company {
   font-size: 0.78em;
   font-weight: 600;
-  color: #5d6d7e;
-  background: #edf1f4;
   border-radius: 12px;
   padding: 3px 10px;
   white-space: nowrap;
+}
+
+.project-team {
+  color: #5d6d7e;
+  background: #edf1f4;
+}
+
+.project-company {
+  color: #1f6dad;
+  background: rgba(33, 150, 243, 0.12);
 }
 
 .project-info p {
@@ -538,6 +547,11 @@
 .App.dark .project-team {
   color: #cbd5e0;
   background: #2a3f5f;
+}
+
+.App.dark .project-company {
+  color: #7fc4f0;
+  background: rgba(93, 173, 226, 0.16);
 }
 
 .App.dark .project-info p {

@@ -36,10 +36,17 @@ function ProjectModal({ project, onClose }) {
 
   const overview = project.overview || {}
   const overviewItems = [
+    { label: t.projects.overviewCompany, value: overview.company },
     { label: t.projects.overviewTeam, value: overview.team },
     { label: t.projects.overviewRole, value: overview.role },
     { label: t.projects.overviewDuration, value: overview.duration }
   ].filter(item => item.value)
+
+  // pressLabel로 자료 성격을 덮어쓸 수 있다 (언론 보도 / 리서치 리포트 등)
+  const pressBase = project.pressLabel || t.projects.viewPress
+  const pressLabel = project.pressName
+    ? `${pressBase} · ${project.pressName}`
+    : pressBase
 
   // 경력기술서 페이지로 이동
   const handleViewResume = () => {
@@ -158,9 +165,7 @@ function ProjectModal({ project, onClose }) {
             ))}
             {project.pressUrl && (
               <a href={project.pressUrl} target="_blank" rel="noopener noreferrer">
-                {project.pressName
-                  ? `${t.projects.viewPress} · ${project.pressName}`
-                  : t.projects.viewPress} →
+                {pressLabel} →
               </a>
             )}
             {project.fabUrl && (
