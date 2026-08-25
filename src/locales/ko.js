@@ -124,7 +124,7 @@ const ko = {
           '엔진 개발과 병행하며 실제 게임 제작으로 엔진 검증'
         ],
         videoLabels: ['Week 1 · Rhythm Dungeon', 'Week 9 · 전지적 정글 시점', 'Week 14 · 최종 게임잼'],
-        repoNames: ['Rhythm Dungeon (Week 1)', '전지적 정글 시점 (Week 9)']
+        repoNames: ['Rhythm Dungeon (Week 1)', '전지적 정글 시점 (Week 9)', '최종 게임잼 (Week 14)']
       },
       'GAS를 활용한 멀티 플레이 게임': {
         title: 'GAS를 활용한 멀티 플레이 게임',

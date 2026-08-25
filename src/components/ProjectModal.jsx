@@ -78,7 +78,10 @@ function ProjectModal({ project, onClose }) {
                     onClick={() => setActiveVideo(index)}
                     aria-pressed={index === activeVideo}
                   >
-                    <img src={getYoutubeThumbnail(video.id)} alt="" />
+                    <span className="video-thumb-media">
+                      <img src={getYoutubeThumbnail(video.id)} alt="" />
+                      <span className="video-thumb-play" aria-hidden="true">▶</span>
+                    </span>
                     <span className="video-thumb-label">
                       {video.label || `${t.projects.videoLabel} ${index + 1}`}
                     </span>

@@ -154,7 +154,11 @@ const en = {
           'Week 9 · Omniscient Jungle Perspective',
           'Week 14 · Final Game Jam'
         ],
-        repoNames: ['Rhythm Dungeon (Week 1)', 'Omniscient Jungle Perspective (Week 9)']
+        repoNames: [
+          'Rhythm Dungeon (Week 1)',
+          'Omniscient Jungle Perspective (Week 9)',
+          'Final Game Jam (Week 14)'
+        ]
       },
       'GAS를 활용한 멀티 플레이 게임': {
         title: 'Multiplayer Game with GAS',

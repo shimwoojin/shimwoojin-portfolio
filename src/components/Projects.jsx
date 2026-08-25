@@ -75,7 +75,7 @@ function Projects() {
       tech: ["DirectX11", "C++20", "HLSL", "PhysX", "Lua"],
       type: "jungle",
       category: "DirectX11",
-      period: "2026.03 - 2026.08",
+      period: "2026.03 - 2026.06",
       featured: true,
       youtubeId: "",
       details: [
@@ -130,10 +130,10 @@ function Projects() {
       period: "2026.03 / 2026.05 / 2026.06",
       featured: false,
       videos: [
-        // TODO: Week 1 / Week 14 영상은 받는 대로 id 채우기 (id가 비어 있으면 자동으로 제외됨)
+        // TODO: Week 1 영상은 받는 대로 id 채우기 (id가 비어 있으면 자동으로 제외됨)
         { id: "", label: "Week 1 · Rhythm Dungeon" },
         { id: "LmUmmWRE4bk", label: "Week 9 · 전지적 정글 시점" },
-        { id: "", label: "Week 14 · 최종 게임잼" }
+        { id: "-prBOp3srOc", label: "Week 14 · 최종 게임잼" }
       ],
       details: [
         "Week 1: 리듬 액션 게임 'Rhythm Dungeon' - 비트 판정(Perfect/Good/Miss), JSON 기반 스테이지 4종",
@@ -144,7 +144,8 @@ function Projects() {
       github: "https://github.com/shimwoojin/JungleArchive",
       repos: [
         { name: "Rhythm Dungeon (Week 1)", url: "https://github.com/shimwoojin/Jungle_Week1_Team2" },
-        { name: "전지적 정글 시점 (Week 9)", url: "https://github.com/shimwoojin/Jungle_Week9_Team5" }
+        { name: "전지적 정글 시점 (Week 9)", url: "https://github.com/shimwoojin/Jungle_Week9_Team5" },
+        { name: "최종 게임잼 (Week 14)", url: "https://github.com/puter2712git/Jungle_Week14_Team2" }
       ]
     },
     // 개인 프로젝트

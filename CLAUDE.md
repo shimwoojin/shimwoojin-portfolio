@@ -92,8 +92,7 @@ shimwoojin-portfolio/
 
 ## 보류 중인 작업
 
-- **게임잼 영상**: "정글 게임잼 3회" 카드의 `videos` 배열에서 Week 9('전지적 정글 시점')만 채워짐. Week 1(Rhythm Dungeon)·Week 14 영상 받으면 빈 `id` 채우기 (2개 이상이 되면 썸네일 스트립이 자동 노출됨)
-- **게임잼 저장소**: `repos`에 Week 1·Week 9만 등록됨. Week 14 저장소 URL 미확보
+- **게임잼 영상**: "정글 게임잼 3회" 카드의 `videos` 배열에서 Week 1(Rhythm Dungeon) `id`만 비어 있음. 받으면 채우기 (`id`가 채워지면 썸네일 그리드에 자동으로 합류)
 - **Claude Learning Docs**: `Projects.jsx`에서 주석 처리로 임시 숨김 상태. 주석 해제로 복구 가능
 
 ## 개발 명령어
