@@ -80,12 +80,25 @@ const ko = {
       'PROJECT ARK': {
         title: 'PROJECT ARK',
         description: '대규모 MMORPG 개발에 대한 경력 요약',
-        details: ['퀘스트 시스템 설계 및 구현', 'UI 시스템 개발', '개발 도구 제작']
+        details: [
+          'State Pattern 기반 퀘스트 시스템 설계 - 상태 클래스 추가만으로 확장되는 구조 정착',
+          '12,000줄 캐릭터 클래스 컴포넌트화 - 코드량 80% 감소 (12,000줄 → 2,500줄)',
+          '패킷 녹화/재생 디버깅 시스템 - 재현 불가능하던 동기화 버그를 녹화 파일로 즉시 재현',
+          '스플라인 기반 월드맵 자동 생성 도구 - 수작업 지도 재작업을 버튼 클릭 한 번으로 자동화',
+          '플러그인 커스터마이징 NPC 대화 시스템 - 기획팀이 코드 수정 없이 노드 그래프로 대화 제작',
+          '인벤토리·HUD·설정 UI 전반, StandAlone 모드·치트 시스템 등 개발 환경 구축, AreaGroup 우선순위 로딩 최적화 (3초 멈춤 → 0.1초)'
+        ]
       },
       '슈빌': {
         title: '슈빌',
         description: 'Unity 기반 모바일 캐주얼 게임 클라이언트 개발. UI 시스템 및 게임 로직 구현',
-        details: ['UI 시스템 구현', '게임 로직 개발']
+        details: [
+          '레드닷(알림 마커) 시스템 구조 개선 - 레거시 제거 후 단일 시스템으로 통합, 인수인계 직후 버그 80% 감소',
+          '런타임 인스턴스 추적 컨트롤러와 사용 위치 역추적 에디터 도구 개발',
+          '대규모 업데이트 컨텐츠 개발 - 크루 상점, Playable Character 상호작용, 탭 기반 공통 UI, 던전 진입 UI',
+          'DB 데이터를 Inspector 드롭다운으로 다루는 Attribute 등 에디터 확장으로 데이터 입력 실수 여지 축소',
+          '패치→로딩→로그인→본게임 전체 Flow 분석으로 3개월 내 Unity C# 실무 투입 수준 도달'
+        ]
       },
       'KraftonEngine - DirectX11 자체 게임엔진': {
         title: 'KraftonEngine - DirectX11 자체 게임엔진',
@@ -111,20 +124,20 @@ const ko = {
       },
       '정글 게임잼 3회': {
         title: '정글 게임잼 3회',
-        description: "자체 엔진 기반으로 진행한 3번의 게임잼. 리듬 액션 'Rhythm Dungeon', 드라이빙 어드벤처 '전지적 정글 시점' 등 매회 1주 내 완성",
+        description: "자체 엔진 기반으로 진행한 3번의 게임잼. 리듬 액션 'Rhythm Dungeon', 드라이빙 어드벤처 '전지적 정글 시점', 무쌍 액션 '정글무쌍'을 매회 1주 내 완성",
         cardHighlights: [
           "리듬 액션 'Rhythm Dungeon'",
           "드라이빙 어드벤처 '전지적 정글 시점'",
-          '매회 1주 내 완성으로 엔진 검증'
+          "무쌍 액션 '정글무쌍'"
         ],
         details: [
           "Week 1: 리듬 액션 게임 'Rhythm Dungeon' - 비트 판정(Perfect/Good/Miss), JSON 기반 스테이지 4종",
           "Week 9: 드라이빙 어드벤처 '전지적 정글 시점' - PhysX 물리, 5단계 미션, Lua 스크립팅, RmlUi",
-          'Week 14: 물리·콘텐츠 통합 최종 게임잼',
+          "Week 14: 무쌍 액션 '정글무쌍' - 물리·콘텐츠를 통합한 최종 게임잼",
           '엔진 개발과 병행하며 실제 게임 제작으로 엔진 검증'
         ],
-        videoLabels: ['Week 1 · Rhythm Dungeon', 'Week 9 · 전지적 정글 시점', 'Week 14 · 최종 게임잼'],
-        repoNames: ['Rhythm Dungeon (Week 1)', '전지적 정글 시점 (Week 9)', '최종 게임잼 (Week 14)']
+        videoLabels: ['Week 1 · Rhythm Dungeon', 'Week 9 · 전지적 정글 시점', 'Week 14 · 정글무쌍'],
+        repoNames: ['Rhythm Dungeon (Week 1)', '전지적 정글 시점 (Week 9)', '정글무쌍 (Week 14)']
       },
       'GAS를 활용한 멀티 플레이 게임': {
         title: 'GAS를 활용한 멀티 플레이 게임',

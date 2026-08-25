@@ -86,7 +86,14 @@ const en = {
           'Refactored 12,000-line character class',
           'Built packet record/replay debug tools'
         ],
-        details: ['Quest system design and implementation', 'UI system development', 'Development tools creation']
+        details: [
+          'State Pattern-based quest system - extensible by adding a single state class',
+          'Componentized a 12,000-line character class - 80% less code (12,000 → 2,500 lines)',
+          'Packet record/replay debugging system - reproduced previously unreproducible sync bugs from recordings',
+          'Spline-based world map generation tool - replaced manual map rework with a single button click',
+          'Customized dialogue plugin for NPCs - designers author dialogue as node graphs without code changes',
+          'Inventory/HUD/settings UI, StandAlone mode and cheat system for the dev environment, AreaGroup priority loading (3s stall → 0.1s)'
+        ]
       },
       '슈빌': {
         title: 'Shuville',
@@ -97,7 +104,13 @@ const en = {
           'Major content update development',
           'Custom editor tooling'
         ],
-        details: ['UI system implementation', 'Game logic development'],
+        details: [
+          'Restructured the red-dot (notification marker) system - merged legacy paths into one system, 80% fewer red-dot bugs right after handover',
+          'Built a runtime instance tracker and an editor tool that traces where each red-dot is used',
+          'Major update content - crew shop, playable character interactions, tab-based shared UI, dungeon entry UI',
+          'Editor extensions such as an Attribute exposing DB data as Inspector dropdowns, reducing data-entry mistakes',
+          'Analyzed the full patch → loading → login → in-game flow, reaching production-level Unity C# within 3 months'
+        ],
         pressName: 'Inven'
       },
       'KraftonEngine - DirectX11 자체 게임엔진': {
@@ -136,28 +149,28 @@ const en = {
       },
       '정글 게임잼 3회': {
         title: '3 Game Jams at JUNGLE',
-        description: "Three game jams built on our custom engine, including the rhythm action game 'Rhythm Dungeon' and the driving adventure 'Omniscient Jungle Perspective' - each completed within a week",
+        description: "Three game jams built on our custom engine - the rhythm action game 'Rhythm Dungeon', the driving adventure 'Omniscient Jungle Perspective', and the musou action game 'Jungle Musou' - each completed within a week",
         headline: '3 games shipped on our engine',
         cardHighlights: [
           "Rhythm action 'Rhythm Dungeon'",
           "Driving adventure 'Omniscient Jungle Perspective'",
-          'Each shipped in a week, validating the engine'
+          "Musou action 'Jungle Musou'"
         ],
         details: [
           "Week 1: Rhythm action game 'Rhythm Dungeon' - beat judgement (Perfect/Good/Miss), 4 JSON-driven stages",
           "Week 9: Driving adventure 'Omniscient Jungle Perspective' - PhysX physics, 5-stage missions, Lua scripting, RmlUi",
-          'Week 14: Final game jam integrating physics and content',
+          "Week 14: Musou action game 'Jungle Musou' - final game jam integrating physics and content",
           'Validated the engine by shipping real games alongside engine development'
         ],
         videoLabels: [
           'Week 1 · Rhythm Dungeon',
           'Week 9 · Omniscient Jungle Perspective',
-          'Week 14 · Final Game Jam'
+          'Week 14 · Jungle Musou'
         ],
         repoNames: [
           'Rhythm Dungeon (Week 1)',
           'Omniscient Jungle Perspective (Week 9)',
-          'Final Game Jam (Week 14)'
+          'Jungle Musou (Week 14)'
         ]
       },
       'GAS를 활용한 멀티 플레이 게임': {
