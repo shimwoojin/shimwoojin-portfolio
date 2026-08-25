@@ -74,7 +74,7 @@ const en = {
     viewDocs: 'Documentation',
     viewPress: 'Press Coverage',
     techStack: 'Tech Stack',
-    keyFeatures: 'Key Features',
+    keyWork: 'Highlights',
     videoLabel: 'Video',
     overviewCompany: 'Company',
     overviewTeam: 'Team',

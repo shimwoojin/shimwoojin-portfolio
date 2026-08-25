@@ -126,7 +126,7 @@ function ProjectModal({ project, onClose }) {
           {/* 상세 내용 */}
           {project.details && (
             <div className="modal-details">
-              <h3>{t.projects.keyFeatures}</h3>
+              <h3>{t.projects.keyWork}</h3>
               <ul>
                 {project.details.map((detail, index) => (
                   <li key={index}>{detail}</li>

@@ -74,7 +74,7 @@ const ko = {
     viewDocs: '문서 사이트',
     viewPress: '언론 보도',
     techStack: '기술 스택',
-    keyFeatures: '주요 기능',
+    keyWork: '주요 작업',
     videoLabel: '영상',
     overviewCompany: '소속',
     overviewTeam: '팀 구성',
