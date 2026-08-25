@@ -134,6 +134,65 @@
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
+/* 영상 썸네일 스트립 (영상이 2개 이상일 때만 렌더링) */
+.video-thumbnails {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  padding-bottom: 6px;
+  overflow-x: auto;
+}
+
+.video-thumb {
+  flex: 0 0 auto;
+  width: 150px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.video-thumb img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  opacity: 0.65;
+  transition: all 0.3s ease;
+}
+
+.video-thumb:hover img {
+  opacity: 1;
+}
+
+.video-thumb.active img {
+  opacity: 1;
+  border-color: #3498db;
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.35);
+}
+
+.video-thumb-label {
+  font-size: 0.85em;
+  color: #7f8c8d;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.video-thumb.active .video-thumb-label {
+  color: #3498db;
+  font-weight: 600;
+}
+
+.video-thumb:focus-visible img {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+}
+
 .modal-body {
   padding: 20px 30px 30px;
 }
@@ -411,6 +470,23 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
+.App.dark .video-thumb.active img {
+  border-color: #5dade2;
+  box-shadow: 0 4px 12px rgba(93, 173, 226, 0.35);
+}
+
+.App.dark .video-thumb-label {
+  color: #a0aec0;
+}
+
+.App.dark .video-thumb.active .video-thumb-label {
+  color: #5dade2;
+}
+
+.App.dark .video-thumb:focus-visible img {
+  outline-color: #5dade2;
+}
+
 .App.dark .modal-video iframe:hover {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(93, 173, 226, 0.2);
 }
@@ -432,6 +508,10 @@
 
   .modal-video {
     padding: 10px 20px;
+  }
+
+  .video-thumb {
+    width: 120px;
   }
 
   .modal-body {

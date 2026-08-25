@@ -72,8 +72,10 @@ const en = {
     viewDeploy: 'Live Demo',
     viewFab: 'View on Fab',
     viewDocs: 'Documentation',
+    viewPress: 'Press Coverage',
     techStack: 'Tech Stack',
     keyFeatures: 'Key Features',
+    videoLabel: 'Video',
     items: {
       'PROJECT ARK': {
         title: 'PROJECT ARK',
@@ -95,7 +97,8 @@ const en = {
           'Major content update development',
           'Custom editor tooling'
         ],
-        details: ['UI system implementation', 'Game logic development']
+        details: ['UI system implementation', 'Game logic development'],
+        pressName: 'Inven'
       },
       'KraftonEngine - DirectX11 자체 게임엔진': {
         title: 'KraftonEngine - Custom DirectX11 Game Engine',
@@ -133,19 +136,25 @@ const en = {
       },
       '정글 게임잼 3회': {
         title: '3 Game Jams at JUNGLE',
-        description: "Three game jams built on our custom engine, including the rhythm action game 'Rhythm Dungeon' - each completed within a week",
+        description: "Three game jams built on our custom engine, including the rhythm action game 'Rhythm Dungeon' and the driving adventure 'Omniscient Jungle Perspective' - each completed within a week",
         headline: '3 games shipped on our engine',
         cardHighlights: [
           "Rhythm action 'Rhythm Dungeon'",
-          'Each completed within a week',
-          'Validated the engine with real games'
+          "Driving adventure 'Omniscient Jungle Perspective'",
+          'Each shipped in a week, validating the engine'
         ],
         details: [
-          "Week 1: Rhythm action game 'Rhythm Dungeon'",
-          'Week 9: Game built on our custom engine',
+          "Week 1: Rhythm action game 'Rhythm Dungeon' - beat judgement (Perfect/Good/Miss), 4 JSON-driven stages",
+          "Week 9: Driving adventure 'Omniscient Jungle Perspective' - PhysX physics, 5-stage missions, Lua scripting, RmlUi",
           'Week 14: Final game jam integrating physics and content',
           'Validated the engine by shipping real games alongside engine development'
-        ]
+        ],
+        videoLabels: [
+          'Week 1 · Rhythm Dungeon',
+          'Week 9 · Omniscient Jungle Perspective',
+          'Week 14 · Final Game Jam'
+        ],
+        repoNames: ['Rhythm Dungeon (Week 1)', 'Omniscient Jungle Perspective (Week 9)']
       },
       'GAS를 활용한 멀티 플레이 게임': {
         title: 'Multiplayer Game with GAS',

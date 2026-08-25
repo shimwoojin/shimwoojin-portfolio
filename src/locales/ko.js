@@ -72,8 +72,10 @@ const ko = {
     viewDeploy: '배포 사이트',
     viewFab: 'Fab 스토어',
     viewDocs: '문서 사이트',
+    viewPress: '언론 보도',
     techStack: '기술 스택',
     keyFeatures: '주요 기능',
+    videoLabel: '영상',
     items: {
       'PROJECT ARK': {
         title: 'PROJECT ARK',
@@ -109,13 +111,20 @@ const ko = {
       },
       '정글 게임잼 3회': {
         title: '정글 게임잼 3회',
-        description: "자체 엔진 기반으로 진행한 3번의 게임잼. 리듬 액션 'Rhythm Dungeon' 등 매회 1주 내 완성",
+        description: "자체 엔진 기반으로 진행한 3번의 게임잼. 리듬 액션 'Rhythm Dungeon', 드라이빙 어드벤처 '전지적 정글 시점' 등 매회 1주 내 완성",
+        cardHighlights: [
+          "리듬 액션 'Rhythm Dungeon'",
+          "드라이빙 어드벤처 '전지적 정글 시점'",
+          '매회 1주 내 완성으로 엔진 검증'
+        ],
         details: [
-          "Week 1: 리듬 액션 게임 'Rhythm Dungeon' 제작",
-          'Week 9: 자체 엔진 기반 게임 제작',
+          "Week 1: 리듬 액션 게임 'Rhythm Dungeon' - 비트 판정(Perfect/Good/Miss), JSON 기반 스테이지 4종",
+          "Week 9: 드라이빙 어드벤처 '전지적 정글 시점' - PhysX 물리, 5단계 미션, Lua 스크립팅, RmlUi",
           'Week 14: 물리·콘텐츠 통합 최종 게임잼',
           '엔진 개발과 병행하며 실제 게임 제작으로 엔진 검증'
-        ]
+        ],
+        videoLabels: ['Week 1 · Rhythm Dungeon', 'Week 9 · 전지적 정글 시점', 'Week 14 · 최종 게임잼'],
+        repoNames: ['Rhythm Dungeon (Week 1)', '전지적 정글 시점 (Week 9)']
       },
       'GAS를 활용한 멀티 플레이 게임': {
         title: 'GAS를 활용한 멀티 플레이 게임',

@@ -42,6 +42,8 @@ shimwoojin-portfolio/
 │   ├── pages/
 │   │   ├── Resume.jsx/css       # 경력기술서 (배너·성과 칩·결과 박스, PDF 다운로드)
 │   │   └── NotFound.jsx/css     # 404
+│   ├── utils/
+│   │   └── projectVideos.js     # videos 배열 정규화 + YouTube 썸네일 URL
 │   ├── App.jsx/css              # 라우팅 + 다크모드 상태
 │   ├── main.jsx
 │   └── index.css
@@ -58,8 +60,12 @@ shimwoojin-portfolio/
   - **전체 프로젝트**: 나머지를 그리드로, 기간 시작일 기준 최신순 자동 정렬
   - **이전 프로젝트 접기**: 2024년 이전(`periodStart < 202400`) 프로젝트는 기본 숨김, 버튼으로 펼침
 - **프로젝트 카드**: 성과 칩(`headline`) + 핵심 불릿(`cardHighlights`, 없으면 `details` 앞 3개) + 기술 태그. 카드 전체 클릭으로 모달 오픈 (키보드 접근성 포함)
+  - 푸터 우측에 GitHub 아이콘(+ `fabUrl`/`docsUrl`/`deployUrl` 중 하나) 노출. 카드 전체가 클릭 대상이라 링크에는 `stopPropagation` 필수
 - **프로젝트 타입 배지**: career(파랑) / jungle(주황) / personal(보라)
-- **모달 링크**: `resumeSection`(경력기술서 해시 이동), `github`, `fabUrl`, `docsUrl`, `deployUrl`
+- **프로젝트 영상**: 단일 `youtubeId` 또는 다중 `videos: [{ id, label }]`. `utils/projectVideos.js`가 둘 다 같은 배열로 정규화하므로 기존 프로젝트는 수정 불필요
+  - 영상 2개 이상이면 모달에 썸네일 스트립, 카드 썸네일에 `▶ n` 배지. `id`가 빈 항목은 자동 제외되므로 미수령 영상은 라벨만 두면 됨
+- **모달 링크**: `resumeSection`(경력기술서 해시 이동), `github`, `repos: [{ name, url }]`(저장소 여러 개), `pressUrl`+`pressName`(언론 보도), `fabUrl`, `docsUrl`, `deployUrl`
+- **카드 이미지**: `image`(`public/` 경로) > `videos[0]`/`youtubeId` YouTube 썸네일 > 카테고리 플레이스홀더 순. 외부 이미지는 핫링크하지 말고 `public/`에 받아서 쓸 것
 - **다국어**: 화면 문구는 `locales/ko.js`·`en.js`에서 관리. 프로젝트 번역은 한국어 title을 키로 매칭
 
 ### 경력기술서 (/resume)
@@ -86,7 +92,8 @@ shimwoojin-portfolio/
 
 ## 보류 중인 작업
 
-- **게임잼 영상**: "정글 게임잼 3회" 카드의 `youtubeId`가 비어 있음. 영상 받으면 채우기 (카드 분리 여부도 그때 결정)
+- **게임잼 영상**: "정글 게임잼 3회" 카드의 `videos` 배열에서 Week 9('전지적 정글 시점')만 채워짐. Week 1(Rhythm Dungeon)·Week 14 영상 받으면 빈 `id` 채우기 (2개 이상이 되면 썸네일 스트립이 자동 노출됨)
+- **게임잼 저장소**: `repos`에 Week 1·Week 9만 등록됨. Week 14 저장소 URL 미확보
 - **Claude Learning Docs**: `Projects.jsx`에서 주석 처리로 임시 숨김 상태. 주석 해제로 복구 가능
 
 ## 개발 명령어

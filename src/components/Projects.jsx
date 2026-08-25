@@ -51,11 +51,14 @@ function Projects() {
       period: "2025.05 - 2025.07",
       featured: false,
       youtubeId: "",
+      image: "/shuville-keyart.jpg",  // 슈퍼빌런랩스 공식 키아트 (인벤 기사 배포본)
       details: [
         "UI 시스템 구현",
         "게임 로직 개발"
       ],
       github: "",
+      pressUrl: "https://www.inven.co.kr/webzine/news/?news=304015",
+      pressName: "인벤",
       resumeSection: "project-vir"  // 경력기술서 섹션 ID
     },
     // 크래프톤 정글 게임테크 랩
@@ -114,26 +117,35 @@ function Projects() {
     {
       id: 12,
       title: "정글 게임잼 3회",
-      description: "자체 엔진 기반으로 진행한 3번의 게임잼. 리듬 액션 'Rhythm Dungeon' 등 매회 1주 내 완성",
+      description: "자체 엔진 기반으로 진행한 3번의 게임잼. 리듬 액션 'Rhythm Dungeon', 드라이빙 어드벤처 '전지적 정글 시점' 등 매회 1주 내 완성",
       headline: "자체 엔진으로 3작품 완성",
       cardHighlights: [
         "리듬 액션 'Rhythm Dungeon'",
-        "매회 1주 내 완성",
-        "게임 제작으로 엔진 검증"
+        "드라이빙 어드벤처 '전지적 정글 시점'",
+        "매회 1주 내 완성으로 엔진 검증"
       ],
-      tech: ["자체엔진", "C++", "Lua"],
+      tech: ["자체엔진", "C++", "PhysX", "Lua"],
       type: "jungle",
       category: "GameJam",
-      period: "2026.03 / 2026.05 / 2026.08",
+      period: "2026.03 / 2026.05 / 2026.06",
       featured: false,
-      youtubeId: "",  // 게임잼 영상 추가 예정
+      videos: [
+        // TODO: Week 1 / Week 14 영상은 받는 대로 id 채우기 (id가 비어 있으면 자동으로 제외됨)
+        { id: "", label: "Week 1 · Rhythm Dungeon" },
+        { id: "LmUmmWRE4bk", label: "Week 9 · 전지적 정글 시점" },
+        { id: "", label: "Week 14 · 최종 게임잼" }
+      ],
       details: [
-        "Week 1: 리듬 액션 게임 'Rhythm Dungeon' 제작",
-        "Week 9: 자체 엔진 기반 게임 제작",
+        "Week 1: 리듬 액션 게임 'Rhythm Dungeon' - 비트 판정(Perfect/Good/Miss), JSON 기반 스테이지 4종",
+        "Week 9: 드라이빙 어드벤처 '전지적 정글 시점' - PhysX 물리, 5단계 미션, Lua 스크립팅, RmlUi",
         "Week 14: 물리·콘텐츠 통합 최종 게임잼",
         "엔진 개발과 병행하며 실제 게임 제작으로 엔진 검증"
       ],
-      github: "https://github.com/shimwoojin/JungleArchive"
+      github: "https://github.com/shimwoojin/JungleArchive",
+      repos: [
+        { name: "Rhythm Dungeon (Week 1)", url: "https://github.com/shimwoojin/Jungle_Week1_Team2" },
+        { name: "전지적 정글 시점 (Week 9)", url: "https://github.com/shimwoojin/Jungle_Week9_Team5" }
+      ]
     },
     // 개인 프로젝트
     {
@@ -271,7 +283,21 @@ function Projects() {
         description: translated.description,
         details: translated.details,
         headline: translated.headline ?? project.headline,
-        cardHighlights: translated.cardHighlights ?? project.cardHighlights
+        cardHighlights: translated.cardHighlights ?? project.cardHighlights,
+        pressName: translated.pressName ?? project.pressName,
+        // 영상 라벨 / 저장소 이름은 locale에 대응 배열이 있을 때만 인덱스 순으로 교체
+        videos: project.videos && translated.videoLabels
+          ? project.videos.map((video, index) => ({
+              ...video,
+              label: translated.videoLabels[index] ?? video.label
+            }))
+          : project.videos,
+        repos: project.repos && translated.repoNames
+          ? project.repos.map((repo, index) => ({
+              ...repo,
+              name: translated.repoNames[index] ?? repo.name
+            }))
+          : project.repos
       }
     }
     return project
@@ -319,6 +345,7 @@ function Projects() {
 
       {selectedProject && (
         <ProjectModal
+          key={selectedProject.id}
           project={selectedProject}
           onClose={() => setSelectedProject(null)}
         />

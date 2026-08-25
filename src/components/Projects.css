@@ -190,6 +190,27 @@
   transition: all 0.3s ease;
 }
 
+/* 영상 개수 뱃지 (영상이 2개 이상일 때만) */
+.video-count-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 0.75em;
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.65);
+  color: white;
+  z-index: 2;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .video-count-badge {
+  background: rgba(0, 0, 0, 0.8);
+  transform: scale(1.05);
+}
+
 .project-card:hover .featured-badge {
   transform: scale(1.1) rotate(-3deg);
   box-shadow: 0 4px 12px rgba(241, 196, 15, 0.5);
@@ -354,6 +375,45 @@
   margin-top: auto;
 }
 
+/* 푸터 하단: 왼쪽 프로젝트 보기 / 오른쪽 외부 링크 아이콘 */
+.project-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.project-external-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.project-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  color: #7f8c8d;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.project-icon-link:hover {
+  color: #3498db;
+  background: rgba(52, 152, 219, 0.1);
+  border-color: rgba(52, 152, 219, 0.4);
+  transform: translateY(-2px);
+}
+
+.project-icon-link:focus-visible {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+}
+
 .project-tech {
   display: flex;
   flex-wrap: wrap;
@@ -414,6 +474,24 @@
 }
 
 /* 다크모드 스타일 */
+.App.dark .project-icon-link {
+  color: #a0aec0;
+}
+
+.App.dark .project-icon-link:hover {
+  color: #5dade2;
+  background: rgba(93, 173, 226, 0.12);
+  border-color: rgba(93, 173, 226, 0.4);
+}
+
+.App.dark .project-icon-link:focus-visible {
+  outline-color: #5dade2;
+}
+
+.App.dark .video-count-badge {
+  background: rgba(0, 0, 0, 0.75);
+}
+
 .App.dark .project-card {
   background: #1f2940;
   box-shadow: 0 4px 6px rgba(0,0,0,0.3);

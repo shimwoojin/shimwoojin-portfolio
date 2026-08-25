@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
+import { getProjectVideos, getYoutubeThumbnail } from '../utils/projectVideos'
 import './ProjectModal.css'
 
 function ProjectModal({ project, onClose }) {
   const navigate = useNavigate()
   const { t } = useLanguage()
-
-  if (!project) return null
+  const [activeVideo, setActiveVideo] = useState(0)
 
   // ESC 키로 닫기
   React.useEffect(() => {
@@ -26,6 +26,12 @@ function ProjectModal({ project, onClose }) {
       document.body.style.overflow = prevOverflow
     }
   }, [])
+
+  // 훅은 조건부 반환보다 위에 있어야 한다
+  if (!project) return null
+
+  const videos = getProjectVideos(project)
+  const currentVideo = videos[activeVideo] || videos[0]
 
   // 경력기술서 페이지로 이동
   const handleViewResume = () => {
@@ -53,16 +59,33 @@ function ProjectModal({ project, onClose }) {
           <span className="modal-period">{project.period}</span>
         </div>
 
-        {/* YouTube 동영상 */}
-        {project.youtubeId && (
+        {/* YouTube 동영상 (여러 개면 아래 썸네일로 전환) */}
+        {currentVideo && (
           <div className="modal-video">
             <iframe
-              src={`https://www.youtube.com/embed/${project.youtubeId}`}
-              title={project.title}
+              src={`https://www.youtube.com/embed/${currentVideo.id}`}
+              title={currentVideo.label || project.title}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
+            {videos.length > 1 && (
+              <div className="video-thumbnails">
+                {videos.map((video, index) => (
+                  <button
+                    key={video.id}
+                    className={`video-thumb ${index === activeVideo ? 'active' : ''}`}
+                    onClick={() => setActiveVideo(index)}
+                    aria-pressed={index === activeVideo}
+                  >
+                    <img src={getYoutubeThumbnail(video.id)} alt="" />
+                    <span className="video-thumb-label">
+                      {video.label || `${t.projects.videoLabel} ${index + 1}`}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
         )}
 
@@ -102,6 +125,19 @@ function ProjectModal({ project, onClose }) {
             {project.github && (
               <a href={project.github} target="_blank" rel="noopener noreferrer">
                 {t.projects.viewGithub} →
+              </a>
+            )}
+            {/* 저장소가 여러 개인 프로젝트는 repos 배열을 각각 노출 */}
+            {project.repos && project.repos.map(repo => (
+              <a key={repo.url} href={repo.url} target="_blank" rel="noopener noreferrer">
+                {repo.name} →
+              </a>
+            ))}
+            {project.pressUrl && (
+              <a href={project.pressUrl} target="_blank" rel="noopener noreferrer">
+                {project.pressName
+                  ? `${t.projects.viewPress} · ${project.pressName}`
+                  : t.projects.viewPress} →
               </a>
             )}
             {project.fabUrl && (
