@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
-import { getProjectVideos, getYoutubeThumbnail } from '../utils/projectVideos'
+import { getProjectVideos, getPrimaryVideoIndex, getYoutubeThumbnail } from '../utils/projectVideos'
 import './ProjectModal.css'
 
 function ProjectModal({ project, onClose }) {
   const navigate = useNavigate()
   const { t } = useLanguage()
-  const [activeVideo, setActiveVideo] = useState(0)
+  // 초기 선택 영상을 정하려면 훅보다 먼저 계산해야 한다 (project가 없는 경우 가드)
+  const videos = project ? getProjectVideos(project) : []
+  const [activeVideo, setActiveVideo] = useState(() => getPrimaryVideoIndex(videos))
 
   // ESC 키로 닫기
   React.useEffect(() => {
@@ -30,7 +32,6 @@ function ProjectModal({ project, onClose }) {
   // 훅은 조건부 반환보다 위에 있어야 한다
   if (!project) return null
 
-  const videos = getProjectVideos(project)
   const currentVideo = videos[activeVideo] || videos[0]
 
   // 경력기술서 페이지로 이동

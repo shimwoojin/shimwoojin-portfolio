@@ -7,6 +7,13 @@ export function getProjectVideos(project) {
   return project.youtubeId ? [{ id: project.youtubeId }] : []
 }
 
+// primary로 표시된 영상의 인덱스 (없으면 첫 번째).
+// 카드 썸네일과 모달의 초기 선택 영상이 이 값을 함께 쓴다.
+export function getPrimaryVideoIndex(videos) {
+  const index = videos.findIndex(video => video.primary)
+  return index >= 0 ? index : 0
+}
+
 export function getYoutubeThumbnail(videoId) {
   return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
 }

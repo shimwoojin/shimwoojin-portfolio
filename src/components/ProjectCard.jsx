@@ -1,6 +1,6 @@
 import React from 'react'
 import { useLanguage } from '../context/LanguageContext'
-import { getProjectVideos, getYoutubeThumbnail } from '../utils/projectVideos'
+import { getProjectVideos, getPrimaryVideoIndex, getYoutubeThumbnail } from '../utils/projectVideos'
 
 // Props: 부모 컴포넌트(Projects)에서 데이터를 전달받음
 function ProjectCard({ project, onViewProject, variant }) {
@@ -38,13 +38,13 @@ function ProjectCard({ project, onViewProject, variant }) {
     ? `${t.projects.viewPress} · ${project.pressName}`
     : t.projects.viewPress
 
-  // 직접 지정한 image가 우선, 없으면 첫 영상의 YouTube 썸네일
+  // 직접 지정한 image가 우선, 없으면 대표 영상의 YouTube 썸네일
   const getProjectImage = () => {
     if (project.image) {
       return project.image
     }
     if (videos.length > 0) {
-      return getYoutubeThumbnail(videos[0].id)
+      return getYoutubeThumbnail(videos[getPrimaryVideoIndex(videos)].id)
     }
     return null
   }
