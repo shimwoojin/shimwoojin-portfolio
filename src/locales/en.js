@@ -131,23 +131,23 @@ const en = {
       },
       'KraftonEngine - DirectX11 자체 게임엔진': {
         title: 'KraftonEngine - Custom DirectX11 Game Engine',
-        description: 'Custom DirectX11 game engine built over 14 weeks at KRAFTON JUNGLE as lead architect. Full-stack implementation from a 20-pass render pipeline to a gameplay framework (1,292 personal commits)',
-        headline: '1,292 commits · lead architect',
+        description: 'Custom DirectX11 game engine built by the KRAFTON JUNGLE Game Tech Lab cohort over 14 weeks. Led the design and implementation of the animation runtime, render architecture, GameFramework, and editor tooling (1,292 of the 3,580 total commits)',
+        headline: '1,292 of 3,580 commits',
         cardHighlights: [
-          '20-pass render pipeline (shadows, light culling, PP)',
-          'UE-style object model · UUID safe pointers',
-          'AnimGraph · PhysX ragdoll · Lua scripting'
+          '20-pass render pipeline · GPU occlusion culling (Hi-Z)',
+          'AnimGraph node editor · montage · root motion',
+          'PIE · 4-way multi-viewport · shader hot reload'
         ],
         details: [
-          'UE-style object model - RTTI/codegen, UUID-based safe pointers for O(1) dangling reference detection',
-          '20-pass render pipeline - CSM/EVSM shadows, compute shader light culling, post-processing',
-          'AnimGraph runtime - State machine, montage, root motion, GPU skinning',
-          'PhysX physics/ragdoll, FBX import, Lua scripting, ImGui editor',
-          'Maintained engine design consistency as lead architect through weekly team reshuffles'
+          'AnimGraph runtime - graph assets compiled into FAnimNode trees, state machine with N-pose blending, montage/slot, root motion, notify/notify state',
+          '20-pass render pipeline - SceneProxy/DrawCommand architecture, 64-bit sort keys for state grouping, CSM/EVSM shadow atlas, compute shader light culling',
+          'GPU occlusion culling (Hi-Z) - in a 1,001-actor scene, draw calls ~2,000 → ~1,150 and frame time 2.69ms → 2.09ms',
+          'UE-style GameFramework - Actor/Pawn/PlayerController/GameMode, world lifetime managed through FWorldContext, PhysX ragdoll integration',
+          'Editor tooling - PIE (world cloned via serialization round-trip), AnimGraph node editor, notify timeline, 4-way multi-viewport, shader hot reload'
         ],
         overview: {
-          team: 'Weekly-reshuffled teams',
-          role: 'Lead architect (1,292 personal commits)',
+          team: 'Cohort-built (weekly team reshuffles)',
+          role: 'Led animation, render, GameFramework, editor tooling',
           duration: '14 weeks'
         }
       },

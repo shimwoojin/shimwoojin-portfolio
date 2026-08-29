@@ -87,30 +87,30 @@ function Projects() {
     {
       id: 10,
       title: "KraftonEngine - DirectX11 자체 게임엔진",
-      description: "크래프톤 정글에서 14주간 주 설계자로 개발한 DirectX11 자체 게임엔진. 20-Pass 렌더 파이프라인부터 게임플레이 프레임워크까지 풀스택 구현 (본인 커밋 1,292개)",
-      headline: "본인 커밋 1,292개 · 주 설계자",
+      description: "크래프톤 정글 Game Tech Lab 3기에서 14주간 기수 공동 제작한 DirectX11 자체 게임엔진. Animation 런타임·Render 아키텍처·GameFramework·에디터 툴링을 설계·구현 주도 (전체 3,580 커밋 중 본인 1,292 커밋)",
+      headline: "전체 3,580 커밋 중 본인 1,292 커밋",
       cardHighlights: [
-        "20-Pass 렌더 파이프라인 (그림자·라이트 컬링·PP)",
-        "UE 스타일 오브젝트 모델 · UUID 안전 포인터",
-        "AnimGraph · PhysX 래그돌 · Lua 스크립팅"
+        "20-Pass 렌더 파이프라인 · GPU 오클루전 컬링(Hi-Z)",
+        "AnimGraph 노드 에디터 · Montage · Root Motion",
+        "PIE · 4분할 멀티 뷰포트 · 셰이더 핫 리로드"
       ],
       tech: ["DirectX11", "C++20", "HLSL", "PhysX", "Lua"],
       type: "jungle",
       category: "DirectX11",
       period: "2026.03 - 2026.06",
       overview: {
-        team: "매주 재편성되는 팀",
-        role: "주 설계자 (본인 커밋 1,292개)",
+        team: "기수 공동 제작 (매주 팀 재편성)",
+        role: "Animation·Render·GameFramework·에디터 툴링 주도",
         duration: "14주"
       },
       featured: true,
-      youtubeId: "",
+      youtubeId: "43ZGB-exhJc",
       details: [
-        "UE 스타일 오브젝트 모델 - RTTI/코드젠, UUID 기반 안전 포인터로 댕글링 참조 O(1) 차단",
-        "20-Pass 렌더 파이프라인 - CSM/EVSM 그림자, 컴퓨트 셰이더 라이트 컬링, 포스트프로세스",
-        "AnimGraph 런타임 - State Machine, Montage, Root Motion, GPU 스키닝",
-        "PhysX 물리/래그돌, FBX 임포트, Lua 스크립팅, ImGui 에디터",
-        "매주 팀이 재편되는 환경에서 주 설계자로 엔진 설계 일관성 유지"
+        "AnimGraph 런타임 - 그래프 자산을 FAnimNode 노드 트리로 컴파일, State Machine N-pose 블렌딩, Montage/Slot, Root Motion, Notify/NotifyState",
+        "20-Pass 렌더 파이프라인 - SceneProxy/DrawCommand 아키텍처, 64bit SortKey 상태 정렬, CSM/EVSM 그림자 아틀라스, 컴퓨트 셰이더 라이트 컬링",
+        "GPU 오클루전 컬링(Hi-Z) - 액터 1,001개 씬에서 드로우콜 ~2,000 → ~1,150, 프레임 2.69ms → 2.09ms",
+        "UE 스타일 GameFramework - Actor/Pawn/PlayerController/GameMode, FWorldContext 기반 월드 수명 관리, PhysX 래그돌 통합",
+        "에디터 툴링 - PIE(직렬화 라운드트립 월드 복제), AnimGraph 노드 에디터, 노티파이 타임라인, 4분할 멀티 뷰포트, 셰이더 핫 리로드"
       ],
       github: "https://github.com/shimwoojin/JungleArchive"
     },
