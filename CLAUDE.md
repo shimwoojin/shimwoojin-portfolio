@@ -16,7 +16,7 @@
 - **빌드 도구**: Vite 5
 - **언어**: JavaScript (JSX)
 - **스타일링**: CSS3 (컴포넌트별 CSS 파일, CSS 프레임워크 없음)
-- **기타**: @vercel/analytics(방문 분석), html2pdf.js(경력기술서 PDF), react-syntax-highlighter(코드 예시)
+- **기타**: @vercel/analytics(방문 분석), react-syntax-highlighter(코드 예시). 경력기술서 PDF는 html2pdf.js를 제거하고 브라우저 네이티브 인쇄(`window.print()` + `@media print`)로 전환 — 텍스트 선택·하이퍼링크가 살아있는 PDF가 나온다
 - **배포**: Vercel (GitHub 연동, main 푸시 시 자동 배포)
 
 ## 프로젝트 구조
@@ -66,15 +66,17 @@ shimwoojin-portfolio/
   - 영상 2개 이상이면 모달에 썸네일 그리드(균등 분할), 카드 썸네일에 `▶ n` 배지. `id`가 빈 항목은 자동 제외되므로 미수령 영상은 라벨만 두면 됨
   - `primary: true`를 붙인 영상이 카드 썸네일 + 모달 초기 선택이 됨 (없으면 배열 첫 항목). 배열은 시간순 유지
 - **프로젝트 개요**: `overview: { company, team, role, duration }`. 모달 헤더 바로 아래 라벨/값 스트립으로, 값이 있는 항목만 렌더링. `company`(파란 칩)와 `team`(회색 칩)은 카드의 기간 옆에도 노출
-- **모달 링크**: `resumeSection`(경력기술서 해시 이동), `github`, `repos: [{ name, url }]`(저장소 여러 개), `pressUrl`+`pressName`(언론 보도), `fabUrl`, `docsUrl`, `deployUrl`
+- **모달 링크**: `resumeSection`(경력기술서 해시 이동), `github`, `repos: [{ name, url }]`(저장소 여러 개), `pressUrl`+`pressName`(언론 보도), `fabUrl`, `docsUrl`, `deployUrl`, `contributionsUrl`(기여도 맵 — 지정 시 카드 헤드라인 칩이 이 링크로 연결됨)
 - **카드 이미지**: `image`(`public/` 경로) > `videos[0]`/`youtubeId` YouTube 썸네일 > 카테고리 플레이스홀더 순. 외부 이미지는 핫링크하지 말고 `public/`에 받아서 쓸 것
 - **다국어**: 화면 문구는 `locales/ko.js`·`en.js`에서 관리. 프로젝트 번역은 한국어 title을 키로 매칭
 
 ### 경력기술서 (/resume)
 - 프로젝트별 배너: 번호(01/02) + 액센트 색 (ARK 파랑 `project-accent-blue`, VIR 보라 `project-accent-purple`)
 - 과제마다 성과 한 줄 칩(`task-headline`), 본문은 배경·실행(플레인) + 결과(초록 박스) 3단 구성
+- ARK 과제 순서는 방어 강도순: 패킷 녹화/재생 → 리팩토링 → 퀘스트(경계 분리 프레임) → NPC(자체 구현 기각) → 월드맵. 카드 `details`/`cardHighlights`도 같은 순서 유지
+- "핵심 기술 역량 요약"의 각 줄은 본문 과제의 앵커(`#ark-replay` 등)로 연결 — 형용사만 남은 일반론 문장은 넣지 말 것
 - 코드 예시 2개 (퀘스트 State Pattern, Component Provider) — 접기/펼치기
-- html2pdf.js 기반 PDF 다운로드
+- PDF는 `window.print()` + `@media print` (인쇄 시 다크모드는 자동으로 라이트 전환, 펼친 코드 예시만 인쇄됨)
 
 ## 콘텐츠 수정 가이드
 
@@ -92,11 +94,13 @@ shimwoojin-portfolio/
 - **transform 조상 + position:fixed**: transform이 걸린 조상이 있으면 fixed 요소의 기준이 뷰포트가 아닌 그 조상이 됨 (모달 버그 원인이었음). 스크롤 페이드인 애니메이션은 이 문제로 제거됨 — 다시 넣으려면 opacity/transform을 남기지 않는 방식으로
 - **프로젝트 데이터 중복**: `Projects.jsx`(한국어 원본)와 `ko.js`/`en.js`(번역)에 같은 내용이 있음. 수정 시 세 곳 모두 확인
 
-## 보류 중인 작업
+## 보류 중인 작업 (사용자 답변 대기)
 
-- **팀 규모 미확인**: PROJECT ARK, 슈빌의 `overview.team`이 비어 있음 (코드에 TODO)
+- **팀 규모 미확인**: PROJECT ARK, 슈빌의 `overview.team`이 비어 있음 (코드에 TODO) — 지어내지 말고 반드시 확인받아 채울 것
+- **AI 활용 워크플로 항목**: 경력기술서에서 일반론 문장이라 삭제됨. 위임 판단·검증 체계·결과 3조각의 실제 사례를 받아 재작성 예정
+- **AreaGroup 로딩 수치**: "3초 → 0.1초"의 측정 상황(어떤 맵, 어느 시점) 확인 후 한 구절 추가 예정
+- **2023 개인 프로젝트**: 학습 이력으로 묶을지(a) / 각각 "확인한 것" 한 줄을 추가할지(b) 미결
 - **우여곡절 섹션**: 프로젝트별 문제/해결 서술(`challenges`)은 미구현. 경력 2건은 경력기술서가 STAR로 담당하므로 정글·개인 프로젝트 대상
-
 - **Claude Learning Docs**: `Projects.jsx`에서 주석 처리로 임시 숨김 상태. 주석 해제로 복구 가능
 
 ## 개발 명령어
