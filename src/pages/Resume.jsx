@@ -65,6 +65,15 @@ function Resume() {
     }
   }, [location])
 
+  // 문서 제목 교체 - 브라우저 인쇄 머리글과 PDF 기본 파일명에 이 제목이 쓰인다
+  useEffect(() => {
+    const prevTitle = document.title
+    document.title = '심우진 경력기술서'
+    return () => {
+      document.title = prevTitle
+    }
+  }, [])
+
   // 인쇄(PDF 저장) 시 다크모드여도 항상 라이트 팔레트로 출력
   useEffect(() => {
     const app = document.querySelector('.App')
