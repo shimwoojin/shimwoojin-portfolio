@@ -700,18 +700,48 @@
     padding: 0;
   }
 
-  /* 프로젝트 섹션은 통으로 못 지키므로 과제(article) 단위로 페이지 분리 방지 */
-  .resume-summary,
-  .project-header,
-  .project-task,
+  /* 페이지 분리 방지는 작은 블록 단위로만 - 과제(article) 통째로 걸면
+     다음 페이지로 밀리며 큰 공백이 생긴다 */
   .star-section,
   .skill-category {
     break-inside: avoid;
   }
 
+  /* 제목 직후에서 페이지가 갈리지 않게 */
+  .project-task h3,
+  .task-headline {
+    break-after: avoid;
+  }
+
+  /* 화면용 여백을 인쇄에선 압축 */
   .resume-project {
     border: 1px solid #e0e0e0;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
+    padding: 20px;
+  }
+
+  .project-task {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+
+  .resume-header {
+    margin-bottom: 25px;
+    padding-bottom: 18px;
+  }
+
+  .resume-summary {
+    margin-bottom: 25px;
+    padding: 18px;
+  }
+
+  .project-header {
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+  }
+
+  .resume-skills-summary {
+    padding: 20px;
   }
 
   /* 어두운 배경은 인쇄에서 생략될 수 있으므로 마무리 섹션은 라이트 스타일로 전환 */
