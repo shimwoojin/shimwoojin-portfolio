@@ -124,159 +124,38 @@ function Resume() {
           <p className="project-desc">PC 기반 MMORPG 개발 프로젝트. 퀘스트, NPC, 전투, UI 등 핵심 시스템 개발 담당</p>
         </div>
 
-        {/* 1. 퀘스트 시스템 */}
+        {/* 1. 패킷 녹화/재생 */}
         <article className="project-task">
-          <h3>1. State Pattern 기반 퀘스트 시스템 설계 및 구현</h3>
-          <p className="task-headline">⭐ 상태 클래스 추가만으로 확장되는 퀘스트 구조 정착</p>
+          <h3>1. 패킷 녹화/재생 디버깅 시스템 개발</h3>
+          <p className="task-headline">⭐ 재현 불가능하던 동기화 버그를 녹화 파일로 즉시 재현</p>
 
           <div className="star-section situation">
             <h4>📌 배경 및 과제</h4>
             <ul>
-              <li>프로젝트 초기, 다양한 퀘스트 타입을 지원해야 하는데 if-else 기반 구조는 타입 추가마다 전체 수정 필요</li>
-              <li>UI·네트워크·게임 로직이 강결합되어 있어 책임 분리가 선행되어야 하는 상황</li>
+              <li>클라-서버 동기화 버그는 재현이 어려워 디버깅 비용이 큼 → 전투 개발팀에서 상황 재현 도구 요청</li>
             </ul>
           </div>
 
           <div className="star-section action">
             <h4>⚙️ 실행</h4>
             <ul>
-              <li>State Pattern으로 퀘스트 생명주기(수락 → 진행 → 완료 대기 → 완료)를 상태 클래스 단위로 분리</li>
-              <li>Factory Pattern으로 서버 패킷·DB 템플릿 기반 인스턴스 생성을 일원화</li>
-              <li>Subsystem 레이어에서 서버 패킷 처리와 UI 업데이트를 분리</li>
+              <li>서버 패킷을 타임스탬프와 함께 바이너리로 직렬화해 기록하고, 재생 전용 GameMode에서 재생 (속도 조절·일시정지·시점 이동)</li>
+              <li>맵 진입 등 특정 시점에 자동으로 녹화가 시작/종료되도록 설계 → 개발자가 켜는 것을 잊어도 항상 기록이 남음</li>
             </ul>
           </div>
 
           <div className="star-section result">
             <h4>✅ 결과</h4>
             <ul>
-              <li><strong>이후 퀘스트 타입이 추가될 때마다 상태 클래스 하나만 작성하면 되는 구조로 정착</strong></li>
-              <li>네트워크 로직과 게임플레이 로직을 독립적으로 수정할 수 있는 구조 확보</li>
-            </ul>
-          </div>
-
-          <CodeExample title="State Pattern 기반 퀘스트 시스템" language="C++">
-{`// State 베이스 클래스 - 상태 전이 인터페이스 정의
-class QuestInstanceState
-{
-    friend class UQuestInstance;
-    static TMap<EQuestState, TSharedPtr<QuestInstanceState>> QuestStateMap;
-
-public:
-    virtual void OnEnter(UQuestInstance* InQuestInst) = 0;
-    virtual void OnExit(UQuestInstance* InQuestInst) = 0;
-    virtual bool CanProcessEvent(UQuestInstance* InQuestInst,
-                                  const FQuestUpdateParam& InUpdateParam) = 0;
-    virtual void ProcessEvent(UQuestInstance* InQuestInst,
-                               const FQuestUpdateParam& InUpdateParam) = 0;
-    virtual EQuestState GetState() { return EQuestState::None; }
-};
-
-// Active 상태 - 목표 달성 시 CompletablePending으로 전이
-class QuestState_Active : public QuestInstanceState
-{
-    virtual void ProcessEvent(UQuestInstance* InQuestInst,
-                               const FQuestUpdateParam& InUpdateParam) final
-    {
-        const FActiveQuestData& ActiveQuestData = InQuestInst->GetActiveQuestData();
-        // 3개 목표 모두 달성 조건 확인
-        if (InUpdateParam.Objective1UpdateCount >= ActiveQuestData.Objective1AimCount
-            && InUpdateParam.Objective2UpdateCount >= ActiveQuestData.Objective2AimCount
-            && InUpdateParam.Objective3UpdateCount >= ActiveQuestData.Objective3AimCount)
-        {
-            InQuestInst->ChangeState(EQuestState::CompletablePending);
-        }
-    }
-};
-
-// Factory - 서버 패킷 + DB 템플릿 기반 인스턴스 생성
-class UQuestFactory : public UObject
-{
-    UQuestInstance* CreateQuestInstFromTemplate(
-        const PacketStruct::FQuestBase& InQuestBase)
-    {
-        // DB에서 퀘스트 템플릿 조회
-        TArray<const FQuestTemplate*> QuestTemplates =
-            DBHelper::Quest::GetQuestTemplate(InQuestBase.QuestTID);
-
-        // 서버 패킷 데이터로 ActiveQuestData 구성
-        FActiveQuestData ActiveQuestData;
-        ActiveQuestData.QuestTemplateID = InQuestBase.QuestTID;
-        // ... Objective 정보 설정
-
-        // 인스턴스 생성 및 초기화
-        UQuestInstance* NewQuestInst = NewObject<UQuestInstance>();
-        NewQuestInst->SetActiveQuestData(ActiveQuestData);
-        NewQuestInst->Initialize();
-        return NewQuestInst;
-    }
-};`}
-          </CodeExample>
-        </article>
-
-        {/* 2. NPC 대화 시스템 */}
-        <article className="project-task">
-          <h3>2. 플러그인 커스터마이징으로 NPC 대화 시스템 개발</h3>
-          <p className="task-headline">⭐ 기획팀이 코드 수정 없이 노드 그래프로 대화 제작</p>
-
-          <div className="star-section situation">
-            <h4>📌 배경 및 과제</h4>
-            <ul>
-              <li>CSV 테이블 기반 대화 관리의 한계(복잡한 분기 관리 불가) 피드백 → 시각적 관리 시스템 필요</li>
-              <li>짧은 개발 기간 내 안정적으로 구축해야 하는 제약</li>
-            </ul>
-          </div>
-
-          <div className="star-section action">
-            <h4>⚙️ 실행</h4>
-            <ul>
-              <li>자체 개발 대신 마켓플레이스 플러그인 3종을 비교 분석 후 요구사항에 맞는 플러그인 선정 → 개발 기간 단축을 우선한 판단</li>
-              <li>베이스 클래스 상속으로 프로젝트 UI 시스템·카메라 연출과 통합</li>
-              <li>대화 구조 재사용·다중 분기·퀘스트 연동용 커스텀 노드와 컴파일 시점 무결성 검증(순환 참조, 타입 불일치) 도구 추가 개발</li>
-            </ul>
-          </div>
-
-          <div className="star-section result">
-            <h4>✅ 결과</h4>
-            <ul>
-              <li><strong>기획팀이 코드 수정 없이 노드 그래프로 직접 대화 제작</strong></li>
-              <li>공통 대화 구조 재사용으로 에셋 중복 감소, 컴파일 시점 검증으로 런타임 에러 사전 차단</li>
+              <li><strong>녹화 파일로 버그 즉시 재현</strong> → 재현 불가능하던 동기화 오류를 반복 재생하며 디버깅</li>
+              <li>전투 개발자 피드백: '디버깅 효율이 크게 올라갔다'</li>
             </ul>
           </div>
         </article>
 
-        {/* 3. 월드맵 도구 */}
+        {/* 2. 리팩토링 */}
         <article className="project-task">
-          <h3>3. 스플라인 기반 월드맵 자동 생성 도구 개발</h3>
-          <p className="task-headline">⭐ 수작업 지도 재작업 → 버튼 클릭 한 번으로 자동화</p>
-
-          <div className="star-section situation">
-            <h4>📌 배경 및 과제</h4>
-            <ul>
-              <li>레벨 변경이 잦은 MMORPG에서 수작업 지도 제작은 수정마다 재작업 발생</li>
-              <li>레벨 디자이너가 코드 수정 없이 영역을 조정할 수 있어야 하는 요구</li>
-            </ul>
-          </div>
-
-          <div className="star-section action">
-            <h4>⚙️ 실행</h4>
-            <ul>
-              <li>스플라인으로 경계선을 배치하면 BFS로 내부를 채워 마스크 텍스처를 자동 생성하는 에디터 도구 개발</li>
-              <li>RGB 채널에 영역 ID·그라데이션·경계선 정보를 담아 머티리얼에서 해금/잠김 상태 시각화</li>
-            </ul>
-          </div>
-
-          <div className="star-section result">
-            <h4>✅ 결과</h4>
-            <ul>
-              <li><strong>레벨 수정 시 버튼 클릭 한 번으로 지도 갱신</strong> → 레벨 디자이너 독립 작업 가능</li>
-              <li>프로젝트 전 레벨에서 프로젝트 내내 사용</li>
-            </ul>
-          </div>
-        </article>
-
-        {/* 4. 리팩토링 */}
-        <article className="project-task">
-          <h3>4. 12,000줄 캐릭터 클래스 리팩토링 (컴포넌트화)</h3>
+          <h3>2. 12,000줄 캐릭터 클래스 리팩토링 (컴포넌트화)</h3>
           <p className="task-headline">⭐ 코드량 80% 감소 (12,000줄 → 2,500줄)</p>
 
           <div className="star-section situation">
@@ -361,31 +240,152 @@ void ProcessCharacter(ICharacterComponentProvider& Provider)
           </CodeExample>
         </article>
 
-        {/* 5. 패킷 녹화/재생 */}
+        {/* 3. 퀘스트 시스템 */}
         <article className="project-task">
-          <h3>5. 패킷 녹화/재생 디버깅 시스템 개발</h3>
-          <p className="task-headline">⭐ 재현 불가능하던 동기화 버그를 녹화 파일로 즉시 재현</p>
+          <h3>3. 퀘스트 시스템 설계 — UI·네트워크·게임 로직의 경계 분리</h3>
+          <p className="task-headline">⭐ 네트워크 로직과 게임플레이를 독립적으로 수정할 수 있는 구조 확보</p>
 
           <div className="star-section situation">
             <h4>📌 배경 및 과제</h4>
             <ul>
-              <li>클라-서버 동기화 버그는 재현이 어려워 디버깅 비용이 큼 → 전투 개발팀에서 상황 재현 도구 요청</li>
+              <li>프로젝트 초기, 다양한 퀘스트 타입을 지원해야 하는데 if-else 기반 구조는 타입 추가마다 전체 수정 필요</li>
+              <li>UI·네트워크·게임 로직이 강결합되어 있어 책임 분리가 선행되어야 하는 상황</li>
             </ul>
           </div>
 
           <div className="star-section action">
             <h4>⚙️ 실행</h4>
             <ul>
-              <li>서버 패킷을 타임스탬프와 함께 바이너리로 직렬화해 기록하고, 재생 전용 GameMode에서 재생 (속도 조절·일시정지·시점 이동)</li>
-              <li>맵 진입 등 특정 시점에 자동으로 녹화가 시작/종료되도록 설계 → 개발자가 신경 쓸 필요 없이 항상 기록</li>
+              <li>State Pattern으로 퀘스트 생명주기(수락 → 진행 → 완료 대기 → 완료)를 상태 클래스 단위로 분리</li>
+              <li>Factory Pattern으로 서버 패킷·DB 템플릿 기반 인스턴스 생성을 일원화</li>
+              <li>Subsystem 레이어에서 서버 패킷 처리와 UI 업데이트를 분리</li>
             </ul>
           </div>
 
           <div className="star-section result">
             <h4>✅ 결과</h4>
             <ul>
-              <li><strong>녹화 파일로 버그 즉시 재현</strong> → 재현 불가능하던 동기화 오류를 반복 재생하며 디버깅</li>
-              <li>전투 개발자 피드백: '디버깅 효율이 크게 올라갔다'</li>
+              <li><strong>UI·네트워크·게임플레이 로직을 서로 영향 없이 독립적으로 수정할 수 있는 경계 확보</strong></li>
+              <li>이후 신규 퀘스트 타입 추가는 기존 코드 수정 없이 상태 클래스 추가로 대응</li>
+            </ul>
+          </div>
+
+          <CodeExample title="State Pattern 기반 퀘스트 시스템" language="C++">
+{`// State 베이스 클래스 - 상태 전이 인터페이스 정의
+class QuestInstanceState
+{
+    friend class UQuestInstance;
+    static TMap<EQuestState, TSharedPtr<QuestInstanceState>> QuestStateMap;
+
+public:
+    virtual void OnEnter(UQuestInstance* InQuestInst) = 0;
+    virtual void OnExit(UQuestInstance* InQuestInst) = 0;
+    virtual bool CanProcessEvent(UQuestInstance* InQuestInst,
+                                  const FQuestUpdateParam& InUpdateParam) = 0;
+    virtual void ProcessEvent(UQuestInstance* InQuestInst,
+                               const FQuestUpdateParam& InUpdateParam) = 0;
+    virtual EQuestState GetState() { return EQuestState::None; }
+};
+
+// Active 상태 - 목표 달성 시 CompletablePending으로 전이
+class QuestState_Active : public QuestInstanceState
+{
+    virtual void ProcessEvent(UQuestInstance* InQuestInst,
+                               const FQuestUpdateParam& InUpdateParam) final
+    {
+        const FActiveQuestData& ActiveQuestData = InQuestInst->GetActiveQuestData();
+        // 3개 목표 모두 달성 조건 확인
+        if (InUpdateParam.Objective1UpdateCount >= ActiveQuestData.Objective1AimCount
+            && InUpdateParam.Objective2UpdateCount >= ActiveQuestData.Objective2AimCount
+            && InUpdateParam.Objective3UpdateCount >= ActiveQuestData.Objective3AimCount)
+        {
+            InQuestInst->ChangeState(EQuestState::CompletablePending);
+        }
+    }
+};
+
+// Factory - 서버 패킷 + DB 템플릿 기반 인스턴스 생성
+class UQuestFactory : public UObject
+{
+    UQuestInstance* CreateQuestInstFromTemplate(
+        const PacketStruct::FQuestBase& InQuestBase)
+    {
+        // DB에서 퀘스트 템플릿 조회
+        TArray<const FQuestTemplate*> QuestTemplates =
+            DBHelper::Quest::GetQuestTemplate(InQuestBase.QuestTID);
+
+        // 서버 패킷 데이터로 ActiveQuestData 구성
+        FActiveQuestData ActiveQuestData;
+        ActiveQuestData.QuestTemplateID = InQuestBase.QuestTID;
+        // ... Objective 정보 설정
+
+        // 인스턴스 생성 및 초기화
+        UQuestInstance* NewQuestInst = NewObject<UQuestInstance>();
+        NewQuestInst->SetActiveQuestData(ActiveQuestData);
+        NewQuestInst->Initialize();
+        return NewQuestInst;
+    }
+};`}
+          </CodeExample>
+        </article>
+
+        {/* 4. NPC 대화 시스템 */}
+        <article className="project-task">
+          <h3>4. NPC 대화 시스템 — 자체 구현을 기각하고 플러그인 확장 선택</h3>
+          <p className="task-headline">⭐ 기획팀이 코드 수정 없이 노드 그래프로 대화 제작</p>
+
+          <div className="star-section situation">
+            <h4>📌 배경 및 과제</h4>
+            <ul>
+              <li>CSV 테이블 기반 대화 관리의 한계(복잡한 분기 관리 불가) 피드백 → 시각적 관리 시스템 필요</li>
+              <li>짧은 개발 기간 내 안정적으로 구축해야 하는 제약</li>
+            </ul>
+          </div>
+
+          <div className="star-section action">
+            <h4>⚙️ 실행</h4>
+            <ul>
+              <li>자체 개발 대신 마켓플레이스 플러그인 3종을 비교 분석 후 요구사항에 맞는 플러그인 선정 → 개발 기간 단축을 우선한 판단</li>
+              <li>베이스 클래스 상속으로 프로젝트 UI 시스템·카메라 연출과 통합</li>
+              <li>대화 구조 재사용·다중 분기·퀘스트 연동용 커스텀 노드와 컴파일 시점 무결성 검증(순환 참조, 타입 불일치) 도구 추가 개발</li>
+            </ul>
+          </div>
+
+          <div className="star-section result">
+            <h4>✅ 결과</h4>
+            <ul>
+              <li><strong>기획팀이 코드 수정 없이 노드 그래프로 직접 대화 제작</strong></li>
+              <li>공통 대화 구조 재사용으로 에셋 중복 감소, 컴파일 시점 검증으로 런타임 에러 사전 차단</li>
+            </ul>
+          </div>
+        </article>
+
+        {/* 5. 월드맵 도구 */}
+        <article className="project-task">
+          <h3>5. 스플라인 기반 월드맵 자동 생성 도구 개발</h3>
+          <p className="task-headline">⭐ 수작업 지도 재작업 → 버튼 클릭 한 번으로 자동화</p>
+
+          <div className="star-section situation">
+            <h4>📌 배경 및 과제</h4>
+            <ul>
+              <li>레벨 변경이 잦은 MMORPG에서 수작업 지도 제작은 수정마다 재작업 발생</li>
+              <li>레벨 디자이너가 코드 수정 없이 영역을 조정할 수 있어야 하는 요구</li>
+            </ul>
+          </div>
+
+          <div className="star-section action">
+            <h4>⚙️ 실행</h4>
+            <ul>
+              <li>스플라인으로 경계선을 배치하면 BFS로 내부를 채워 마스크 텍스처를 자동 생성하는 에디터 도구 개발</li>
+              <li>RGB 채널에 영역 ID·그라데이션·경계선 정보를 담아 머티리얼에서 해금/잠김 상태 시각화</li>
+            </ul>
+          </div>
+
+          <div className="star-section result">
+            <h4>✅ 결과</h4>
+            <ul>
+              <li><strong>레벨 수정 시 버튼 클릭 한 번으로 지도 갱신</strong> → 레벨 디자이너 독립 작업 가능</li>
+              <li>프로젝트 전 레벨에서 프로젝트 내내 사용</li>
             </ul>
           </div>
         </article>

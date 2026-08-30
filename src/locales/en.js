@@ -87,16 +87,16 @@ const en = {
         description: 'Career summary of large-scale MMORPG development',
         headline: '13 months · quests/UI/tools',
         cardHighlights: [
-          'Designed State Pattern quest system',
+          'Built packet record/replay debug tools',
           'Refactored 12,000-line character class',
-          'Built packet record/replay debug tools'
+          'Separated quest UI/network/gameplay boundaries'
         ],
         details: [
-          'State Pattern-based quest system - extensible by adding a single state class',
-          'Componentized a 12,000-line character class - 80% less code (12,000 → 2,500 lines)',
-          'Packet record/replay debugging system - reproduced previously unreproducible sync bugs from recordings',
+          'Packet record/replay debugging system - reproduced previously unreproducible sync bugs from recordings; auto-records on map entry so nothing is missed',
+          'Componentized a 12,000-line character class - 80% less code (12,000 → 2,500 lines) via gradual migration that kept existing call sites intact',
+          'Quest system design - separated UI, network, and gameplay boundaries so each can be modified independently',
+          'NPC dialogue system - rejected building in-house and customized a plugin instead; designers author dialogue as node graphs without code changes',
           'Spline-based world map generation tool - replaced manual map rework with a single button click',
-          'Customized dialogue plugin for NPCs - designers author dialogue as node graphs without code changes',
           'Inventory/HUD/settings UI, StandAlone mode and cheat system for the dev environment, AreaGroup priority loading (3s stall → 0.1s)'
         ],
         pressName: 'Tiger Research',
