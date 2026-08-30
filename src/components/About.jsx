@@ -18,11 +18,24 @@ function About() {
           <p>{t.about.intro2}</p>
           <div className="skills">
             <h4>{t.about.skills}</h4>
-            <div className="skill-tags">
-              <span className="skill-tag">C++</span>
-              <span className="skill-tag">Unreal Engine</span>
-              <span className="skill-tag">DirectX11</span>
-              <span className="skill-tag">HLSL</span>
+            {/* 핵심(깊게 방어 가능) / 사용 경험(무엇에 썼는지 설명 가능) 구분 */}
+            <div className="skill-tier">
+              <span className="skill-tier-label">{t.about.skillsCore}</span>
+              <div className="skill-tags">
+                <span className="skill-tag">C++</span>
+                <span className="skill-tag">Unreal Engine</span>
+                <span className="skill-tag">DirectX11</span>
+                <span className="skill-tag">HLSL</span>
+              </div>
+            </div>
+            <div className="skill-tier">
+              <span className="skill-tier-label">{t.about.skillsExperienced}</span>
+              <div className="skill-tags">
+                <span className="skill-tag secondary">Unity</span>
+                <span className="skill-tag secondary">C#</span>
+                <span className="skill-tag secondary">PhysX</span>
+                <span className="skill-tag secondary">Lua</span>
+              </div>
             </div>
           </div>
           <div className="skills">
@@ -33,7 +46,6 @@ function About() {
               <span className="skill-tag tool">SVN</span>
               <span className="skill-tag tool">Visual Studio</span>
               <span className="skill-tag tool">Rider</span>
-              <span className="skill-tag tool">Claude Code</span>
             </div>
           </div>
         </div>

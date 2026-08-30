@@ -68,6 +68,26 @@
   gap: 10px;
 }
 
+/* 숙련도 구분: 핵심 / 사용 경험 */
+.skill-tier {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.skill-tier-label {
+  min-width: 64px;
+  font-size: 0.85em;
+  font-weight: 700;
+  color: #7f8c8d;
+}
+
+.skill-tag.secondary {
+  background-color: #95a5a6;
+}
+
 .skill-tag {
   background-color: #3498db;
   color: white;
@@ -105,4 +125,12 @@
 
 .App.dark .skill-tag.tool {
   background-color: #8e44ad;
+}
+
+.App.dark .skill-tier-label {
+  color: #95a5a6;
+}
+
+.App.dark .skill-tag.secondary {
+  background-color: #6c7a89;
 }

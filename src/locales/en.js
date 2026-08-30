@@ -14,6 +14,8 @@ const en = {
     intro1: "I'm a game client programmer with 1 year and 4 months of professional MMORPG and mobile game experience, plus 14 weeks at KRAFTON JUNGLE GameTech Lab where I served as lead architect of a custom DirectX11 game engine. Specializing in C++ and Unreal Engine, I design and build systems ranging from rendering pipelines to quest systems, UI, and development tools.",
     intro2: 'I care about maintainable architecture and building tools that boost team productivity. I shipped Dynamic Rope, a GPU physics plugin, on the Fab marketplace — aiming to carry projects all the way from design to release. I actively apply AI-powered development workflows in practice.',
     skills: 'Skills',
+    skillsCore: 'Core',
+    skillsExperienced: 'Experienced with',
     devTools: 'Development Tools',
     profileAlt: 'Woojin Shim Profile Photo'
   },
@@ -258,7 +260,7 @@ const en = {
     downloadPdf: 'Print / Save as PDF',
     title: 'Resume',
     subtitle: 'Woojin Shim | Game Client Programmer',
-    contactInfo: 'Email: ggoggal@gmail.com | Phone: +82-10-5794-0627'
+    contactInfo: 'Email: ggoggal@gmail.com'
   }
 }
 
