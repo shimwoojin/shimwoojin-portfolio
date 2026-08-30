@@ -14,7 +14,7 @@ function Projects() {
     {
       id: 1,
       title: "PROJECT ARK",
-      description: "대규모 MMORPG 개발에 대한 경력 요약",
+      description: "전체 17명(클라이언트 5명) 규모의 MMORPG 신규 개발. 고정 담당 도메인 없이 우선순위에 따라 투입되는 방식이라, 퀘스트·NPC 대화·UI부터 디버깅 도구·최적화까지 클라이언트 시스템 전반을 폭넓게 담당",
       headline: "13개월 · 퀘스트/UI/도구 담당",
       cardHighlights: [
         "패킷 녹화/재생 디버깅 도구 제작",
@@ -25,9 +25,9 @@ function Projects() {
       type: "career",
       category: "Unreal",
       period: "2024.04 - 2025.05",
-      // TODO: 팀 규모 확인 후 team 추가
       overview: {
         company: "슈퍼빌런랩스",
+        team: "전체 17명 · 클라이언트 5명",
         role: "클라이언트 프로그래머",
         duration: "13개월"
       },
@@ -40,7 +40,7 @@ function Projects() {
         "퀘스트 시스템 설계 - UI·네트워크·게임 로직의 경계를 분리해 독립 수정 가능한 구조 확보",
         "NPC 대화 시스템 - 자체 구현 대신 플러그인 커스터마이징을 선택, 기획팀이 코드 수정 없이 노드 그래프로 대화 제작",
         "스플라인 기반 월드맵 자동 생성 도구 - 수작업 지도 재작업을 버튼 클릭 한 번으로 자동화",
-        "인벤토리·HUD·설정 UI 전반, StandAlone 모드·치트 시스템 등 개발 환경 구축, AreaGroup 우선순위 로딩 최적화 (3초 멈춤 → 0.1초)"
+        "인벤토리·HUD·설정 UI 전반, StandAlone 모드·치트 시스템 등 개발 환경 구축, AreaGroup 우선순위 로딩 최적화 (던전→일반맵 진입 시 3초 멈춤 → 0.1초)"
       ],
       github: "",
       pressUrl: "https://reports.tiger-research.com/p/2024-supervlabs",
@@ -62,9 +62,9 @@ function Projects() {
       type: "career",
       category: "Unity",
       period: "2025.05 - 2025.07",
-      // TODO: 팀 규모 확인 후 team 추가
       overview: {
         company: "슈퍼빌런랩스",
+        team: "10명 내외 (라이브 운영)",
         role: "클라이언트 프로그래머",
         duration: "3개월"
       },
@@ -218,7 +218,8 @@ function Projects() {
         "1대1 대전 시스템",
         "AI 상대 구현"
       ],
-      github: "https://github.com/shimwoojin/PEDemo"
+      // 2023 학습기 프로젝트 - 저장소 평균 품질로 평가받지 않도록 개별 링크는 비노출 (영상으로 확인)
+      github: ""
     },
     {
       id: 6,
@@ -237,7 +238,7 @@ function Projects() {
         "인벤토리 시스템",
         "AI 구현"
       ],
-      github: "https://github.com/shimwoojin/OWDemo"
+      github: ""
     },
     {
       id: 7,
@@ -256,7 +257,7 @@ function Projects() {
         "스킬 및 몽타주 구현",
         "Behaviour Tree 기반 AI"
       ],
-      github: "https://github.com/shimwoojin/DADemo"
+      github: ""
     },
     {
       id: 8,
@@ -275,7 +276,7 @@ function Projects() {
         "2D 스프라이트 렌더링",
         "게임 핵심 기능 구현"
       ],
-      github: "https://github.com/shimwoojin/Kirby"
+      github: ""
     },
     // 임시 숨김 처리
     /*

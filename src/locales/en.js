@@ -86,7 +86,7 @@ const en = {
     items: {
       'PROJECT ARK': {
         title: 'PROJECT ARK',
-        description: 'Career summary of large-scale MMORPG development',
+        description: 'New MMORPG development on a 17-person team (5 client engineers). With no fixed domain, work was assigned by priority - covering quests, NPC dialogue, and UI through debugging tools and optimization across the client',
         headline: '13 months · quests/UI/tools',
         cardHighlights: [
           'Built packet record/replay debug tools',
@@ -99,12 +99,13 @@ const en = {
           'Quest system design - separated UI, network, and gameplay boundaries so each can be modified independently',
           'NPC dialogue system - rejected building in-house and customized a plugin instead; designers author dialogue as node graphs without code changes',
           'Spline-based world map generation tool - replaced manual map rework with a single button click',
-          'Inventory/HUD/settings UI, StandAlone mode and cheat system for the dev environment, AreaGroup priority loading (3s stall → 0.1s)'
+          'Inventory/HUD/settings UI, StandAlone mode and cheat system for the dev environment, AreaGroup priority loading (dungeon → overworld transition, 3s stall → 0.1s)'
         ],
         pressName: 'Tiger Research',
         pressLabel: 'Research Report',
         overview: {
           company: 'Super Villain Labs',
+          team: '17 people · 5 client engineers',
           role: 'Client Programmer',
           duration: '13 months'
         }
@@ -128,6 +129,7 @@ const en = {
         pressName: 'Inven',
         overview: {
           company: 'Super Villain Labs',
+          team: '~10 people (live ops)',
           role: 'Client Programmer',
           duration: '3 months'
         }

@@ -121,7 +121,11 @@ function Resume() {
               <p className="project-meta-sub">Unreal Engine 5.3~5.5 · C++ · TCP/IP · SQLite · SVN</p>
             </div>
           </div>
-          <p className="project-desc">PC 기반 MMORPG 개발 프로젝트. 퀘스트, NPC, 전투, UI 등 핵심 시스템 개발 담당</p>
+          <p className="project-desc">
+            PC 기반 MMORPG 신규 개발 (전체 17명, 클라이언트 5명). 고정 담당 도메인 없이 우선순위에 따라
+            투입되는 방식이었고, 그 결과 퀘스트·NPC 대화·UI부터 디버깅 도구·최적화까지 클라이언트 시스템
+            전반을 폭넓게 다룸
+          </p>
         </div>
 
         {/* 1. 패킷 녹화/재생 */}
@@ -433,7 +437,7 @@ class UQuestFactory : public UObject
             <h4>성능 최적화</h4>
             <ul>
               <li>로딩 시 병목 해결 (프로파일링 기반, 비동기 액터 배치)</li>
-              <li><strong>AreaGroup 우선순위 로딩 (3초 멈춤 → 0.1초로 개선)</strong></li>
+              <li><strong>AreaGroup 우선순위 로딩 — 던전→일반맵 진입 시 3초 멈춤 → 0.1초로 개선</strong></li>
             </ul>
           </div>
         </article>
@@ -450,7 +454,10 @@ class UQuestFactory : public UObject
               <p className="project-meta-sub">Unity Engine 2022.3 · C# · Git</p>
             </div>
           </div>
-          <p className="project-desc">라이브 서비스 중인 모바일 캐주얼 게임 유지보수 및 대규모 업데이트 (기존 개발팀 인원 감소로 PROJECT ARK 팀 대거 투입)</p>
+          <p className="project-desc">
+            라이브 서비스 중인 모바일 캐주얼 게임 유지보수 및 대규모 업데이트. 10명 내외 규모 — 기존 개발팀
+            인원 감소로 PROJECT ARK 팀이 대거 투입된 상황
+          </p>
         </div>
 
         {/* 1. 레드닷 시스템 */}
