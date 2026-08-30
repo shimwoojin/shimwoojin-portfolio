@@ -201,8 +201,7 @@ const ko = {
   // Resume
   resume: {
     backLink: '← 포트폴리오로 돌아가기',
-    downloadPdf: 'PDF 다운로드',
-    generatingPdf: 'PDF 생성 중...',
+    downloadPdf: '인쇄 / PDF 저장',
     title: '경력 기술서',
     subtitle: '심우진 | 게임 클라이언트 프로그래머',
     contactInfo: 'Email: ggoggal@gmail.com | Phone: 010-5794-0627'

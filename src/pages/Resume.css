@@ -662,3 +662,59 @@
 .dark .code-example pre {
   background: #0d1117;
 }
+
+/* Print (브라우저 인쇄 → PDF 저장) - 텍스트 선택·링크가 살아있는 PDF를 만든다 */
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+
+  .resume-nav,
+  .code-toggle {
+    display: none !important;
+  }
+
+  .resume-page {
+    max-width: none;
+    padding: 0;
+  }
+
+  /* 프로젝트 섹션은 통으로 못 지키므로 과제(article) 단위로 페이지 분리 방지 */
+  .resume-summary,
+  .project-header,
+  .project-task,
+  .star-section,
+  .skill-category {
+    break-inside: avoid;
+  }
+
+  .resume-project {
+    border: 1px solid #e0e0e0;
+    margin-bottom: 30px;
+  }
+
+  /* 어두운 배경은 인쇄에서 생략될 수 있으므로 마무리 섹션은 라이트 스타일로 전환 */
+  .resume-conclusion {
+    background: #fff !important;
+    border: 1px solid #ddd;
+  }
+
+  .resume-conclusion h2 {
+    color: #2c3e50 !important;
+  }
+
+  .resume-conclusion p {
+    color: #555 !important;
+  }
+
+  /* 펼쳐진 코드 예시는 어두운 배경까지 그대로 인쇄 */
+  .code-example,
+  .code-example pre,
+  .code-example-header,
+  .task-headline,
+  .star-section.result {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}

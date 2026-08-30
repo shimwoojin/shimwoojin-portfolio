@@ -254,8 +254,7 @@ const en = {
   // Resume
   resume: {
     backLink: '← Back to Portfolio',
-    downloadPdf: 'Download PDF',
-    generatingPdf: 'Generating PDF...',
+    downloadPdf: 'Print / Save as PDF',
     title: 'Resume',
     subtitle: 'Woojin Shim | Game Client Programmer',
     contactInfo: 'Email: ggoggal@gmail.com | Phone: +82-10-5794-0627'
