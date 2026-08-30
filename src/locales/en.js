@@ -113,7 +113,7 @@ const en = {
       '슈빌': {
         title: 'Shuville',
         description: 'Unity-based mobile casual game client development. UI system and game logic implementation',
-        headline: 'Unity-ready in 3 months',
+        headline: 'Unified the live red-dot system',
         cardHighlights: [
           'Red-dot bugs: ~5/week → ≤1',
           'Major content update development',

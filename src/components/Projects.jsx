@@ -52,7 +52,7 @@ function Projects() {
       id: 3,
       title: "슈빌",
       description: "Unity 기반 모바일 캐주얼 게임 클라이언트 개발. UI 시스템 및 게임 로직 구현",
-      headline: "3개월 내 Unity 실무 전환",
+      headline: "라이브 레드닷 시스템 통합 개선",
       cardHighlights: [
         "레드닷 버그 주 5건대 → 1건 이하",
         "대규모 업데이트 컨텐츠 개발",

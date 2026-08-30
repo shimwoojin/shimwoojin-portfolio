@@ -113,9 +113,9 @@ function Resume() {
       <section className="resume-summary">
         <h2>경력 요약</h2>
         <ul>
-          <li><strong>총 경력:</strong> 1년 4개월 (2024.04 ~ 2025.07)</li>
-          <li><strong>주요 기술:</strong> Unreal Engine 4/5, C++, Unity, C#, 디자인 패턴, 네트워크 프로그래밍</li>
-          <li><strong>핵심 역량:</strong> 시스템 아키텍처 설계, 레거시 코드 개선, 개발 생산성 도구 제작</li>
+          <li><strong>총 경력:</strong> 1년 4개월 (2024.04 ~ 2025.07) · 이후 크래프톤 정글 게임테크랩에서 DirectX11 자체 엔진 개발 (2026)</li>
+          <li><strong>주요 기술:</strong> Unreal Engine 4/5 · C++ (주력) | Unity · C# (라이브 운영 3개월) | TCP/IP 클라이언트 통신·패킷 직렬화</li>
+          <li><strong>핵심 역량:</strong> 개발 생산성 도구 제작 (패킷 녹화/재생·월드맵 자동화), 레거시 코드 개선 (12,000줄 점진 이관·레드닷 통합), 클라이언트 시스템 구조 설계 (퀘스트 UI·네트워크·게임 로직 경계 분리)</li>
         </ul>
       </section>
 
@@ -502,8 +502,8 @@ class UQuestFactory : public UObject
 
         {/* 2. Unity 환경 적응 */}
         <article id="vir-unity" className="project-task">
-          <h3>2. Unity 환경 적응 및 대규모 업데이트 개발</h3>
-          <p className="task-headline">⭐ 3개월 내 Unity C# 실무 투입 수준 도달, 대규모 업데이트 출시</p>
+          <h3>2. 라이브 서비스 대규모 업데이트 개발 — Unreal에서 Unity 전환</h3>
+          <p className="task-headline">⭐ 사활을 건 대규모 업데이트를 라이브 서비스에 사고 없이 출시</p>
 
           <div className="star-section situation">
             <h4>📌 배경 및 과제</h4>
@@ -524,8 +524,8 @@ class UQuestFactory : public UObject
           <div className="star-section result">
             <h4>✅ 결과</h4>
             <ul>
-              <li><strong>3개월 내 Unity C# 실무 투입 가능 수준 도달</strong>, 대규모 업데이트 성공적 출시</li>
-              <li>엔진이 바뀌어도 빠르게 적응하는 학습 능력 입증</li>
+              <li><strong>대규모 업데이트를 라이브 서비스에 사고 없이 출시</strong> (크루 상점·Playable Character 상호작용·공통 UI·던전 진입 UI)</li>
+              <li>언리얼(C++)만 다루던 상태에서 3개월 내 실무 투입 수준 도달</li>
             </ul>
           </div>
         </article>
