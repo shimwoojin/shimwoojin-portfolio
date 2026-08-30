@@ -81,7 +81,7 @@ function Projects() {
       github: "",
       pressUrl: "https://www.inven.co.kr/webzine/news/?news=304015",
       pressName: "인벤",
-      resumeSection: "project-vir"  // 경력기술서 섹션 ID
+      resumeSection: "project-shuville"  // 경력기술서 섹션 ID
     },
     // 크래프톤 정글 게임테크 랩
     {

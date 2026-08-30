@@ -71,7 +71,7 @@ shimwoojin-portfolio/
 - **다국어**: 화면 문구는 `locales/ko.js`·`en.js`에서 관리. 프로젝트 번역은 한국어 title을 키로 매칭
 
 ### 경력기술서 (/resume)
-- 프로젝트별 배너: 번호(01/02) + 액센트 색 (ARK 파랑 `project-accent-blue`, VIR 보라 `project-accent-purple`)
+- 프로젝트별 배너: 번호(01/02) + 액센트 색 (ARK 파랑 `project-accent-blue`, 슈빌 보라 `project-accent-purple`). "PROJECT VIR" 명칭은 실제 게임명 "슈빌"로 통일됨 (섹션 id도 `project-shuville`)
 - 과제마다 성과 한 줄 칩(`task-headline`), 본문은 배경·실행(플레인) + 결과(초록 박스) 3단 구성
 - ARK 과제 순서는 방어 강도순: 패킷 녹화/재생 → 리팩토링 → 퀘스트(경계 분리 프레임) → NPC(자체 구현 기각) → 월드맵. 카드 `details`/`cardHighlights`도 같은 순서 유지
 - "핵심 기술 역량 요약"의 각 줄은 본문 과제의 앵커(`#ark-replay` 등)로 연결 — 형용사만 남은 일반론 문장은 넣지 말 것

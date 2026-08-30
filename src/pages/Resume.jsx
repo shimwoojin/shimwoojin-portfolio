@@ -452,13 +452,13 @@ class UQuestFactory : public UObject
         </article>
       </section>
 
-      {/* PROJECT VIR (슈빌) */}
-      <section id="project-vir" className="resume-project project-accent-purple">
+      {/* 슈빌 */}
+      <section id="project-shuville" className="resume-project project-accent-purple">
         <div className="project-header">
           <div className="project-banner">
             <span className="project-number">02</span>
             <div className="project-banner-text">
-              <h2>PROJECT VIR <span className="project-genre">모바일 캐주얼</span></h2>
+              <h2>슈빌 <span className="project-genre">모바일 캐주얼</span></h2>
               <p className="project-meta">슈퍼빌런랩스 · 클라이언트 프로그래머 (라이브 운영 지원) · 2025.05 ~ 2025.07 (3개월)</p>
               <p className="project-meta-sub">Unity Engine 2022.3 · C# · Git</p>
             </div>
@@ -470,7 +470,7 @@ class UQuestFactory : public UObject
         </div>
 
         {/* 1. 레드닷 시스템 */}
-        <article id="vir-reddot" className="project-task">
+        <article id="shuville-reddot" className="project-task">
           <h3>1. 레드닷(알림 마커) 시스템 구조 개선</h3>
           <p className="task-headline">⭐ 인수인계 직후 레드닷 버그 주 5건대 → 1건 이하</p>
 
@@ -501,7 +501,7 @@ class UQuestFactory : public UObject
         </article>
 
         {/* 2. Unity 환경 적응 */}
-        <article id="vir-unity" className="project-task">
+        <article id="shuville-unity" className="project-task">
           <h3>2. 라이브 서비스 대규모 업데이트 개발 — Unreal에서 Unity 전환</h3>
           <p className="task-headline">⭐ 사활을 건 대규모 업데이트를 라이브 서비스에 사고 없이 출시</p>
 
@@ -548,7 +548,7 @@ class UQuestFactory : public UObject
             <h3>레거시 코드 개선 및 리팩토링</h3>
             <ul>
               <li><a href="#ark-refactor">기존 호출부를 깨지 않는 점진 이관 (12,000줄 → 2,500줄)</a></li>
-              <li><a href="#vir-reddot">두 시스템으로 혼재된 레드닷을 단일 시스템으로 통합</a></li>
+              <li><a href="#shuville-reddot">두 시스템으로 혼재된 레드닷을 단일 시스템으로 통합</a></li>
             </ul>
           </div>
 
@@ -557,7 +557,7 @@ class UQuestFactory : public UObject
             <ul>
               <li><a href="#ark-replay">패킷 녹화/재생 디버깅 시스템 — 맵 진입 시 자동 녹화</a></li>
               <li><a href="#ark-worldmap">스플라인 기반 월드맵 자동 생성 에디터 도구</a></li>
-              <li><a href="#vir-reddot">레드닷 사용 위치 역추적 에디터 도구</a></li>
+              <li><a href="#shuville-reddot">레드닷 사용 위치 역추적 에디터 도구</a></li>
               <li><a href="#ark-npc">마켓플레이스 플러그인 비교 선정·커스텀 노드 확장</a></li>
             </ul>
           </div>
@@ -573,7 +573,7 @@ class UQuestFactory : public UObject
           <div className="skill-category">
             <h3>환경 전환</h3>
             <ul>
-              <li><a href="#vir-unity">Unreal C++ → Unity C# 전환, 3개월 내 대규모 업데이트 컨텐츠 출시</a></li>
+              <li><a href="#shuville-unity">Unreal C++ → Unity C# 전환, 3개월 내 대규모 업데이트 컨텐츠 출시</a></li>
             </ul>
           </div>
         </div>
