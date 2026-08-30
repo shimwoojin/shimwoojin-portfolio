@@ -219,6 +219,7 @@
   margin-bottom: 35px;
   padding-bottom: 35px;
   border-bottom: 1px dashed #ddd;
+  scroll-margin-top: 80px;
 }
 
 .project-task:last-child {
@@ -364,6 +365,17 @@
   color: #555;
   font-size: 0.9rem;
   line-height: 1.5;
+}
+
+/* 요약의 각 줄은 본문의 구체 사례로 연결되는 앵커 링크 */
+.skill-category a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dashed #3498db;
+}
+
+.skill-category a:hover {
+  color: #3498db;
 }
 
 /* Conclusion */
@@ -563,6 +575,14 @@
 
 .dark .skill-category li {
   color: #bbb;
+}
+
+.dark .skill-category a {
+  border-color: #5dade2;
+}
+
+.dark .skill-category a:hover {
+  color: #5dade2;
 }
 
 .dark .resume-conclusion {

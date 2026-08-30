@@ -35,7 +35,7 @@ const en = {
         company: 'Super Villain Labs',
         position: 'Client Engineer',
         period: '2024.04.15 - 2025.07.31',
-        description: "Developed core UE5 MMORPG systems (quests, NPC dialogue, UI), refactored a 12,000-line character class into components, built team productivity tools including a packet record/replay system, and improved a live Unity mobile game's red-dot system (80% fewer bugs)"
+        description: "Developed core UE5 MMORPG systems (quests, NPC dialogue, UI), refactored a 12,000-line character class into components, built team productivity tools including a packet record/replay system, and improved a live Unity mobile game's red-dot system (bugs from ~5 to ≤1 per week)"
       },
       {
         type: 'education',
@@ -112,12 +112,12 @@ const en = {
         description: 'Unity-based mobile casual game client development. UI system and game logic implementation',
         headline: 'Unity-ready in 3 months',
         cardHighlights: [
-          'Improved red-dot system · 80% fewer bugs',
+          'Red-dot bugs: ~5/week → ≤1',
           'Major content update development',
           'Custom editor tooling'
         ],
         details: [
-          'Restructured the red-dot (notification marker) system - merged legacy paths into one system, 80% fewer red-dot bugs right after handover',
+          'Restructured the red-dot (notification marker) system - merged legacy paths into one system, bugs down from ~5 to ≤1 per week right after handover',
           'Built a runtime instance tracker and an editor tool that traces where each red-dot is used',
           'Major update content - crew shop, playable character interactions, tab-based shared UI, dungeon entry UI',
           'Editor extensions such as an Attribute exposing DB data as Inspector dropdowns, reducing data-entry mistakes',

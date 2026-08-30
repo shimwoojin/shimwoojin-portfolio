@@ -125,7 +125,7 @@ function Resume() {
         </div>
 
         {/* 1. 패킷 녹화/재생 */}
-        <article className="project-task">
+        <article id="ark-replay" className="project-task">
           <h3>1. 패킷 녹화/재생 디버깅 시스템 개발</h3>
           <p className="task-headline">⭐ 재현 불가능하던 동기화 버그를 녹화 파일로 즉시 재현</p>
 
@@ -154,7 +154,7 @@ function Resume() {
         </article>
 
         {/* 2. 리팩토링 */}
-        <article className="project-task">
+        <article id="ark-refactor" className="project-task">
           <h3>2. 12,000줄 캐릭터 클래스 리팩토링 (컴포넌트화)</h3>
           <p className="task-headline">⭐ 코드량 80% 감소 (12,000줄 → 2,500줄)</p>
 
@@ -241,7 +241,7 @@ void ProcessCharacter(ICharacterComponentProvider& Provider)
         </article>
 
         {/* 3. 퀘스트 시스템 */}
-        <article className="project-task">
+        <article id="ark-quest" className="project-task">
           <h3>3. 퀘스트 시스템 설계 — UI·네트워크·게임 로직의 경계 분리</h3>
           <p className="task-headline">⭐ 네트워크 로직과 게임플레이를 독립적으로 수정할 수 있는 구조 확보</p>
 
@@ -330,7 +330,7 @@ class UQuestFactory : public UObject
         </article>
 
         {/* 4. NPC 대화 시스템 */}
-        <article className="project-task">
+        <article id="ark-npc" className="project-task">
           <h3>4. NPC 대화 시스템 — 자체 구현을 기각하고 플러그인 확장 선택</h3>
           <p className="task-headline">⭐ 기획팀이 코드 수정 없이 노드 그래프로 대화 제작</p>
 
@@ -361,7 +361,7 @@ class UQuestFactory : public UObject
         </article>
 
         {/* 5. 월드맵 도구 */}
-        <article className="project-task">
+        <article id="ark-worldmap" className="project-task">
           <h3>5. 스플라인 기반 월드맵 자동 생성 도구 개발</h3>
           <p className="task-headline">⭐ 수작업 지도 재작업 → 버튼 클릭 한 번으로 자동화</p>
 
@@ -454,9 +454,9 @@ class UQuestFactory : public UObject
         </div>
 
         {/* 1. 레드닷 시스템 */}
-        <article className="project-task">
+        <article id="vir-reddot" className="project-task">
           <h3>1. 레드닷(알림 마커) 시스템 구조 개선</h3>
-          <p className="task-headline">⭐ 인수인계 직후 레드닷 버그 80% 감소</p>
+          <p className="task-headline">⭐ 인수인계 직후 레드닷 버그 주 5건대 → 1건 이하</p>
 
           <div className="star-section situation">
             <h4>📌 배경 및 과제</h4>
@@ -478,14 +478,14 @@ class UQuestFactory : public UObject
           <div className="star-section result">
             <h4>✅ 결과</h4>
             <ul>
-              <li><strong>인수인계 직후 레드닷 버그 80% 감소</strong> (5건 발생 상황 → 1건 이하)</li>
+              <li><strong>인수인계 직후 레드닷 버그 주 5건대 → 1건 이하로 감소</strong></li>
               <li>에셋 파일 폭증 문제 해소, 레드닷 사용 위치를 에디터에서 즉시 추적 가능</li>
             </ul>
           </div>
         </article>
 
         {/* 2. Unity 환경 적응 */}
-        <article className="project-task">
+        <article id="vir-unity" className="project-task">
           <h3>2. Unity 환경 적응 및 대규모 업데이트 개발</h3>
           <p className="task-headline">⭐ 3개월 내 Unity C# 실무 투입 수준 도달, 대규모 업데이트 출시</p>
 
@@ -515,7 +515,7 @@ class UQuestFactory : public UObject
         </article>
       </section>
 
-      {/* 핵심 기술 역량 요약 */}
+      {/* 핵심 기술 역량 요약 - 각 줄이 위 프로젝트의 구체 사례로 연결된다 */}
       <section className="resume-skills-summary">
         <h2>핵심 기술 역량 요약</h2>
 
@@ -523,55 +523,41 @@ class UQuestFactory : public UObject
           <div className="skill-category">
             <h3>시스템 설계 및 아키텍처</h3>
             <ul>
-              <li>State Pattern, Factory Pattern 등 디자인 패턴 실무 적용 경험</li>
-              <li>확장 가능하고 유지보수 용이한 시스템 설계 역량</li>
-              <li>느슨한 결합(Loose Coupling) 기반 모듈 간 의존성 최소화</li>
+              <li><a href="#ark-quest">퀘스트 시스템 — UI·네트워크·게임 로직 경계 분리 (State/Factory 패턴 활용)</a></li>
+              <li><a href="#ark-refactor">12,000줄 단일 클래스를 역할별 컴포넌트 6종으로 분리</a></li>
             </ul>
           </div>
 
           <div className="skill-category">
             <h3>레거시 코드 개선 및 리팩토링</h3>
             <ul>
-              <li>대규모 레거시 코드 리팩토링 경험 (12,000줄 → 2,500줄)</li>
-              <li>혼재된 시스템 통합 및 구조 개선 (Unity 레드닷 시스템)</li>
-              <li>컴포넌트 기반 설계로 유지보수성 80% 향상</li>
+              <li><a href="#ark-refactor">기존 호출부를 깨지 않는 점진 이관 (12,000줄 → 2,500줄)</a></li>
+              <li><a href="#vir-reddot">두 시스템으로 혼재된 레드닷을 단일 시스템으로 통합</a></li>
             </ul>
           </div>
 
           <div className="skill-category">
             <h3>개발 생산성 및 도구 제작</h3>
             <ul>
-              <li>에디터 확장 및 자동화 도구 개발 (Unreal Slate UI, Unity Custom Editor)</li>
-              <li>팀 생산성 향상을 위한 치트 시스템 및 디버깅 툴 개발</li>
-              <li>플러그인 커스터마이징 및 프로젝트 통합 경험</li>
+              <li><a href="#ark-replay">패킷 녹화/재생 디버깅 시스템 — 맵 진입 시 자동 녹화</a></li>
+              <li><a href="#ark-worldmap">스플라인 기반 월드맵 자동 생성 에디터 도구</a></li>
+              <li><a href="#vir-reddot">레드닷 사용 위치 역추적 에디터 도구</a></li>
+              <li><a href="#ark-npc">마켓플레이스 플러그인 비교 선정·커스텀 노드 확장</a></li>
             </ul>
           </div>
 
           <div className="skill-category">
-            <h3>네트워크 및 멀티플레이어</h3>
+            <h3>네트워크</h3>
             <ul>
-              <li>TCP/IP 기반 서버-클라이언트 통신 구조 설계</li>
-              <li>클라-서버 동기화 및 패킷 데이터 관리</li>
-              <li>바이너리 직렬화/역직렬화 경험</li>
-              <li>MMORPG 특화 네트워크 아키텍처 이해</li>
+              <li><a href="#ark-replay">서버 패킷 바이너리 직렬화/역직렬화 — 패킷 녹화/재생에 적용</a></li>
+              <li><a href="#ark-quest">서버 패킷 처리와 UI 갱신을 분리한 Subsystem 레이어 설계</a></li>
             </ul>
           </div>
 
           <div className="skill-category">
-            <h3>빠른 적응력 및 학습 능력</h3>
+            <h3>환경 전환</h3>
             <ul>
-              <li>Unreal Engine (C++) → Unity (C#) 3개월 내 전환 성공</li>
-              <li>레거시 코드베이스 빠른 파악 및 개선 능력</li>
-              <li>새로운 기술 스택 학습 및 실무 적용 경험</li>
-            </ul>
-          </div>
-
-          <div className="skill-category">
-            <h3>AI 활용 개발 워크플로</h3>
-            <ul>
-              <li>Claude Code 기반 개발·학습 문서화 자동화 (VitePress 학습 기록 사이트 운영)</li>
-              <li>AI 도구를 활용한 리팩토링·프로토타이핑·코드 리뷰 워크플로 적용</li>
-              <li>구현은 AI로 가속하고, 설계 판단·검증·트레이드오프에 집중하는 개발 방식</li>
+              <li><a href="#vir-unity">Unreal C++ → Unity C# 전환, 3개월 내 대규모 업데이트 컨텐츠 출시</a></li>
             </ul>
           </div>
         </div>
@@ -581,16 +567,16 @@ class UQuestFactory : public UObject
       <section className="resume-conclusion">
         <h2>마무리</h2>
         <p>
-          1년 4개월의 실무 경험을 통해 단순히 기능을 구현하는 것을 넘어, 팀 전체의 생산성을 고려하는 개발자로
-          성장했습니다. Unreal Engine에서 State Pattern 기반 시스템 설계, 12,000줄 코드 리팩토링, 패킷 녹화/재생
-          시스템 등을 개발했고, Unity 환경으로 전환하여 레거시 레드닷 시스템을 통합 개선하며 '왜 이렇게
-          만들어야 하는가'에 대한 고민을 지속적으로 해왔습니다.
+          1년 4개월 동안 MMORPG 신규 개발과 라이브 서비스 중인 모바일 게임 유지보수를 모두 경험했습니다.
+          Unreal Engine에서 퀘스트 시스템의 경계 분리 설계, 12,000줄 캐릭터 클래스의 점진적 컴포넌트화, 패킷
+          녹화/재생 시스템을 개발했고, Unity로 전환한 뒤에는 담당자 퇴사로 방치되어 있던 레거시 레드닷
+          시스템을 단일 시스템으로 통합했습니다.
         </p>
         <p>
-          특히 MMORPG라는 복잡한 장르 개발과 라이브 서비스 중인 모바일 게임 유지보수를 모두 경험하며 확장
-          가능한 아키텍처의 중요성과 레거시 코드 개선 능력을 체득했습니다. 동료들의 '개발 속도 빠르다', '디버깅
-          효율이 올라갔다'는 피드백을 통해 협업과 커뮤니케이션의 가치를 배웠고, 앞으로도 기술적 깊이를
-          더해가며 팀에 실질적인 도움이 되는 개발자가 되고자 합니다.
+          도구를 만들 때는 만드는 것에서 끝내지 않고 실제로 쓰이는 조건까지 설계하려 했습니다. 패킷 녹화/재생
+          시스템을 사용한 전투 개발자의 '디버깅 효율이 크게 올라갔다', 리팩토링 이후 팀원들의 '캐릭터 코드
+          이해하기 쉬워졌다'는 피드백이 그 결과였습니다. 앞으로도 기술적 깊이를 더해가며 팀에 실질적인 도움이
+          되는 개발자가 되고자 합니다.
         </p>
       </section>
 
