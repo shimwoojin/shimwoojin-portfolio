@@ -558,9 +558,25 @@
   color: #bbb;
 }
 
+/* 링크형 헤드라인 (기여도 맵 등 근거 문서로 연결) */
+.project-headline.linked {
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.project-headline.linked:hover {
+  background: rgba(52, 152, 219, 0.25);
+  text-decoration: underline;
+}
+
 .App.dark .project-headline {
   background: rgba(93, 173, 226, 0.15);
   color: #5dade2;
+}
+
+.App.dark .project-headline.linked:hover {
+  background: rgba(93, 173, 226, 0.3);
 }
 
 .App.dark .project-highlights li {

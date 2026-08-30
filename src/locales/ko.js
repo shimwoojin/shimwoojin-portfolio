@@ -69,6 +69,7 @@ const ko = {
     viewProject: '프로젝트 보기',
     viewResume: '경력기술서 상세보기',
     viewGithub: 'GitHub 저장소',
+    viewContributions: 'GitHub 기여도 맵 (담당 시스템별 대표 커밋)',
     viewDeploy: '배포 사이트',
     viewFab: 'Fab 스토어',
     viewDocs: '문서 사이트',
@@ -106,8 +107,8 @@ const ko = {
       },
       'KraftonEngine - DirectX11 자체 게임엔진': {
         title: 'KraftonEngine - DirectX11 자체 게임엔진',
-        description: '크래프톤 정글 Game Tech Lab 3기에서 14주간 기수 공동 제작한 DirectX11 자체 게임엔진. Animation 런타임·Render 아키텍처·GameFramework·에디터 툴링을 설계·구현 주도 (전체 3,580 커밋 중 본인 1,292 커밋)',
-        headline: '전체 3,580 커밋 중 본인 1,292 커밋',
+        description: '크래프톤 정글 Game Tech Lab 3기에서 14주간 기수 공동 제작한 DirectX11 자체 게임엔진. 매주 팀이 재편성되는 환경에서 Animation 런타임·Render 아키텍처·GameFramework·에디터 툴링을 설계·구현 주도',
+        headline: 'Animation · Render 서브시스템 설계·구현 주도',
         cardHighlights: [
           '20-Pass 렌더 파이프라인 · GPU 오클루전 컬링(Hi-Z)',
           'AnimGraph 노드 에디터 · Montage · Root Motion',

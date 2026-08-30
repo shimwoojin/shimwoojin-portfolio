@@ -88,7 +88,22 @@ function ProjectCard({ project, onViewProject, variant }) {
           )}
         </div>
         {project.headline && (
-          <span className="project-headline">⭐ {project.headline}</span>
+          // 기여도 맵이 있는 프로젝트는 헤드라인 자체가 근거 문서로 연결된다
+          project.contributionsUrl ? (
+            <a
+              className="project-headline linked"
+              href={project.contributionsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={t.projects.viewContributions}
+              onClick={stopCardActivation}
+              onKeyDown={stopCardActivation}
+            >
+              ⭐ {project.headline} ↗
+            </a>
+          ) : (
+            <span className="project-headline">⭐ {project.headline}</span>
+          )
         )}
         <ul className="project-highlights">
           {(project.cardHighlights || project.details || []).slice(0, 3).map((item, index) => (

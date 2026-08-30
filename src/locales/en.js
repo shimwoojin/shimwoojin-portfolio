@@ -69,6 +69,7 @@ const en = {
     viewProject: 'View Project',
     viewResume: 'View Resume Details',
     viewGithub: 'GitHub Repository',
+    viewContributions: 'Contribution map (key commits per system)',
     viewDeploy: 'Live Demo',
     viewFab: 'View on Fab',
     viewDocs: 'Documentation',
@@ -131,8 +132,8 @@ const en = {
       },
       'KraftonEngine - DirectX11 자체 게임엔진': {
         title: 'KraftonEngine - Custom DirectX11 Game Engine',
-        description: 'Custom DirectX11 game engine built by the KRAFTON JUNGLE Game Tech Lab cohort over 14 weeks. Led the design and implementation of the animation runtime, render architecture, GameFramework, and editor tooling (1,292 of the 3,580 total commits)',
-        headline: '1,292 of 3,580 commits',
+        description: 'Custom DirectX11 game engine built by the KRAFTON JUNGLE Game Tech Lab cohort over 14 weeks. In an environment where teams reshuffled weekly, led the design and implementation of the animation runtime, render architecture, GameFramework, and editor tooling',
+        headline: 'Led Animation · Render subsystem design',
         cardHighlights: [
           '20-pass render pipeline · GPU occlusion culling (Hi-Z)',
           'AnimGraph node editor · montage · root motion',

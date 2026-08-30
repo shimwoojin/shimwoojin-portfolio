@@ -157,6 +157,11 @@ function ProjectModal({ project, onClose }) {
                 {t.projects.viewGithub} →
               </a>
             )}
+            {project.contributionsUrl && (
+              <a href={project.contributionsUrl} target="_blank" rel="noopener noreferrer">
+                {t.projects.viewContributions} →
+              </a>
+            )}
             {/* 저장소가 여러 개인 프로젝트는 repos 배열을 각각 노출 */}
             {project.repos && project.repos.map(repo => (
               <a key={repo.url} href={repo.url} target="_blank" rel="noopener noreferrer">
