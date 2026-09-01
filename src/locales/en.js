@@ -4,7 +4,8 @@ const en = {
     about: 'About',
     experience: 'Experience',
     projects: 'Projects',
-    contact: 'Contact'
+    contact: 'Contact',
+    pdf: 'PDF'
   },
 
   // About
@@ -243,6 +244,18 @@ const en = {
         details: ['VitePress documentation site setup', 'GitHub Actions auto-sync', 'Project-based learning record management']
       }
     }
+  },
+
+  // Print (/print) - single document for PDF export
+  print: {
+    backLink: '← Back to Portfolio',
+    printButton: 'Print / Save as PDF',
+    hint: 'In the print dialog, choose "Save as PDF", keep the default margins, and enable "Background graphics" to keep the colors. (This notice and the buttons above are not printed.)',
+    name: 'Woojin Shim',
+    role: 'Game Client Programmer',
+    site: 'Portfolio',
+    resume: 'Resume',
+    links: 'Links'
   },
 
   // Contact

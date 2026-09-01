@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import './Header.css'
 
@@ -16,6 +17,7 @@ function Header({ isDarkMode, toggleDarkMode }) {
           <li><a href="#contact">{t.header.contact}</a></li>
         </ul>
         <div className="header-controls">
+          <Link to="/print" className="print-link">{t.header.pdf}</Link>
           <button className="lang-toggle" onClick={toggleLanguage}>
             {language === 'ko' ? 'EN' : '한'}
           </button>

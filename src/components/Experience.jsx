@@ -2,15 +2,16 @@ import React from 'react'
 import { useLanguage } from '../context/LanguageContext'
 import './Experience.css'
 
+// locales의 experience.items와 인덱스 순서가 일치해야 한다 (인쇄 페이지도 이 배열을 재사용)
+export const experienceSkills = [
+  ["DirectX11", "C++20", "HLSL", "PhysX", "Lua", "Unreal5", "Perforce"],
+  ["Unreal5", "C++", "TCP/IP", "SQLite", "SVN", "Unity", "C#", "Git"],
+  ["C++", "DirectX11", "Unreal4", "Blueprint", "Windows API"],
+  ["Network", "Database", "IoT", "C"]
+]
+
 function Experience() {
   const { t } = useLanguage()
-
-  const experienceSkills = [
-    ["DirectX11", "C++20", "HLSL", "PhysX", "Lua", "Unreal5", "Perforce"],
-    ["Unreal5", "C++", "TCP/IP", "SQLite", "SVN", "Unity", "C#", "Git"],
-    ["C++", "DirectX11", "Unreal4", "Blueprint", "Windows API"],
-    ["Network", "Database", "IoT", "C"]
-  ]
 
   return (
     <section id="experience" className="experience">

@@ -4,7 +4,8 @@ const ko = {
     about: 'About',
     experience: 'Experience',
     projects: 'Projects',
-    contact: 'Contact'
+    contact: 'Contact',
+    pdf: 'PDF'
   },
 
   // About
@@ -188,6 +189,18 @@ const ko = {
         details: ['VitePress 기반 문서 사이트 구축', 'GitHub Actions 자동 동기화', '프로젝트별 학습 기록 관리']
       }
     }
+  },
+
+  // Print (/print) - PDF 저장용 단일 문서
+  print: {
+    backLink: '← 포트폴리오로 돌아가기',
+    printButton: '인쇄 / PDF 저장',
+    hint: '인쇄 대화상자에서 대상을 "PDF로 저장", 여백을 "기본", "배경 그래픽" 옵션을 켜면 화면과 같은 색으로 저장됩니다. (이 안내문과 위 버튼은 인쇄되지 않습니다)',
+    name: '심우진',
+    role: '게임 클라이언트 프로그래머',
+    site: '포트폴리오',
+    resume: '경력기술서',
+    links: '링크'
   },
 
   // Contact

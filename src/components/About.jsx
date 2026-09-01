@@ -2,6 +2,12 @@ import React from 'react'
 import { useLanguage } from '../context/LanguageContext'
 import './About.css'
 
+// 핵심(깊게 방어 가능) / 사용 경험(무엇에 썼는지 설명 가능) / 개발 도구
+// 인쇄 페이지(/print)도 이 배열들을 그대로 재사용한다
+export const coreSkills = ['C++', 'Unreal Engine', 'DirectX11', 'HLSL']
+export const experiencedSkills = ['Unity', 'C#', 'PhysX', 'Lua']
+export const devTools = ['Perforce', 'Git', 'SVN', 'Visual Studio', 'Rider']
+
 function About() {
   const { t } = useLanguage()
 
@@ -18,34 +24,29 @@ function About() {
           <p>{t.about.intro2}</p>
           <div className="skills">
             <h4>{t.about.skills}</h4>
-            {/* 핵심(깊게 방어 가능) / 사용 경험(무엇에 썼는지 설명 가능) 구분 */}
             <div className="skill-tier">
               <span className="skill-tier-label">{t.about.skillsCore}</span>
               <div className="skill-tags">
-                <span className="skill-tag">C++</span>
-                <span className="skill-tag">Unreal Engine</span>
-                <span className="skill-tag">DirectX11</span>
-                <span className="skill-tag">HLSL</span>
+                {coreSkills.map(skill => (
+                  <span key={skill} className="skill-tag">{skill}</span>
+                ))}
               </div>
             </div>
             <div className="skill-tier">
               <span className="skill-tier-label">{t.about.skillsExperienced}</span>
               <div className="skill-tags">
-                <span className="skill-tag secondary">Unity</span>
-                <span className="skill-tag secondary">C#</span>
-                <span className="skill-tag secondary">PhysX</span>
-                <span className="skill-tag secondary">Lua</span>
+                {experiencedSkills.map(skill => (
+                  <span key={skill} className="skill-tag secondary">{skill}</span>
+                ))}
               </div>
             </div>
           </div>
           <div className="skills">
             <h4>{t.about.devTools}</h4>
             <div className="skill-tags">
-              <span className="skill-tag tool">Perforce</span>
-              <span className="skill-tag tool">Git</span>
-              <span className="skill-tag tool">SVN</span>
-              <span className="skill-tag tool">Visual Studio</span>
-              <span className="skill-tag tool">Rider</span>
+              {devTools.map(tool => (
+                <span key={tool} className="skill-tag tool">{tool}</span>
+              ))}
             </div>
           </div>
         </div>

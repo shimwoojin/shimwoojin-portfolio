@@ -36,10 +36,13 @@ shimwoojin-portfolio/
 │   │   └── Contact.jsx/css      # 이메일·GitHub·블로그
 │   ├── context/
 │   │   └── LanguageContext.jsx  # 한/영 전환 (t 객체 제공)
+│   ├── data/
+│   │   └── projects.js          # 프로젝트 원본 데이터 + 정렬/필터/번역 헬퍼 (Projects·Print 공용)
 │   ├── locales/
 │   │   ├── ko.js                # 한국어 문구 전체
 │   │   └── en.js                # 영어 문구 전체 (ko와 항상 쌍으로 수정)
 │   ├── pages/
+│   │   ├── Print.jsx/css        # 인쇄/PDF용 단일 문서 (/print)
 │   │   ├── Resume.jsx/css       # 경력기술서 (배너·성과 칩·결과 박스, PDF 다운로드)
 │   │   └── NotFound.jsx/css     # 404
 │   ├── utils/
@@ -70,6 +73,14 @@ shimwoojin-portfolio/
 - **카드 이미지**: `image`(`public/` 경로) > `videos[0]`/`youtubeId` YouTube 썸네일 > 카테고리 플레이스홀더 순. 외부 이미지는 핫링크하지 말고 `public/`에 받아서 쓸 것
 - **다국어**: 화면 문구는 `locales/ko.js`·`en.js`에서 관리. 프로젝트 번역은 한국어 title을 키로 매칭
 
+### 인쇄용 문서 (/print)
+- 포폴 전체(About·Experience·Projects·Contact)를 **모달/접기 없이 한 문서로 펼친** 인쇄 전용 페이지. 헤더 우측 `PDF` 버튼으로 진입
+- 브라우저 네이티브 인쇄(`window.print()` + `@media print`) → 텍스트 선택·검색·하이퍼링크가 살아있는 벡터 PDF. html2canvas류 래스터 변환은 쓰지 않는다
+- 모달에만 있던 `details`·`overview`·링크가 전부 본문에 인라인되고, 접혀 있던 이전 프로젝트도 포함
+- 영상은 PDF에서 재생 불가 → 썸네일 + `youtu.be/{id}` 주소로 대체. 사이트 내부 링크(`/resume#...`)는 절대 URL(`SITE_URL`)로 출력
+- 다크모드와 무관하게 항상 라이트 문서 (`.print-*` 클래스에 색을 전부 명시)
+- **페이지 분리 규칙**: `break-inside: avoid`는 작은 블록에만. 프로젝트 `article` 통째로 걸면 다음 장으로 밀리며 큰 공백이 생긴다 (경력기술서에서 겪은 것과 동일)
+
 ### 경력기술서 (/resume)
 - 프로젝트별 배너: 번호(01/02) + 액센트 색 (ARK 파랑 `project-accent-blue`, 슈빌 보라 `project-accent-purple`). "PROJECT VIR" 명칭은 실제 게임명 "슈빌"로 통일됨 (섹션 id도 `project-shuville`)
 - 과제마다 성과 한 줄 칩(`task-headline`), 본문은 배경·실행(플레인) + 결과(초록 박스) 3단 구성
@@ -82,22 +93,23 @@ shimwoojin-portfolio/
 
 | 수정 내용 | 파일 |
 |---|---|
-| 프로젝트 추가/수정 | `Projects.jsx`의 `projects` 배열 + `ko.js`/`en.js`의 `projects.items` |
+| 프로젝트 추가/수정 | `data/projects.js`의 `projects` 배열 + `ko.js`/`en.js`의 `projects.items` |
 | 소개·경력·연락처 문구 | `ko.js`, `en.js` (반드시 양쪽 동시 수정) |
 | 경력기술서 내용 | `Resume.jsx` (한국어 하드코딩) |
-| Skills/Dev Tools 태그 | `About.jsx` |
+| Skills/Dev Tools 태그 | `About.jsx`의 `coreSkills`/`experiencedSkills`/`devTools` (export — Print에서 재사용) |
 | Experience 스킬 태그 | `Experience.jsx`의 `experienceSkills` (locales items와 인덱스 순서 일치 필요) |
 
 ## 주의사항 (과거 버그에서 배운 것)
 
 - **CSS는 전역**: 컴포넌트별 파일이어도 스코프가 없다. 같은 클래스명(`.image-placeholder` 등)이 다른 컴포넌트에 누출된 적 있음 → 부모 선택자로 구체화할 것
 - **transform 조상 + position:fixed**: transform이 걸린 조상이 있으면 fixed 요소의 기준이 뷰포트가 아닌 그 조상이 됨 (모달 버그 원인이었음). 스크롤 페이드인 애니메이션은 이 문제로 제거됨 — 다시 넣으려면 opacity/transform을 남기지 않는 방식으로
-- **프로젝트 데이터 중복**: `Projects.jsx`(한국어 원본)와 `ko.js`/`en.js`(번역)에 같은 내용이 있음. 수정 시 세 곳 모두 확인
+- **프로젝트 데이터 중복**: `data/projects.js`(한국어 원본)와 `ko.js`/`en.js`(번역)에 같은 내용이 있음. 수정 시 세 곳 모두 확인
+- **화면 문구/데이터는 한 곳에서**: About의 스킬 태그, Experience의 `experienceSkills`, 프로젝트 배열은 모두 export해서 `/print`가 같은 소스를 읽는다. 하드코딩을 새로 만들면 인쇄본만 옛 내용으로 남는다
 
 ## 보류 중인 작업
 
 - **우여곡절 섹션**: 프로젝트별 문제/해결 서술(`challenges`)은 미구현. 경력 2건은 경력기술서가 STAR로 담당하므로 정글·개인 프로젝트 대상
-- **Claude Learning Docs**: `Projects.jsx`에서 주석 처리로 임시 숨김 상태 (업데이트가 오래돼 당분간 유지 결정, 2026-08). 주석 해제로 복구 가능
+- **Claude Learning Docs**: `data/projects.js`에서 주석 처리로 임시 숨김 상태 (업데이트가 오래돼 당분간 유지 결정, 2026-08). 주석 해제로 복구 가능
 
 ## 확정된 사실 (사용자 확인, 2026-08)
 

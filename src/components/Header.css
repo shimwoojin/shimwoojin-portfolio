@@ -48,6 +48,23 @@
   align-items: center;
 }
 
+/* PDF(인쇄용 문서) 링크 */
+.print-link {
+  border: 2px solid #3498db;
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: #3498db;
+  font-size: 0.9em;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.print-link:hover {
+  background-color: #3498db;
+  color: white;
+}
+
 /* 언어 토글 버튼 */
 .lang-toggle {
   background: none;
