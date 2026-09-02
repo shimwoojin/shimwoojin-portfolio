@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { Analytics } from '@vercel/analytics/react'
 import { useLanguage } from './context/LanguageContext'
 import './App.css'
 import Header from './components/Header'
+import Hero from './components/Hero'
 import About from './components/About'
 import Experience from './components/Experience'
 import Projects from './components/Projects'
@@ -18,6 +19,7 @@ function Home({ isDarkMode, toggleDarkMode }) {
     <>
       <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
       <main>
+        <Hero />
         <About />
         <Experience />
         <Projects />
@@ -31,7 +33,16 @@ function Home({ isDarkMode, toggleDarkMode }) {
 }
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false)
+  // 저장된 선택 > 시스템 설정 순으로 초기 테마 결정
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const saved = localStorage.getItem('theme')
+    if (saved) return saved === 'dark'
+    return window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false
+  })
+
+  useEffect(() => {
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light')
+  }, [isDarkMode])
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode)

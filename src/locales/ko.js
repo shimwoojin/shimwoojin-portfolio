@@ -4,7 +4,26 @@ const ko = {
     about: 'About',
     experience: 'Experience',
     projects: 'Projects',
-    contact: 'Contact'
+    contact: 'Contact',
+    resume: '경력기술서'
+  },
+
+  // Hero - 첫 화면 3초 피치
+  hero: {
+    eyebrow: 'Game Client Programmer',
+    name: '심우진',
+    role: '게임 클라이언트 프로그래머',
+    pitch: 'MMORPG 신규 개발과 모바일 라이브 서비스를 모두 거쳤습니다. 퀘스트·NPC 대화·UI 같은 핵심 시스템부터, 팀이 실제로 매일 쓰는 개발 도구까지 직접 만듭니다.',
+    highlights: [
+      { value: '12,000줄 → 2,500줄', label: '캐릭터 클래스 컴포넌트화 (Unreal 5)' },
+      { value: '재현 불가 버그를 즉시 재현', label: '패킷 녹화/재생 디버깅 시스템 제작' },
+      { value: 'Animation · Render 주도', label: 'DirectX11 자체 게임엔진 (크래프톤 정글)' },
+      { value: 'Fab 마켓플레이스 출시', label: 'UE5 GPU 물리 플러그인 Dynamic Rope' }
+    ],
+    ctaResume: '경력기술서 보기 →',
+    ctaProjects: '프로젝트 둘러보기',
+    ctaGithub: 'GitHub ↗',
+    stack: 'Unreal Engine 5 · C++ · Unity · C# · DirectX11 · HLSL'
   },
 
   // About
@@ -131,7 +150,7 @@ const ko = {
       },
       'Dynamic Rope - Fab 출시 UE5 플러그인': {
         title: 'Dynamic Rope - Fab 출시 UE5 플러그인',
-        description: 'GPU XPBD 기반 로프 시뮬레이션 & 본 래핑 플러그인. Epic Fab 마켓플레이스 출시, 평점 5.0',
+        description: 'GPU XPBD 기반 로프 시뮬레이션 & 본 래핑 플러그인. Epic Fab 마켓플레이스 출시',
         details: [
           'GPU XPBD 솔버(RDG 컴퓨트) - 시뮬레이션·충돌·튜브 메싱 전부 GPU 처리, CPU 폴백 포함',
           '스켈레탈 본 단위 래핑 - 애니메이션을 따라가는 로프, 크로스 액터 래핑 지원',

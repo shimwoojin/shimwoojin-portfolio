@@ -4,7 +4,26 @@ const en = {
     about: 'About',
     experience: 'Experience',
     projects: 'Projects',
-    contact: 'Contact'
+    contact: 'Contact',
+    resume: 'Resume'
+  },
+
+  // Hero - 첫 화면 3초 피치
+  hero: {
+    eyebrow: 'Game Client Programmer',
+    name: 'Woojin Shim',
+    role: 'Game Client Programmer',
+    pitch: 'I have shipped on both a new MMORPG and a live-service mobile title. I build core client systems — quests, NPC dialogue, UI — and the development tools my team actually uses every day.',
+    highlights: [
+      { value: '12,000 → 2,500 lines', label: 'Character class componentization (Unreal 5)' },
+      { value: 'Repro the unreproducible', label: 'Packet record/replay debugging system' },
+      { value: 'Led Animation · Render', label: 'Custom DirectX11 game engine (KRAFTON JUNGLE)' },
+      { value: 'Shipped on the Fab marketplace', label: 'Dynamic Rope, a UE5 GPU physics plugin' }
+    ],
+    ctaResume: 'View Resume →',
+    ctaProjects: 'Browse Projects',
+    ctaGithub: 'GitHub ↗',
+    stack: 'Unreal Engine 5 · C++ · Unity · C# · DirectX11 · HLSL'
   },
 
   // About
@@ -158,8 +177,8 @@ const en = {
       },
       'Dynamic Rope - Fab 출시 UE5 플러그인': {
         title: 'Dynamic Rope - UE5 Plugin on Fab',
-        description: 'GPU XPBD rope simulation & bone wrapping plugin, published on the Epic Fab marketplace with a 5.0 rating',
-        headline: 'Shipped on Fab · 5.0 rating',
+        description: 'GPU XPBD rope simulation & bone wrapping plugin, published on the Epic Fab marketplace',
+        headline: 'Shipped on the Epic Fab marketplace',
         cardHighlights: [
           'GPU XPBD solver (RDG compute)',
           'Skeletal bone wrapping · ragdoll support',

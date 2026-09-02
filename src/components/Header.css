@@ -87,3 +87,37 @@
 .App.dark .header {
   background-color: #16213e;
 }
+
+/* 경력기술서 - nav에서 유일한 CTA 성격 링크라 테두리로 구분한다 */
+.nav-links .nav-resume {
+  border: 1px solid #3498db;
+  border-radius: 6px;
+  padding: 4px 12px;
+  color: #7fc4f0;
+  font-weight: 600;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-links .nav-resume:hover {
+  background-color: #3498db;
+  color: white;
+}
+
+@media (max-width: 900px) {
+  .nav {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    justify-content: center;
+  }
+
+  .nav-links a {
+    font-size: 1em;
+  }
+}

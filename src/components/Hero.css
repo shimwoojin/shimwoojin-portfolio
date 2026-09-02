@@ -1,0 +1,192 @@
+/* 히어로 - 다른 섹션과 같은 흰 카드. 배경 대신 타이포와 파란 액센트로만 위계를 만든다 */
+section.hero {
+  padding: 48px 40px 44px;
+}
+
+.hero-inner {
+  max-width: 900px;
+}
+
+.hero-eyebrow {
+  font-size: 0.8em;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #3498db;
+  margin-bottom: 12px;
+}
+
+/* 전역 h1(크기·여백)을 덮어쓴다 */
+.hero .hero-name {
+  color: #2c3e50;
+  font-size: 2.6em;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.hero-role {
+  display: inline-block;
+  font-size: 1.05em;
+  font-weight: 700;
+  color: #2471a3;
+  background: rgba(52, 152, 219, 0.12);
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 22px;
+}
+
+.hero-pitch {
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 32px;
+  max-width: 760px;
+}
+
+/* 대표 성과 - 값(굵게) + 무엇(설명) */
+.hero-highlights {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 14px;
+  margin-bottom: 34px;
+}
+
+.hero-highlight {
+  background-color: #f7fafc;
+  border-left: 3px solid #3498db;
+  border-radius: 0 8px 8px 0;
+  padding: 14px 16px;
+}
+
+.hero-highlight-value {
+  display: block;
+  font-size: 1em;
+  font-weight: 700;
+  color: #2c3e50;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.hero-highlight-label {
+  display: block;
+  font-size: 0.88em;
+  color: #6b7c8c;
+  line-height: 1.5;
+}
+
+/* CTA */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 26px;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.hero-btn-primary {
+  background-color: #3498db;
+  color: #fff;
+  border: 1px solid #3498db;
+}
+
+.hero-btn-primary:hover {
+  background-color: #2980b9;
+  border-color: #2980b9;
+}
+
+.hero-btn-secondary {
+  background-color: transparent;
+  color: #3498db;
+  border: 1px solid #3498db;
+}
+
+.hero-btn-secondary:hover {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.hero-btn-ghost {
+  background: none;
+  color: #7a8a99;
+  border: 1px solid #dfe6ec;
+}
+
+.hero-btn-ghost:hover {
+  color: #3498db;
+  border-color: #3498db;
+}
+
+.hero-stack {
+  font-size: 0.9em;
+  color: #8a99a8;
+  letter-spacing: 0.02em;
+}
+
+/* 다크모드 - 카드 배경은 전역 .App.dark section이 처리한다 */
+.App.dark .hero .hero-name {
+  color: #eee;
+}
+
+.App.dark .hero-role {
+  color: #7fc4f0;
+  background: rgba(52, 152, 219, 0.18);
+}
+
+.App.dark .hero-pitch {
+  color: #c3ccd6;
+}
+
+.App.dark .hero-highlight {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.App.dark .hero-highlight-value {
+  color: #eee;
+}
+
+.App.dark .hero-highlight-label {
+  color: #9aa8b6;
+}
+
+.App.dark .hero-btn-ghost {
+  color: #9aa8b6;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.App.dark .hero-btn-ghost:hover {
+  color: #7fc4f0;
+  border-color: #3498db;
+}
+
+.App.dark .hero-stack {
+  color: #7c8a99;
+}
+
+@media (max-width: 768px) {
+  section.hero {
+    padding: 36px 22px 32px;
+  }
+
+  .hero .hero-name {
+    font-size: 2em;
+  }
+
+  .hero-pitch {
+    font-size: 1em;
+  }
+
+  .hero-actions .hero-btn {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+}

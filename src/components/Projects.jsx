@@ -118,8 +118,8 @@ function Projects() {
     {
       id: 11,
       title: "Dynamic Rope - Fab 출시 UE5 플러그인",
-      description: "GPU XPBD 기반 로프 시뮬레이션 & 본 래핑 플러그인. Epic Fab 마켓플레이스 출시, 평점 5.0",
-      headline: "Fab 마켓플레이스 출시 · 평점 5.0",
+      description: "GPU XPBD 기반 로프 시뮬레이션 & 본 래핑 플러그인. Epic Fab 마켓플레이스 출시",
+      headline: "Epic Fab 마켓플레이스 출시",
       cardHighlights: [
         "GPU XPBD 솔버 (RDG 컴퓨트)",
         "스켈레탈 본 래핑 · 래그돌 연동",

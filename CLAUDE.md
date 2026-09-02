@@ -27,7 +27,8 @@ shimwoojin-portfolio/
 │   └── picture_shimwoojin.jpg
 ├── src/
 │   ├── components/
-│   │   ├── Header.jsx/css       # 고정 네비게이션 (다크모드·언어 토글, 로고 클릭 시 새로고침)
+│   │   ├── Header.jsx/css       # 고정 네비게이션 (다크모드·언어 토글, 경력기술서 CTA, 로고 클릭 시 새로고침)
+│   │   ├── Hero.jsx/css         # 첫 화면 3초 피치 (직군·대표 성과 4개·경력기술서/프로젝트/GitHub CTA)
 │   │   ├── About.jsx/css        # 자기소개 + Skills/Development Tools 태그
 │   │   ├── Experience.jsx/css   # 경력/교육 타임라인 (item.type으로 실무/교육 배지 구분)
 │   │   ├── Projects.jsx/css     # 프로젝트 데이터 배열 + 시그니처/아카이브 렌더링
@@ -55,6 +56,8 @@ shimwoojin-portfolio/
 ## 주요 기능
 
 ### 메인 페이지 (/)
+- **Hero**: 최상단 3초 피치. 문구는 `locales`의 `hero` 키에서 관리 (`highlights`는 `{ value, label }` 배열). 다른 섹션과 같은 흰 카드를 그대로 쓰고 배경색 대신 타이포·파란 액센트로만 위계를 만든다 — 히어로만 다른 배경을 쓰면 톤이 깨짐
+- **경력기술서 진입**: Header nav의 `.nav-resume` + Hero CTA. 이전에는 프로젝트 모달 안에서만 도달 가능해 사실상 안 읽혔음 — 진입점을 줄이지 말 것
 - **Projects 섹션 구조** (필터 탭 없음):
   - **시그니처**: `featured: true`인 프로젝트가 가로 전폭 카드로 항상 노출 (현재 PROJECT ARK, KraftonEngine, Dynamic Rope)
   - **전체 프로젝트**: 나머지를 그리드로, 기간 시작일 기준 최신순 자동 정렬
@@ -86,6 +89,7 @@ shimwoojin-portfolio/
 | 소개·경력·연락처 문구 | `ko.js`, `en.js` (반드시 양쪽 동시 수정) |
 | 경력기술서 내용 | `Resume.jsx` (한국어 하드코딩) |
 | Skills/Dev Tools 태그 | `About.jsx` |
+| 히어로 피치·대표 성과 | `ko.js`/`en.js`의 `hero` |
 | Experience 스킬 태그 | `Experience.jsx`의 `experienceSkills` (locales items와 인덱스 순서 일치 필요) |
 
 ## 주의사항 (과거 버그에서 배운 것)
