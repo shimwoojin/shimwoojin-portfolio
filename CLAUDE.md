@@ -87,7 +87,7 @@ shimwoojin-portfolio/
 |---|---|
 | 프로젝트 추가/수정 | `Projects.jsx`의 `projects` 배열 + `ko.js`/`en.js`의 `projects.items` |
 | 소개·경력·연락처 문구 | `ko.js`, `en.js` (반드시 양쪽 동시 수정) |
-| 경력기술서 내용 | `Resume.jsx` (한국어 하드코딩) |
+- `npm run og`는 `tools/render-og.mjs`가 설치된 Chrome(없으면 Edge)을 찾아 헤드리스로 캡처한다. npm 의존성은 추가하지 않았고, 못 찾으면 스크립트의 `candidates`에 경로를 추가하면 된다
 | Skills/Dev Tools 태그 | `About.jsx` |
 | 히어로 피치·대표 성과 | `ko.js`/`en.js`의 `hero` |
 | Experience 스킬 태그 | `Experience.jsx`의 `experienceSkills` (locales items와 인덱스 순서 일치 필요) |
@@ -118,7 +118,15 @@ shimwoojin-portfolio/
 npm run dev      # 개발 서버 (기본 5173, 점유 시 5174로 밀림)
 npm run build    # 프로덕션 빌드
 npm run preview  # 빌드 미리보기
+npm run og       # tools/og-card.html → public/og-card.png (1200x630) 재생성
 ```
+
+### OG 카드 (링크 미리보기)
+
+- 원본은 `tools/og-card.html`, 결과물은 `public/og-card.png`. 문구를 고쳤으면 `npm run og`로 PNG를 다시 뽑고 **둘 다 커밋**할 것
+- `npm run og`는 `tools/render-og.mjs`가 설치된 Chrome(없으면 Edge)을 찾아 헤드리스로 캡처한다. npm 의존성은 추가하지 않았고, 못 찾으면 스크립트의 `candidates`에 경로를 추가하면 된다
+- OG 이미지는 PNG/JPG만 된다 (카카오·페북 SVG 미지원). 크기는 1200x630 고정
+- 배포 후에도 카카오·페이스북이 이전 이미지를 캐시하므로 각 디버거에서 캐시를 갱신해야 새 카드가 보인다
 
 ## 배포 워크플로우
 

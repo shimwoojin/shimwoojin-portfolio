@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--
+  링크 공유용 OG 카드 원본 (1200x630).
+  수정 후 아래 명령으로 public/og-card.png 재생성:
+    npm run og
+  색은 사이트 팔레트(#2c3e50 헤더 / #3498db 액센트)를 그대로 쓴다.
+-->
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body {
+        width: 1200px;
+        height: 630px;
+        background-color: #2c3e50;
+        color: #fff;
+        font-family: 'Malgun Gothic', 'Segoe UI', Tahoma, sans-serif;
+        display: flex;
+        overflow: hidden;
+      }
+
+      .accent { width: 18px; background-color: #3498db; flex: 0 0 18px; }
+
+      .card {
+        flex: 1;
+        padding: 66px 78px 56px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .eyebrow {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        color: #7fc4f0;
+        margin-bottom: 20px;
+      }
+
+      .name { font-size: 74px; font-weight: 700; line-height: 1.1; margin-bottom: 14px; }
+
+      .role { font-size: 29px; color: #a8bccd; margin-bottom: 32px; }
+
+      .rule { width: 96px; height: 4px; background-color: #3498db; margin-bottom: 32px; }
+
+      .results { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+
+      .results li {
+        font-size: 29px;
+        line-height: 1.35;
+        padding-left: 38px;
+        position: relative;
+        color: #e8eef4;
+      }
+
+      .results li::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: #3498db;
+      }
+
+      .footer {
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+
+      .stack { font-size: 23px; color: #8298ac; }
+      .url { font-size: 23px; font-weight: 600; color: #7fc4f0; }
+    </style>
+  </head>
+  <body>
+    <div class="accent"></div>
+    <div class="card">
+      <p class="eyebrow">GAME CLIENT PROGRAMMER</p>
+      <h1 class="name">심우진</h1>
+      <p class="role">MMORPG 신규 개발 · 모바일 라이브 서비스 실무</p>
+      <div class="rule"></div>
+      <ul class="results">
+        <li>12,000줄 캐릭터 클래스 → 2,500줄 컴포넌트화</li>
+        <li>패킷 녹화/재생 디버깅 시스템 제작</li>
+        <li>DirectX11 자체 엔진 Animation · Render 주도</li>
+      </ul>
+      <div class="footer">
+        <span class="stack">Unreal Engine 5 · C++ · Unity · C# · DirectX11</span>
+        <span class="url">shimwoojin-portfolio.vercel.app</span>
+      </div>
+    </div>
+  </body>
+</html>
