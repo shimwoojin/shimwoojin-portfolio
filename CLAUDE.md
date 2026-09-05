@@ -70,6 +70,7 @@ shimwoojin-portfolio/
   - `primary: true`를 붙인 영상이 카드 썸네일 + 모달 초기 선택이 됨 (없으면 배열 첫 항목). 배열은 시간순 유지
 - **프로젝트 개요**: `overview: { company, team, role, duration }`. 모달 헤더 바로 아래 라벨/값 스트립으로, 값이 있는 항목만 렌더링. `company`(파란 칩)와 `team`(회색 칩)은 카드의 기간 옆에도 노출
 - **모달 링크**: `resumeSection`(경력기술서 해시 이동), `github`, `repos: [{ name, url }]`(저장소 여러 개), `pressUrl`+`pressName`(언론 보도), `fabUrl`, `docsUrl`, `deployUrl`, `contributionsUrl`(기여도 맵 — 지정 시 카드 헤드라인 칩이 이 링크로 연결됨)
+- **프로젝트 딥링크**: 열린 프로젝트는 URL 쿼리 `?project=<slug>`가 단일 소스(`Projects.jsx`의 `useSearchParams`). 카드 클릭은 push, 모달 닫기는 replace라 뒤로가기로 모달만 닫힌다. **프로젝트를 추가하면 고유 `slug`를 반드시 붙일 것** — 없으면 링크도 공유 버튼도 생기지 않는다. 접힌 이전 프로젝트도 slug로 열면 목록이 자동으로 펼쳐지고, 없는 slug는 그냥 무시된다. 모달 하단 "이 프로젝트 링크 복사" 버튼이 `origin/?project=<slug>`를 클립보드에 넣는다
 - **카드 이미지**: `image`(`public/` 경로) > `videos[0]`/`youtubeId` YouTube 썸네일 > 카테고리 플레이스홀더 순. 외부 이미지는 핫링크하지 말고 `public/`에 받아서 쓸 것
 - **다국어**: 화면 문구는 `locales/ko.js`·`en.js`에서 관리. 프로젝트 번역은 한국어 title을 키로 매칭
 

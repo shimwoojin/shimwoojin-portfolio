@@ -95,6 +95,8 @@ const en = {
     viewFab: 'View on Fab',
     viewDocs: 'Documentation',
     viewPress: 'Press Coverage',
+    copyLink: 'Copy link to this project',
+    copiedLink: 'Link copied',
     techStack: 'Tech Stack',
     keyWork: 'Highlights',
     videoLabel: 'Video',

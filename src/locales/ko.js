@@ -95,6 +95,8 @@ const ko = {
     viewFab: 'Fab 스토어',
     viewDocs: '문서 사이트',
     viewPress: '언론 보도',
+    copyLink: '이 프로젝트 링크 복사',
+    copiedLink: '링크 복사됨',
     techStack: '기술 스택',
     keyWork: '주요 작업',
     videoLabel: '영상',

@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import './Projects.css'
 import ProjectCard from './ProjectCard'
@@ -7,12 +8,17 @@ import ProjectModal from './ProjectModal'
 function Projects() {
   const { t } = useLanguage()
   const [showOlder, setShowOlder] = useState(false)
-  const [selectedProject, setSelectedProject] = useState(null)
+  // 열린 프로젝트는 URL(?project=<slug>)이 단일 소스 - 프로젝트별 공유 링크가 성립한다
+  const [searchParams, setSearchParams] = useSearchParams()
+  const activeSlug = searchParams.get('project')
+  // 첫 진입부터 ?project=가 있었는지 (모달을 닫을 때 목록으로 스크롤할지 판단)
+  const enteredByDeepLink = useRef(Boolean(activeSlug))
 
   const projects = [
     // 경력 프로젝트 (슈퍼빌런랩스)
     {
       id: 1,
+      slug: "project-ark",
       title: "PROJECT ARK",
       description: "전체 17명(클라이언트 5명) 규모의 MMORPG 신규 개발. 고정 담당 도메인 없이 우선순위에 따라 투입되는 방식이라, 퀘스트·NPC 대화·UI부터 디버깅 도구·최적화까지 클라이언트 시스템 전반을 폭넓게 담당",
       headline: "13개월 · 퀘스트/UI/도구 담당",
@@ -50,6 +56,7 @@ function Projects() {
     },
     {
       id: 3,
+      slug: "shuville",
       title: "슈빌",
       description: "Unity 기반 모바일 캐주얼 게임 클라이언트 개발. UI 시스템 및 게임 로직 구현",
       headline: "라이브 레드닷 시스템 통합 개선",
@@ -86,6 +93,7 @@ function Projects() {
     // 크래프톤 정글 게임테크 랩
     {
       id: 10,
+      slug: "krafton-engine",
       title: "KraftonEngine - DirectX11 자체 게임엔진",
       description: "크래프톤 정글 Game Tech Lab 3기에서 14주간 기수 공동 제작한 DirectX11 자체 게임엔진. 매주 팀이 재편성되는 환경에서 Animation 런타임·Render 아키텍처·GameFramework·에디터 툴링을 설계·구현 주도",
       headline: "Animation · Render 서브시스템 설계·구현 주도",
@@ -117,6 +125,7 @@ function Projects() {
     },
     {
       id: 11,
+      slug: "dynamic-rope",
       title: "Dynamic Rope - Fab 출시 UE5 플러그인",
       description: "GPU XPBD 기반 로프 시뮬레이션 & 본 래핑 플러그인. Epic Fab 마켓플레이스 출시",
       headline: "Epic Fab 마켓플레이스 출시",
@@ -145,6 +154,7 @@ function Projects() {
     },
     {
       id: 12,
+      slug: "jungle-gamejam",
       title: "정글 게임잼 3회",
       description: "자체 엔진 기반으로 진행한 3번의 게임잼. 리듬 액션 'Rhythm Dungeon', 드라이빙 어드벤처 '전지적 정글 시점', 무쌍 액션 '정글무쌍'을 매회 1주 내 완성",
       headline: "자체 엔진으로 3작품 완성",
@@ -184,6 +194,7 @@ function Projects() {
     // 개인 프로젝트
     {
       id: 4,
+      slug: "gas-multiplay",
       title: "GAS를 활용한 멀티 플레이 게임",
       description: "언리얼 플러그인 GAS를 활용한 다양한 게임 모드와 Session을 지원하는 게임",
       headline: "GAS 기반 멀티플레이 · 진행 중",
@@ -203,6 +214,7 @@ function Projects() {
     },
     {
       id: 5,
+      slug: "lol-clone",
       title: "LOL 모작",
       description: "'LOL'의 Playable Character로 재해석한 1대1 대전 액션 게임",
       headline: "1대1 대전 액션 · AI 상대",
@@ -223,6 +235,7 @@ function Projects() {
     },
     {
       id: 6,
+      slug: "weapon-systems",
       title: "다양한 무기를 구현한 게임",
       description: "총기류, 검, 활, 방패, 마법 등 다양한 무기류와 인벤토리, AI를 구현한 게임",
       headline: "무기 5종 · 인벤토리 · AI",
@@ -242,6 +255,7 @@ function Projects() {
     },
     {
       id: 7,
+      slug: "defense-game",
       title: "자체 아이디어로 개발한 디펜스 게임",
       description: "3가지 역할군(공격, 건설, 파밍)을 제공하며 스킬, AI(Behaviour Tree), 다수의 몬스터를 구현한 게임",
       headline: "역할군 3종 · Behaviour Tree AI",
@@ -261,6 +275,7 @@ function Projects() {
     },
     {
       id: 8,
+      slug: "directx-kirby",
       title: "DirectX 11로 구현한 Kirby",
       description: "2D 게임 제작 방식과 그래픽 파이프라인을 학습할 수 있었던 고전 게임 Kirby 핵심 기능 구현",
       headline: "그래픽 파이프라인 직접 구현",
@@ -313,6 +328,43 @@ function Projects() {
   const recentProjects = archiveProjects.filter(p => periodStart(p) >= 202400)
   const olderProjects = archiveProjects.filter(p => periodStart(p) < 202400)
 
+  const selectedProject = projects.find(p => p.slug === activeSlug) || null
+
+  // 카드 클릭 = URL에 slug 추가(push) → 브라우저 뒤로가기로 모달이 닫힌다
+  const openProject = (project) => {
+    setSearchParams(prev => {
+      const next = new URLSearchParams(prev)
+      next.set('project', project.slug)
+      return next
+    })
+  }
+
+  // 닫기는 replace - 닫을 때마다 히스토리에 빈 항목을 쌓지 않는다
+  const closeProject = () => {
+    setSearchParams(prev => {
+      const next = new URLSearchParams(prev)
+      next.delete('project')
+      return next
+    }, { replace: true })
+
+    // 링크로 바로 들어온 경우 닫으면 페이지 최상단이라 맥락이 없다 → 목록으로 이동
+    // (모달이 걸어둔 body 스크롤 잠금이 풀린 다음 프레임에 실행)
+    if (enteredByDeepLink.current) {
+      enteredByDeepLink.current = false
+      requestAnimationFrame(() => {
+        document.getElementById('projects')?.scrollIntoView()
+      })
+    }
+  }
+
+  // 딥링크로 들어온 프로젝트가 접힌 영역에 있으면 목록을 펼쳐둔다
+  useEffect(() => {
+    if (activeSlug && olderProjects.some(p => p.slug === activeSlug)) {
+      setShowOlder(true)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeSlug])
+
   // 번역된 프로젝트 데이터 가져오기
   const getTranslatedProject = (project) => {
     const translated = t.projects.items[project.title]
@@ -356,7 +408,7 @@ function Projects() {
             key={project.id}
             variant="signature"
             project={getTranslatedProject(project)}
-            onViewProject={() => setSelectedProject(getTranslatedProject(project))}
+            onViewProject={() => openProject(project)}
           />
         ))}
       </div>
@@ -368,14 +420,14 @@ function Projects() {
           <ProjectCard
             key={project.id}
             project={getTranslatedProject(project)}
-            onViewProject={() => setSelectedProject(getTranslatedProject(project))}
+            onViewProject={() => openProject(project)}
           />
         ))}
         {showOlder && olderProjects.map(project => (
           <ProjectCard
             key={project.id}
             project={getTranslatedProject(project)}
-            onViewProject={() => setSelectedProject(getTranslatedProject(project))}
+            onViewProject={() => openProject(project)}
           />
         ))}
       </div>
@@ -388,8 +440,8 @@ function Projects() {
       {selectedProject && (
         <ProjectModal
           key={selectedProject.id}
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
+          project={getTranslatedProject(selectedProject)}
+          onClose={closeProject}
         />
       )}
     </section>
