@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import './Hero.css'
 
-// 첫 화면 3초 피치 - 직군 / 대표 성과 4개 / 경력기술서·프로젝트·GitHub 진입점
+// 첫 화면 3초 피치 - 직군 / 대표 성과 3개 / 경력기술서·프로젝트·GitHub 진입점
 function Hero() {
   const { t } = useLanguage()
 

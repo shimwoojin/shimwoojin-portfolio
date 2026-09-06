@@ -15,7 +15,6 @@ const en = {
     role: 'Game Client Programmer',
     pitch: 'I have shipped on both a new MMORPG and a live-service mobile title. I build core client systems — quests, NPC dialogue, UI — and the development tools my team actually uses every day.',
     highlights: [
-      { value: '12,000 → 2,500 lines', label: 'Character class componentization (Unreal 5)' },
       { value: 'Repro the unreproducible', label: 'Packet record/replay debugging system' },
       { value: 'Led Animation · Render', label: 'Custom DirectX11 game engine (KRAFTON JUNGLE)' },
       { value: 'Shipped on the Fab marketplace', label: 'Dynamic Rope, a UE5 GPU physics plugin' }

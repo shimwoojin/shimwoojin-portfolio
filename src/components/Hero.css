@@ -43,13 +43,19 @@ section.hero {
   max-width: 760px;
 }
 
-/* 대표 성과 - 값(굵게) + 무엇(설명) */
+/* 대표 성과 - 값(굵게) + 무엇(설명). 3개가 데스크톱에서 한 줄에 들어간다 */
 .hero-highlights {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
   margin-bottom: 34px;
+}
+
+@media (max-width: 860px) {
+  .hero-highlights {
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  }
 }
 
 .hero-highlight {

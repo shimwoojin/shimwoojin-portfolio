@@ -28,7 +28,7 @@ shimwoojin-portfolio/
 ├── src/
 │   ├── components/
 │   │   ├── Header.jsx/css       # 고정 네비게이션 (다크모드·언어 토글, 경력기술서 CTA, 로고 클릭 시 새로고침)
-│   │   ├── Hero.jsx/css         # 첫 화면 3초 피치 (직군·대표 성과 4개·경력기술서/프로젝트/GitHub CTA)
+│   │   ├── Hero.jsx/css         # 첫 화면 3초 피치 (직군·대표 성과 3개·경력기술서/프로젝트/GitHub CTA)
 │   │   ├── About.jsx/css        # 자기소개 + Skills/Development Tools 태그
 │   │   ├── Experience.jsx/css   # 경력/교육 타임라인 (item.type으로 실무/교육 배지 구분)
 │   │   ├── Projects.jsx/css     # 프로젝트 데이터 배열 + 시그니처/아카이브 렌더링

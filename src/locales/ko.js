@@ -15,7 +15,6 @@ const ko = {
     role: '게임 클라이언트 프로그래머',
     pitch: 'MMORPG 신규 개발과 모바일 라이브 서비스를 모두 거쳤습니다. 퀘스트·NPC 대화·UI 같은 핵심 시스템부터, 팀이 실제로 매일 쓰는 개발 도구까지 직접 만듭니다.',
     highlights: [
-      { value: '12,000줄 → 2,500줄', label: '캐릭터 클래스 컴포넌트화 (Unreal 5)' },
       { value: '재현 불가 버그를 즉시 재현', label: '패킷 녹화/재생 디버깅 시스템 제작' },
       { value: 'Animation · Render 주도', label: 'DirectX11 자체 게임엔진 (크래프톤 정글)' },
       { value: 'Fab 마켓플레이스 출시', label: 'UE5 GPU 물리 플러그인 Dynamic Rope' }
