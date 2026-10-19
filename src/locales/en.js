@@ -47,9 +47,9 @@ const en = {
       {
         type: 'career',
         company: 'Pearl Abyss',
-        position: 'Intern',
+        position: 'Intern, New Title Development',
         period: '2026.10.12 - Present',
-        description: ''
+        description: 'Contributing to the development of a Crimson Desert DLC'
       },
       {
         type: 'education',

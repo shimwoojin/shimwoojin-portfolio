@@ -47,9 +47,9 @@ const ko = {
       {
         type: 'career',
         company: '펄어비스',
-        position: '인턴',
+        position: '신작개발실 인턴',
         period: '2026.10.12 - 진행 중',
-        description: ''
+        description: '붉은사막 DLC 「미지의 여정」 개발 참여'
       },
       {
         type: 'education',
