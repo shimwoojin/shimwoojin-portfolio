@@ -703,7 +703,8 @@
   /* 페이지 분리 방지는 작은 블록 단위로만 - 과제(article) 통째로 걸면
      다음 페이지로 밀리며 큰 공백이 생긴다 */
   .star-section,
-  .skill-category {
+  .skill-category,
+  .other-tasks .task-category {
     break-inside: avoid;
   }
 
@@ -711,6 +712,28 @@
   .project-task h3,
   .task-headline {
     break-after: avoid;
+  }
+
+  /* 대제목 분리 기준:
+     - 두 번째 프로젝트(슈빌)와 역량 요약은 새 페이지에서 시작
+     - 첫 프로젝트는 경력 요약에 이어 자연스럽게 흐름 유지
+     - 마무리는 통째로 유지해 제목만 페이지 끝에 남는 것을 방지 */
+  .resume-project + .resume-project,
+  .resume-skills-summary {
+    break-before: page;
+  }
+
+  .project-header {
+    break-inside: avoid;
+    break-after: avoid;
+  }
+
+  .resume-skills-summary h2 {
+    break-after: avoid;
+  }
+
+  .resume-conclusion {
+    break-inside: avoid;
   }
 
   /* 화면용 여백을 인쇄에선 압축 */

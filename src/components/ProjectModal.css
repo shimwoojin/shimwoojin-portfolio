@@ -606,3 +606,47 @@
     padding: 15px 20px 20px;
   }
 }
+
+/* 프로젝트별 공유 링크 복사 - 콘텐츠 링크와 구분되도록 중립 톤 */
+.share-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #7f8c8d;
+  border: 2px dashed #d5dbdb;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.98em;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.share-link-btn:hover {
+  color: #3498db;
+  border-color: #3498db;
+  transform: translateY(-2px);
+}
+
+.share-link-btn.copied {
+  color: #27ae60;
+  border-color: #27ae60;
+  border-style: solid;
+}
+
+.App.dark .share-link-btn {
+  color: #a0aec0;
+  border-color: #2a3f5f;
+}
+
+.App.dark .share-link-btn:hover {
+  color: #5dade2;
+  border-color: #5dade2;
+}
+
+.App.dark .share-link-btn.copied {
+  color: #58d68d;
+  border-color: #58d68d;
+}

@@ -10,6 +10,7 @@ function ProjectModal({ project, onClose }) {
   // 초기 선택 영상을 정하려면 훅보다 먼저 계산해야 한다 (project가 없는 경우 가드)
   const videos = project ? getProjectVideos(project) : []
   const [activeVideo, setActiveVideo] = useState(() => getPrimaryVideoIndex(videos))
+  const [copied, setCopied] = useState(false)
 
   // ESC 키로 닫기
   React.useEffect(() => {
@@ -28,6 +29,13 @@ function ProjectModal({ project, onClose }) {
       document.body.style.overflow = prevOverflow
     }
   }, [])
+
+  // 복사 완료 표시는 잠깐만 유지
+  React.useEffect(() => {
+    if (!copied) return
+    const timer = setTimeout(() => setCopied(false), 2000)
+    return () => clearTimeout(timer)
+  }, [copied])
 
   // 훅은 조건부 반환보다 위에 있어야 한다
   if (!project) return null
@@ -54,6 +62,30 @@ function ProjectModal({ project, onClose }) {
       onClose()
       navigate(`/resume#${project.resumeSection}`)
     }
+  }
+
+  // 이 프로젝트만 바로 열리는 공유 링크 (Projects의 ?project=<slug> 딥링크와 같은 형식)
+  const shareUrl = project.slug
+    ? `${window.location.origin}/?project=${project.slug}`
+    : null
+
+  const handleCopyLink = async () => {
+    if (!shareUrl) return
+    try {
+      await navigator.clipboard.writeText(shareUrl)
+    } catch {
+      // 클립보드 API를 못 쓰는 환경(비 HTTPS·구형 브라우저) 폴백
+      const helper = document.createElement('textarea')
+      helper.value = shareUrl
+      helper.setAttribute('readonly', '')
+      helper.style.position = 'absolute'
+      helper.style.left = '-9999px'
+      document.body.appendChild(helper)
+      helper.select()
+      document.execCommand('copy')
+      document.body.removeChild(helper)
+    }
+    setCopied(true)
   }
 
   // 배경 클릭 시 닫기
@@ -187,6 +219,24 @@ function ProjectModal({ project, onClose }) {
               <a href={project.deployUrl} target="_blank" rel="noopener noreferrer">
                 {t.projects.viewDeploy} →
               </a>
+            )}
+            {shareUrl && (
+              <button
+                className={`share-link-btn ${copied ? 'copied' : ''}`}
+                onClick={handleCopyLink}
+                title={shareUrl}
+              >
+                <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false">
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    d="M6.8 9.2a2.6 2.6 0 0 0 3.9.3l2-2a2.6 2.6 0 0 0-3.7-3.7l-1.1 1.1M9.2 6.8a2.6 2.6 0 0 0-3.9-.3l-2 2a2.6 2.6 0 0 0 3.7 3.7l1.1-1.1"
+                  />
+                </svg>
+                {copied ? t.projects.copiedLink : t.projects.copyLink}
+              </button>
             )}
           </div>
         </div>

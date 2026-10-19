@@ -5,6 +5,7 @@ export const projects = [
   // 경력 프로젝트 (슈퍼빌런랩스)
   {
     id: 1,
+    slug: "project-ark",
     title: "PROJECT ARK",
     description: "전체 17명(클라이언트 5명) 규모의 MMORPG 신규 개발. 고정 담당 도메인 없이 우선순위에 따라 투입되는 방식이라, 퀘스트·NPC 대화·UI부터 디버깅 도구·최적화까지 클라이언트 시스템 전반을 폭넓게 담당",
     headline: "13개월 · 퀘스트/UI/도구 담당",
@@ -42,6 +43,7 @@ export const projects = [
   },
   {
     id: 3,
+    slug: "shuville",
     title: "슈빌",
     description: "Unity 기반 모바일 캐주얼 게임 클라이언트 개발. UI 시스템 및 게임 로직 구현",
     headline: "라이브 레드닷 시스템 통합 개선",
@@ -78,6 +80,7 @@ export const projects = [
   // 크래프톤 정글 게임테크 랩
   {
     id: 10,
+    slug: "krafton-engine",
     title: "KraftonEngine - DirectX11 자체 게임엔진",
     description: "크래프톤 정글 Game Tech Lab 3기에서 14주간 기수 공동 제작한 DirectX11 자체 게임엔진. 매주 팀이 재편성되는 환경에서 Animation 런타임·Render 아키텍처·GameFramework·에디터 툴링을 설계·구현 주도",
     headline: "Animation · Render 서브시스템 설계·구현 주도",
@@ -109,9 +112,10 @@ export const projects = [
   },
   {
     id: 11,
+    slug: "dynamic-rope",
     title: "Dynamic Rope - Fab 출시 UE5 플러그인",
-    description: "GPU XPBD 기반 로프 시뮬레이션 & 본 래핑 플러그인. Epic Fab 마켓플레이스 출시, 평점 5.0",
-    headline: "Fab 마켓플레이스 출시 · 평점 5.0",
+    description: "GPU XPBD 기반 로프 시뮬레이션 & 본 래핑 플러그인. Epic Fab 마켓플레이스 출시",
+    headline: "Epic Fab 마켓플레이스 출시",
     cardHighlights: [
       "GPU XPBD 솔버 (RDG 컴퓨트)",
       "스켈레탈 본 래핑 · 래그돌 연동",
@@ -137,6 +141,7 @@ export const projects = [
   },
   {
     id: 12,
+    slug: "jungle-gamejam",
     title: "정글 게임잼 3회",
     description: "자체 엔진 기반으로 진행한 3번의 게임잼. 리듬 액션 'Rhythm Dungeon', 드라이빙 어드벤처 '전지적 정글 시점', 무쌍 액션 '정글무쌍'을 매회 1주 내 완성",
     headline: "자체 엔진으로 3작품 완성",
@@ -176,6 +181,7 @@ export const projects = [
   // 개인 프로젝트
   {
     id: 4,
+    slug: "gas-multiplay",
     title: "GAS를 활용한 멀티 플레이 게임",
     description: "언리얼 플러그인 GAS를 활용한 다양한 게임 모드와 Session을 지원하는 게임",
     headline: "GAS 기반 멀티플레이 · 진행 중",
@@ -195,6 +201,7 @@ export const projects = [
   },
   {
     id: 5,
+    slug: "lol-clone",
     title: "LOL 모작",
     description: "'LOL'의 Playable Character로 재해석한 1대1 대전 액션 게임",
     headline: "1대1 대전 액션 · AI 상대",
@@ -215,6 +222,7 @@ export const projects = [
   },
   {
     id: 6,
+    slug: "weapon-systems",
     title: "다양한 무기를 구현한 게임",
     description: "총기류, 검, 활, 방패, 마법 등 다양한 무기류와 인벤토리, AI를 구현한 게임",
     headline: "무기 5종 · 인벤토리 · AI",
@@ -234,6 +242,7 @@ export const projects = [
   },
   {
     id: 7,
+    slug: "defense-game",
     title: "자체 아이디어로 개발한 디펜스 게임",
     description: "3가지 역할군(공격, 건설, 파밍)을 제공하며 스킬, AI(Behaviour Tree), 다수의 몬스터를 구현한 게임",
     headline: "역할군 3종 · Behaviour Tree AI",
@@ -253,6 +262,7 @@ export const projects = [
   },
   {
     id: 8,
+    slug: "directx-kirby",
     title: "DirectX 11로 구현한 Kirby",
     description: "2D 게임 제작 방식과 그래픽 파이프라인을 학습할 수 있었던 고전 게임 Kirby 핵심 기능 구현",
     headline: "그래픽 파이프라인 직접 구현",

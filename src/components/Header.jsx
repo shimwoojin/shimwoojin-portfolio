@@ -15,6 +15,7 @@ function Header({ isDarkMode, toggleDarkMode }) {
           <li><a href="#experience">{t.header.experience}</a></li>
           <li><a href="#projects">{t.header.projects}</a></li>
           <li><a href="#contact">{t.header.contact}</a></li>
+          <li><Link to="/resume" className="nav-resume">{t.header.resume}</Link></li>
         </ul>
         <div className="header-controls">
           <Link to="/print" className="print-link">{t.header.pdf}</Link>

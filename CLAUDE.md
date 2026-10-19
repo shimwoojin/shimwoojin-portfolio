@@ -27,7 +27,8 @@ shimwoojin-portfolio/
 │   └── picture_shimwoojin.jpg
 ├── src/
 │   ├── components/
-│   │   ├── Header.jsx/css       # 고정 네비게이션 (다크모드·언어 토글, 로고 클릭 시 새로고침)
+│   │   ├── Header.jsx/css       # 고정 네비게이션 (다크모드·언어 토글, 경력기술서 CTA, 로고 클릭 시 새로고침)
+│   │   ├── Hero.jsx/css         # 첫 화면 3초 피치 (직군·대표 성과 3개·경력기술서/프로젝트/GitHub CTA)
 │   │   ├── About.jsx/css        # 자기소개 + Skills/Development Tools 태그
 │   │   ├── Experience.jsx/css   # 경력/교육 타임라인 (item.type으로 실무/교육 배지 구분)
 │   │   ├── Projects.jsx/css     # 프로젝트 데이터 배열 + 시그니처/아카이브 렌더링
@@ -58,6 +59,8 @@ shimwoojin-portfolio/
 ## 주요 기능
 
 ### 메인 페이지 (/)
+- **Hero**: 최상단 3초 피치. 문구는 `locales`의 `hero` 키에서 관리 (`highlights`는 `{ value, label }` 배열). 다른 섹션과 같은 흰 카드를 그대로 쓰고 배경색 대신 타이포·파란 액센트로만 위계를 만든다 — 히어로만 다른 배경을 쓰면 톤이 깨짐
+- **경력기술서 진입**: Header nav의 `.nav-resume` + Hero CTA. 이전에는 프로젝트 모달 안에서만 도달 가능해 사실상 안 읽혔음 — 진입점을 줄이지 말 것
 - **Projects 섹션 구조** (필터 탭 없음):
   - **시그니처**: `featured: true`인 프로젝트가 가로 전폭 카드로 항상 노출 (현재 PROJECT ARK, KraftonEngine, Dynamic Rope)
   - **전체 프로젝트**: 나머지를 그리드로, 기간 시작일 기준 최신순 자동 정렬
@@ -70,6 +73,7 @@ shimwoojin-portfolio/
   - `primary: true`를 붙인 영상이 카드 썸네일 + 모달 초기 선택이 됨 (없으면 배열 첫 항목). 배열은 시간순 유지
 - **프로젝트 개요**: `overview: { company, team, role, duration }`. 모달 헤더 바로 아래 라벨/값 스트립으로, 값이 있는 항목만 렌더링. `company`(파란 칩)와 `team`(회색 칩)은 카드의 기간 옆에도 노출
 - **모달 링크**: `resumeSection`(경력기술서 해시 이동), `github`, `repos: [{ name, url }]`(저장소 여러 개), `pressUrl`+`pressName`(언론 보도), `fabUrl`, `docsUrl`, `deployUrl`, `contributionsUrl`(기여도 맵 — 지정 시 카드 헤드라인 칩이 이 링크로 연결됨)
+- **프로젝트 딥링크**: 열린 프로젝트는 URL 쿼리 `?project=<slug>`가 단일 소스(`Projects.jsx`의 `useSearchParams`). 카드 클릭은 push, 모달 닫기는 replace라 뒤로가기로 모달만 닫힌다. **프로젝트를 추가하면 고유 `slug`를 반드시 붙일 것** — 없으면 링크도 공유 버튼도 생기지 않는다. 접힌 이전 프로젝트도 slug로 열면 목록이 자동으로 펼쳐지고, 없는 slug는 그냥 무시된다. 모달 하단 "이 프로젝트 링크 복사" 버튼이 `origin/?project=<slug>`를 클립보드에 넣는다
 - **카드 이미지**: `image`(`public/` 경로) > `videos[0]`/`youtubeId` YouTube 썸네일 > 카테고리 플레이스홀더 순. 외부 이미지는 핫링크하지 말고 `public/`에 받아서 쓸 것
 - **다국어**: 화면 문구는 `locales/ko.js`·`en.js`에서 관리. 프로젝트 번역은 한국어 title을 키로 매칭
 
@@ -97,6 +101,7 @@ shimwoojin-portfolio/
 | 소개·경력·연락처 문구 | `ko.js`, `en.js` (반드시 양쪽 동시 수정) |
 | 경력기술서 내용 | `Resume.jsx` (한국어 하드코딩) |
 | Skills/Dev Tools 태그 | `About.jsx`의 `coreSkills`/`experiencedSkills`/`devTools` (export — Print에서 재사용) |
+| 히어로 피치·대표 성과 | `ko.js`/`en.js`의 `hero` |
 | Experience 스킬 태그 | `Experience.jsx`의 `experienceSkills` (locales items와 인덱스 순서 일치 필요) |
 
 ## 주의사항 (과거 버그에서 배운 것)
@@ -126,7 +131,15 @@ shimwoojin-portfolio/
 npm run dev      # 개발 서버 (기본 5173, 점유 시 5174로 밀림)
 npm run build    # 프로덕션 빌드
 npm run preview  # 빌드 미리보기
+npm run og       # tools/og-card.html → public/og-card.png (1200x630) 재생성
 ```
+
+### OG 카드 (링크 미리보기)
+
+- 원본은 `tools/og-card.html`, 결과물은 `public/og-card.png`. 문구를 고쳤으면 `npm run og`로 PNG를 다시 뽑고 **둘 다 커밋**할 것
+- `npm run og`는 `tools/render-og.mjs`가 설치된 Chrome(없으면 Edge)을 찾아 헤드리스로 캡처한다. npm 의존성은 추가하지 않았고, 못 찾으면 스크립트의 `candidates`에 경로를 추가하면 된다
+- OG 이미지는 PNG/JPG만 된다 (카카오·페북 SVG 미지원). 크기는 1200x630 고정
+- 배포 후에도 카카오·페이스북이 이전 이미지를 캐시하므로 각 디버거에서 캐시를 갱신해야 새 카드가 보인다
 
 ## 배포 워크플로우
 
