@@ -135,7 +135,7 @@ export const projects = [
       "캡슐/SDF 이중 충돌 백엔드 + SDF 베이킹 에디터 툴 제공",
       "stat 대시보드, Sleep/LOD/컬링 최적화, 전체 C++ 소스 포함 (UE 5.5~5.8)"
     ],
-    github: "",
+    github: "https://github.com/TeamKeno/DynamicRope",
     fabUrl: "https://www.fab.com/listings/17f62a8f-387b-48b0-9198-af7273dc3733",
     docsUrl: "https://teamkeno.github.io/DynamicRopeDocs/"
   },
