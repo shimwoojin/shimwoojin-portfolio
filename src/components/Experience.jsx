@@ -4,6 +4,7 @@ import './Experience.css'
 
 // locales의 experience.items와 인덱스 순서가 일치해야 한다 (인쇄 페이지도 이 배열을 재사용)
 export const experienceSkills = [
+  [],
   ["DirectX11", "C++20", "HLSL", "PhysX", "Lua", "Unreal5", "Perforce"],
   ["Unreal5", "C++", "TCP/IP", "SQLite", "SVN", "Unity", "C#", "Git"],
   ["C++", "DirectX11", "Unreal4", "Blueprint", "Windows API"],
@@ -31,12 +32,14 @@ function Experience() {
                   <span className="period">{exp.period}</span>
                 </div>
                 <p className="position">{exp.position}</p>
-                <p className="description">{exp.description}</p>
-                <div className="exp-skills">
-                  {experienceSkills[index].map((skill, skillIndex) => (
-                    <span key={skillIndex} className="exp-skill-tag">{skill}</span>
-                  ))}
-                </div>
+                {exp.description && <p className="description">{exp.description}</p>}
+                {experienceSkills[index].length > 0 && (
+                  <div className="exp-skills">
+                    {experienceSkills[index].map((skill, skillIndex) => (
+                      <span key={skillIndex} className="exp-skill-tag">{skill}</span>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           )

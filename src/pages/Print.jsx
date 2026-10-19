@@ -231,12 +231,14 @@ function Print() {
               <span className="print-exp-period">{exp.period}</span>
             </div>
             <p className="print-exp-position">{exp.position}</p>
-            <p className="print-exp-description">{exp.description}</p>
-            <div className="print-tags">
-              {experienceSkills[index].map(skill => (
-                <span key={skill} className="print-tag">{skill}</span>
-              ))}
-            </div>
+            {exp.description && <p className="print-exp-description">{exp.description}</p>}
+            {experienceSkills[index].length > 0 && (
+              <div className="print-tags">
+                {experienceSkills[index].map(skill => (
+                  <span key={skill} className="print-tag">{skill}</span>
+                ))}
+              </div>
+            )}
           </div>
         ))}
       </section>

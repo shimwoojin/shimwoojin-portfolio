@@ -45,6 +45,13 @@ const en = {
     workBadge: 'Work Experience',
     items: [
       {
+        type: 'career',
+        company: 'Pearl Abyss',
+        position: 'Intern',
+        period: '2026.10.12 - Present',
+        description: ''
+      },
+      {
         type: 'education',
         company: 'KRAFTON JUNGLE GameTech Lab',
         position: 'Trainee',

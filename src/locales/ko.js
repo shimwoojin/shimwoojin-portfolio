@@ -45,6 +45,13 @@ const ko = {
     workBadge: '실무 경력',
     items: [
       {
+        type: 'career',
+        company: '펄어비스',
+        position: '인턴',
+        period: '2026.10.12 - 진행 중',
+        description: ''
+      },
+      {
         type: 'education',
         company: '크래프톤 정글 게임테크랩',
         position: '교육생',
