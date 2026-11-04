@@ -247,6 +247,7 @@ const en = {
           'Cloudflare Workers economy server - moved the economy server-side to prevent forged currency behind market-tradable items',
           'Store page and trailer, resolved 4 review rejections and shipped at $1.99 (Korean/English)'
         ],
+        videoLabels: ['Steam Trailer'],
         overview: { team: 'Team of 2', role: 'Everything except multiplayer (82% of commits)', duration: '7 weeks' }
       },
       'GAS를 활용한 멀티 플레이 게임': {

@@ -200,6 +200,10 @@ export const projects = [
       duration: "7주"
     },
     featured: false,
+    // 자체 호스팅 트레일러 (Steam 스토어와 같은 30초 영상, H.264). YouTube 미업로드
+    videos: [
+      { src: "/punchmonkey-trailer.mp4", poster: "/punchmonkey-trailer-poster.jpg", label: "Steam 트레일러" }
+    ],
     image: "/punchmonkey-capsule.jpg",  // Steam 라이브러리 히어로 아트 크롭 (자체 제작). 로고 없는 판이라 STEAM 배지와 안 겹친다
     details: [
       "Godot 4 + C#, AI 코딩 에이전트 중심 개발 - 기술 검증마다 Go/No-Go 기준을 먼저 세우고 CPU·메모리를 실측해 판정",

@@ -71,6 +71,7 @@ shimwoojin-portfolio/
 - **프로젝트 영상**: 단일 `youtubeId` 또는 다중 `videos: [{ id, label }]`. `utils/projectVideos.js`가 둘 다 같은 배열로 정규화하므로 기존 프로젝트는 수정 불필요
   - 영상 2개 이상이면 모달에 썸네일 그리드(균등 분할), 카드 썸네일에 `▶ n` 배지. `id`가 빈 항목은 자동 제외되므로 미수령 영상은 라벨만 두면 됨
   - `primary: true`를 붙인 영상이 카드 썸네일 + 모달 초기 선택이 됨 (없으면 배열 첫 항목). 배열은 시간순 유지
+  - **자체 호스팅 영상**: `videos: [{ src, poster, label }]` (`src`는 `public/` mp4, H.264 필수). 모달에서 `<video preload="none">`로 재생 — 누르기 전엔 안 받는다. 인쇄본은 `youtu.be` 대신 `?project=<slug>` 딥링크. `image`가 썸네일을 가리면 카드에 `▶` 배지 (현재 PunchMonkey 트레일러)
 - **프로젝트 개요**: `overview: { company, team, role, duration }`. 모달 헤더 바로 아래 라벨/값 스트립으로, 값이 있는 항목만 렌더링. `company`(파란 칩)와 `team`(회색 칩)은 카드의 기간 옆에도 노출
 - **모달 링크**: `resumeSection`(경력기술서 해시 이동), `github`, `steamUrl`(Steam 스토어), `repos: [{ name, url }]`(저장소 여러 개), `pressUrl`+`pressName`(언론 보도), `fabUrl`, `docsUrl`, `deployUrl`, `contributionsUrl`(기여도 맵 — 지정 시 카드 헤드라인 칩이 이 링크로 연결됨)
 - **프로젝트 딥링크**: 열린 프로젝트는 URL 쿼리 `?project=<slug>`가 단일 소스(`Projects.jsx`의 `useSearchParams`). 카드 클릭은 push, 모달 닫기는 replace라 뒤로가기로 모달만 닫힌다. **프로젝트를 추가하면 고유 `slug`를 반드시 붙일 것** — 없으면 링크도 공유 버튼도 생기지 않는다. 접힌 이전 프로젝트도 slug로 열면 목록이 자동으로 펼쳐지고, 없는 slug는 그냥 무시된다. 모달 하단 "이 프로젝트 링크 복사" 버튼이 `origin/?project=<slug>`를 클립보드에 넣는다

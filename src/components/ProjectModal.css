@@ -151,15 +151,19 @@
   padding: 20px 30px;
 }
 
-.modal-video iframe {
+.modal-video iframe,
+.modal-video video {
+  display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
+  background: #000;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   transition: all 0.4s ease;
 }
 
-.modal-video iframe:hover {
+.modal-video iframe:hover,
+.modal-video video:hover {
   transform: scale(1.02);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
@@ -548,7 +552,8 @@
   box-shadow: 0 10px 25px rgba(93, 173, 226, 0.4);
 }
 
-.App.dark .modal-video iframe {
+.App.dark .modal-video iframe,
+.App.dark .modal-video video {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
@@ -574,7 +579,8 @@
   outline-color: #5dade2;
 }
 
-.App.dark .modal-video iframe:hover {
+.App.dark .modal-video iframe:hover,
+.App.dark .modal-video video:hover {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(93, 173, 226, 0.2);
 }
 

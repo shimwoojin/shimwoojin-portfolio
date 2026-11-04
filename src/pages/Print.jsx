@@ -4,7 +4,7 @@ import { useLanguage } from '../context/LanguageContext'
 import { coreSkills, experiencedSkills, devTools } from '../components/About'
 import { experienceSkills } from '../components/Experience'
 import { signatureProjects, archiveProjects, translateProject } from '../data/projects'
-import { getProjectVideos, getYoutubeThumbnail } from '../utils/projectVideos'
+import { getProjectVideos, getVideoThumbnail, getVideoKey } from '../utils/projectVideos'
 import './Print.css'
 
 // PDF는 사이트 밖에서 열리므로 내부 링크도 절대 경로로 적는다
@@ -112,17 +112,24 @@ function PrintProject({ project, t }) {
               <img src={project.image} alt={project.title} />
             </figure>
           )}
-          {videos.map((video, index) => (
-            <figure className="print-media-item" key={video.id}>
-              <img src={getYoutubeThumbnail(video.id)} alt="" />
-              <figcaption>
-                <span className="print-media-label">
-                  {video.label || `${t.projects.videoLabel} ${index + 1}`}
-                </span>
-                <a href={`https://youtu.be/${video.id}`}>youtu.be/{video.id}</a>
-              </figcaption>
-            </figure>
-          ))}
+          {videos.map((video, index) => {
+            // 자체 호스팅 영상은 사이트의 프로젝트 딥링크(모달에서 재생)로 안내한다
+            const url = video.src
+              ? `${SITE_URL}/?project=${project.slug}`
+              : `https://youtu.be/${video.id}`
+            const thumbnail = getVideoThumbnail(video)
+            return (
+              <figure className="print-media-item" key={getVideoKey(video)}>
+                {thumbnail && <img src={thumbnail} alt="" />}
+                <figcaption>
+                  <span className="print-media-label">
+                    {video.label || `${t.projects.videoLabel} ${index + 1}`}
+                  </span>
+                  <a href={url}>{shortUrl(url)}</a>
+                </figcaption>
+              </figure>
+            )
+          })}
         </div>
       )}
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useLanguage } from '../context/LanguageContext'
-import { getProjectVideos, getPrimaryVideoIndex, getYoutubeThumbnail } from '../utils/projectVideos'
+import { getProjectVideos, getPrimaryVideoIndex, getVideoThumbnail } from '../utils/projectVideos'
 
 // Props: 부모 컴포넌트(Projects)에서 데이터를 전달받음
 function ProjectCard({ project, onViewProject, variant }) {
@@ -46,7 +46,7 @@ function ProjectCard({ project, onViewProject, variant }) {
       return project.image
     }
     if (videos.length > 0) {
-      return getYoutubeThumbnail(videos[getPrimaryVideoIndex(videos)].id)
+      return getVideoThumbnail(videos[getPrimaryVideoIndex(videos)])
     }
     return null
   }
@@ -73,8 +73,9 @@ function ProjectCard({ project, onViewProject, variant }) {
         <span className={`project-badge ${typeClass}`}>{typeLabel}</span>
         {project.featured && <span className="featured-badge">★ {t.projects.filters.featured}</span>}
         {project.steamUrl && <span className="steam-badge">STEAM</span>}
-        {videos.length > 1 && (
-          <span className="video-count-badge">▶ {videos.length}</span>
+        {/* 영상 2개 이상이면 개수, 1개라도 image가 썸네일을 가리고 있으면 ▶만 표시 */}
+        {(videos.length > 1 || (videos.length === 1 && project.image)) && (
+          <span className="video-count-badge">▶{videos.length > 1 ? ` ${videos.length}` : ''}</span>
         )}
       </div>
       <div className="project-info">

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
-import { getProjectVideos, getPrimaryVideoIndex, getYoutubeThumbnail } from '../utils/projectVideos'
+import { getProjectVideos, getPrimaryVideoIndex, getVideoThumbnail, getVideoKey } from '../utils/projectVideos'
 import './ProjectModal.css'
 
 function ProjectModal({ project, onClose }) {
@@ -118,27 +118,40 @@ function ProjectModal({ project, onClose }) {
           </div>
         )}
 
-        {/* YouTube 동영상 (여러 개면 아래 썸네일로 전환) */}
+        {/* 동영상 - YouTube 임베드 또는 자체 호스팅 mp4 (여러 개면 아래 썸네일로 전환) */}
         {currentVideo && (
           <div className="modal-video">
-            <iframe
-              src={`https://www.youtube.com/embed/${currentVideo.id}`}
-              title={currentVideo.label || project.title}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+            {currentVideo.src ? (
+              // 재생 전에는 받지 않도록 preload="none" + poster
+              <video
+                key={currentVideo.src}
+                src={currentVideo.src}
+                poster={currentVideo.poster}
+                controls
+                playsInline
+                preload="none"
+                title={currentVideo.label || project.title}
+              />
+            ) : (
+              <iframe
+                src={`https://www.youtube.com/embed/${currentVideo.id}`}
+                title={currentVideo.label || project.title}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            )}
             {videos.length > 1 && (
               <div className="video-thumbnails">
                 {videos.map((video, index) => (
                   <button
-                    key={video.id}
+                    key={getVideoKey(video)}
                     className={`video-thumb ${index === activeVideo ? 'active' : ''}`}
                     onClick={() => setActiveVideo(index)}
                     aria-pressed={index === activeVideo}
                   >
                     <span className="video-thumb-media">
-                      <img src={getYoutubeThumbnail(video.id)} alt="" />
+                      <img src={getVideoThumbnail(video)} alt="" />
                       <span className="video-thumb-play" aria-hidden="true">▶</span>
                     </span>
                     <span className="video-thumb-label">
