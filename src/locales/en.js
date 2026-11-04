@@ -44,6 +44,7 @@ const en = {
   experience: {
     title: 'Experience',
     workBadge: 'Work Experience',
+    inHouseEngine: 'In-house engine',
     items: [
       {
         type: 'career',

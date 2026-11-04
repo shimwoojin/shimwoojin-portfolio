@@ -5,7 +5,7 @@ import './About.css'
 // 핵심(깊게 방어 가능) / 사용 경험(무엇에 썼는지 설명 가능) / 개발 도구
 // 인쇄 페이지(/print)도 이 배열들을 그대로 재사용한다
 export const coreSkills = ['C++', 'Unreal Engine', 'DirectX11', 'HLSL']
-export const experiencedSkills = ['Unity', 'C#', 'PhysX', 'Lua']
+export const experiencedSkills = ['Unity', 'Godot', 'C#', 'PhysX', 'Lua']
 export const devTools = ['Perforce', 'Git', 'SVN', 'Visual Studio', 'Rider']
 
 function About() {

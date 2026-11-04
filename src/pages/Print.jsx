@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { coreSkills, experiencedSkills, devTools } from '../components/About'
-import { experienceSkills } from '../components/Experience'
+import { experienceSkills, skillText } from '../components/Experience'
 import { signatureProjects, archiveProjects, translateProject } from '../data/projects'
 import { getProjectVideos, getVideoThumbnail, getVideoKey } from '../utils/projectVideos'
 import './Print.css'
@@ -244,9 +244,10 @@ function Print() {
             {exp.description && <p className="print-exp-description">{exp.description}</p>}
             {experienceSkills[index].length > 0 && (
               <div className="print-tags">
-                {experienceSkills[index].map(skill => (
-                  <span key={skill} className="print-tag">{skill}</span>
-                ))}
+                {experienceSkills[index].map(skill => {
+                  const text = skillText(skill, t)
+                  return <span key={text} className="print-tag">{text}</span>
+                })}
               </div>
             )}
           </div>

@@ -44,6 +44,7 @@ const ko = {
   experience: {
     title: 'Experience',
     workBadge: '실무 경력',
+    inHouseEngine: '자체 엔진',
     items: [
       {
         type: 'career',

@@ -229,6 +229,26 @@
   box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
 }
 
+/* 회사 자체 엔진 태그 - 일반 태그보다 한 단계 진하게, 앞에 "자체 엔진" 라벨 */
+.exp-skill-tag.engine {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px 4px 5px;
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: #fff;
+  font-weight: 600;
+}
+
+.exp-skill-tag.engine .exp-skill-note {
+  padding: 1px 8px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.16);
+  color: #9fd3f5;
+  font-size: 0.85em;
+  font-weight: 600;
+}
+
 /* 다크모드 스타일 */
 .App.dark .timeline::before {
   background: linear-gradient(180deg, #5dade2 0%, #8e44ad 50%, #5dade2 100%);
@@ -330,6 +350,12 @@
 .App.dark .exp-skill-tag {
   background-color: #2a3f5f;
   color: #5dade2;
+}
+
+.App.dark .exp-skill-tag.engine {
+  background: linear-gradient(135deg, #3d5a80, #2a3f5f);
+  color: #fff;
+  box-shadow: 0 0 0 1px rgba(93, 173, 226, 0.35);
 }
 
 .App.dark .exp-skill-tag:hover {
