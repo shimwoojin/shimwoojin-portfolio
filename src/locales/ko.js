@@ -92,13 +92,14 @@ const ko = {
       personal: '개인'
     },
     allTitle: '전체 프로젝트',
-    showOlder: '이전 프로젝트 더 보기',
-    hideOlder: '이전 프로젝트 접기',
+    showOlder: '프로젝트 {count}개 더 보기',
+    hideOlder: '접기',
     viewProject: '프로젝트 보기',
     viewResume: '경력기술서 상세보기',
     viewGithub: 'GitHub 저장소',
     viewContributions: 'GitHub 기여도 맵 (담당 시스템별 대표 커밋)',
     viewDeploy: '배포 사이트',
+    viewSteam: 'Steam 스토어',
     viewFab: 'Fab 스토어',
     viewDocs: '문서 사이트',
     viewPress: '언론 보도',
@@ -184,6 +185,18 @@ const ko = {
         ],
         videoLabels: ['Week 1 · Rhythm Dungeon', 'Week 9 · 전지적 정글 시점', 'Week 14 · 정글무쌍'],
         repoNames: ['Rhythm Dungeon (Week 1)', '전지적 정글 시점 (Week 9)', '정글무쌍 (Week 14)']
+      },
+      'PunchMonkey': {
+        title: 'PunchMonkey',
+        description: '바탕화면 위에 상주하는 방치형 게임. 타자를 칠 때마다 원숭이가 나무를 쳐 바나나를 모으고, 그 바나나로 마우스 커서를 꾸민다. Godot + C#으로 2인 개발해 Steam에 유료 출시',
+        details: [
+          'Godot 4 + C#, AI 코딩 에이전트 중심 개발 - 기술 검증마다 Go/No-Go 기준을 먼저 세우고 CPU·메모리를 실측해 판정',
+          '투명·항상 위·클릭 통과 오버레이 창 + 커서를 따라다니는 장식 창 (Win32 연동)',
+          '인터페이스·목 구현을 먼저 정의해 2인 병렬 개발 구조를 잡고, 게임 로직(레벨 곡선·상점/인벤토리/장착·도감·AI 에셋 파이프라인)까지 담당',
+          'Steamworks.NET 연동 - 도전과제 14종, 스팀 인벤토리 아이템, 빌드·Depot 업로드 파이프라인',
+          'Cloudflare Workers 경제 서버 - 마켓 거래 아이템의 재화 위조 방지를 위해 경제를 서버 권위로 이전',
+          '스토어 페이지·트레일러 제작, 검수 반려 4건 대응 후 $1.99 유료 출시 (한국어/영어)'
+        ]
       },
       'GAS를 활용한 멀티 플레이 게임': {
         title: 'GAS를 활용한 멀티 플레이 게임',

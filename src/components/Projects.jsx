@@ -90,7 +90,7 @@ function Projects() {
       </div>
       {olderProjects.length > 0 && (
         <button className="show-older-btn" onClick={() => setShowOlder(!showOlder)}>
-          {showOlder ? `${t.projects.hideOlder} ▲` : `${t.projects.showOlder} ▼`}
+          {showOlder ? `${t.projects.hideOlder} ▲` : `${t.projects.showOlder.replace('{count}', olderProjects.length)} ▼`}
         </button>
       )}
 

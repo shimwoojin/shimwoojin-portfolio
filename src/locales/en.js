@@ -92,13 +92,14 @@ const en = {
       personal: 'Personal'
     },
     allTitle: 'All Projects',
-    showOlder: 'Show earlier projects',
-    hideOlder: 'Hide earlier projects',
+    showOlder: 'Show {count} more projects',
+    hideOlder: 'Show less',
     viewProject: 'View Project',
     viewResume: 'View Resume Details',
     viewGithub: 'GitHub Repository',
     viewContributions: 'Contribution map (key commits per system)',
     viewDeploy: 'Live Demo',
+    viewSteam: 'View on Steam',
     viewFab: 'View on Fab',
     viewDocs: 'Documentation',
     viewPress: 'Press Coverage',
@@ -228,6 +229,25 @@ const en = {
           'Jungle Musou (Week 14)'
         ],
         overview: { team: '3-4 people per jam', duration: 'Under a week each' }
+      },
+      'PunchMonkey': {
+        title: 'PunchMonkey',
+        description: 'An idle game that lives on your desktop. Every keystroke makes a monkey punch a tree for bananas, which you spend to decorate your mouse cursor. Built by a team of two in Godot + C# and released as a paid title on Steam',
+        headline: 'Paid release on Steam · Generating revenue',
+        cardHighlights: [
+          'Godot 4 + C# · 7 weeks from tech validation to launch',
+          'Built with AI coding agents, decisions backed by measurements',
+          'Launched after resolving 4 Steam review rejections'
+        ],
+        details: [
+          'Godot 4 + C#, developed primarily with AI coding agents - set Go/No-Go criteria for every technical spike and judged them on measured CPU and memory',
+          'Transparent, always-on-top, click-through overlay window plus a decoration window that follows the cursor (Win32 interop)',
+          'Set up interfaces and mocks up front so two developers could work in parallel, and also built the game logic (level curve, shop/inventory/equipment, collection book, AI asset pipeline)',
+          'Steamworks.NET integration - 14 achievements, Steam Inventory items, build and depot upload pipeline',
+          'Cloudflare Workers economy server - moved the economy server-side to prevent forged currency behind market-tradable items',
+          'Store page and trailer, resolved 4 review rejections and shipped at $1.99 (Korean/English)'
+        ],
+        overview: { team: 'Team of 2', role: 'Everything except multiplayer (82% of commits)', duration: '7 weeks' }
       },
       'GAS를 활용한 멀티 플레이 게임': {
         title: 'Multiplayer Game with GAS',

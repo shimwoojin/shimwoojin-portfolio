@@ -40,6 +40,9 @@ function collectLinks(project, t) {
       url: project.pressUrl
     })
   }
+  if (project.steamUrl) {
+    links.push({ label: t.projects.viewSteam, url: project.steamUrl })
+  }
   if (project.fabUrl) {
     links.push({ label: t.projects.viewFab, url: project.fabUrl })
   }

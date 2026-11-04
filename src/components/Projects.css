@@ -190,6 +190,29 @@
   transition: all 0.3s ease;
 }
 
+/* Steam 출시작 뱃지 (steamUrl이 있을 때). featured와 같은 자리라 둘이 동시에 붙지 않게 쓸 것 */
+.project-card .steam-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 5px 11px;
+  border-radius: 4px;
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  background: #1b2838;
+  color: #66c0f4;
+  border: 1px solid rgba(102, 192, 244, 0.45);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .steam-badge {
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(102, 192, 244, 0.35);
+}
+
 /* 영상 개수 뱃지 (영상이 2개 이상일 때만) */
 .video-count-badge {
   position: absolute;

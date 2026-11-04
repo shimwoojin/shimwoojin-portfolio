@@ -64,15 +64,15 @@ shimwoojin-portfolio/
 - **Projects 섹션 구조** (필터 탭 없음):
   - **시그니처**: `featured: true`인 프로젝트가 가로 전폭 카드로 항상 노출 (현재 PROJECT ARK, KraftonEngine, Dynamic Rope)
   - **전체 프로젝트**: 나머지를 그리드로, 기간 시작일 기준 최신순 자동 정렬
-  - **이전 프로젝트 접기**: 2024년 이전(`periodStart < 202400`) 프로젝트는 기본 숨김, 버튼으로 펼침
+  - **프로젝트 접기** (버튼 문구 "프로젝트 {count}개 더 보기" — count는 Projects.jsx가 치환): 2024년 이전(`periodStart < 202400`) 프로젝트와 `collapsed: true`인 프로젝트는 기본 숨김, 버튼으로 펼침. 펼치기 전 노출은 PunchMonkey → 게임잼 3회 → 슈빌 3장으로 맞춰 둠 (GAS는 `collapsed`로 내림)
 - **프로젝트 카드**: 성과 칩(`headline`) + 핵심 불릿(`cardHighlights`, 없으면 `details` 앞 3개) + 기술 태그. 카드 전체 클릭으로 모달 오픈 (키보드 접근성 포함)
-  - 푸터 우측에 GitHub 아이콘(+ `fabUrl`/`docsUrl`/`deployUrl` 중 하나) 노출. 카드 전체가 클릭 대상이라 링크에는 `stopPropagation` 필수
+  - 푸터 우측에 GitHub 아이콘(+ `steamUrl` Steam 아이콘, `fabUrl`/`docsUrl`/`deployUrl` 중 하나) 노출. `steamUrl`이 있으면 썸네일 좌상단에 STEAM 배지(featured 배지와 같은 자리). 카드 전체가 클릭 대상이라 링크에는 `stopPropagation` 필수
 - **프로젝트 타입 배지**: career(파랑) / jungle(주황) / personal(보라)
 - **프로젝트 영상**: 단일 `youtubeId` 또는 다중 `videos: [{ id, label }]`. `utils/projectVideos.js`가 둘 다 같은 배열로 정규화하므로 기존 프로젝트는 수정 불필요
   - 영상 2개 이상이면 모달에 썸네일 그리드(균등 분할), 카드 썸네일에 `▶ n` 배지. `id`가 빈 항목은 자동 제외되므로 미수령 영상은 라벨만 두면 됨
   - `primary: true`를 붙인 영상이 카드 썸네일 + 모달 초기 선택이 됨 (없으면 배열 첫 항목). 배열은 시간순 유지
 - **프로젝트 개요**: `overview: { company, team, role, duration }`. 모달 헤더 바로 아래 라벨/값 스트립으로, 값이 있는 항목만 렌더링. `company`(파란 칩)와 `team`(회색 칩)은 카드의 기간 옆에도 노출
-- **모달 링크**: `resumeSection`(경력기술서 해시 이동), `github`, `repos: [{ name, url }]`(저장소 여러 개), `pressUrl`+`pressName`(언론 보도), `fabUrl`, `docsUrl`, `deployUrl`, `contributionsUrl`(기여도 맵 — 지정 시 카드 헤드라인 칩이 이 링크로 연결됨)
+- **모달 링크**: `resumeSection`(경력기술서 해시 이동), `github`, `steamUrl`(Steam 스토어), `repos: [{ name, url }]`(저장소 여러 개), `pressUrl`+`pressName`(언론 보도), `fabUrl`, `docsUrl`, `deployUrl`, `contributionsUrl`(기여도 맵 — 지정 시 카드 헤드라인 칩이 이 링크로 연결됨)
 - **프로젝트 딥링크**: 열린 프로젝트는 URL 쿼리 `?project=<slug>`가 단일 소스(`Projects.jsx`의 `useSearchParams`). 카드 클릭은 push, 모달 닫기는 replace라 뒤로가기로 모달만 닫힌다. **프로젝트를 추가하면 고유 `slug`를 반드시 붙일 것** — 없으면 링크도 공유 버튼도 생기지 않는다. 접힌 이전 프로젝트도 slug로 열면 목록이 자동으로 펼쳐지고, 없는 slug는 그냥 무시된다. 모달 하단 "이 프로젝트 링크 복사" 버튼이 `origin/?project=<slug>`를 클립보드에 넣는다
 - **카드 이미지**: `image`(`public/` 경로) > `videos[0]`/`youtubeId` YouTube 썸네일 > 카테고리 플레이스홀더 순. 외부 이미지는 핫링크하지 말고 `public/`에 받아서 쓸 것
 - **다국어**: 화면 문구는 `locales/ko.js`·`en.js`에서 관리. 프로젝트 번역은 한국어 title을 키로 매칭
@@ -123,6 +123,7 @@ shimwoojin-portfolio/
 - 레드닷 "주 5건대 → 1건 이하"는 정성적 추정치 — 더 정밀하게 쪼개지 말 것
 - AreaGroup 로딩 3초 → 0.1초의 측정 상황: 던전→일반맵 진입 시
 - AI 활용 항목은 경력기술서에서 삭제 유지 (일반론이라 뺐고, 대체할 실제 사례 없음)
+- PunchMonkey(Steam 출시, 2인): 멀티플레이(로비·P2P, 을 담당) 외 전 영역을 우진이 담당, 커밋 82%·코드 라인 77% (pc-idle 기획서 §9 진행 상황 + git 작성자 기준). 유료 출시작이라 소스·GitHub 비공개, 스토어 링크만. 수익은 "판매 수익 발생" 정성 표현만 쓴다
 - 2023 개인 프로젝트 4종: 카드는 접힌 영역에 유지하되 개별 GitHub 링크는 비노출 (저장소 평균 품질 평가 방지, 영상이 증거)
 
 ## 개발 명령어

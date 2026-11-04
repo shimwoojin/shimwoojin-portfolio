@@ -180,6 +180,40 @@ export const projects = [
   },
   // 개인 프로젝트
   {
+    id: 13,
+    slug: "punchmonkey",
+    title: "PunchMonkey",
+    description: "바탕화면 위에 상주하는 방치형 게임. 타자를 칠 때마다 원숭이가 나무를 쳐 바나나를 모으고, 그 바나나로 마우스 커서를 꾸민다. Godot + C#으로 2인 개발해 Steam에 유료 출시",
+    headline: "Steam 유료 출시 · 판매 수익 발생",
+    cardHighlights: [
+      "Godot 4 + C# · 기술 검증부터 출시까지 7주",
+      "AI 코딩 에이전트로 개발, 판정은 실측으로",
+      "Steam 검수 반려 4건 대응 후 출시"
+    ],
+    tech: ["Godot 4", "C#", "Steamworks", "Cloudflare Workers", "AI 코딩"],
+    type: "personal",
+    category: "Godot",
+    period: "2026.09 - 2026.10 Steam 출시",
+    overview: {
+      team: "2인 개발",
+      role: "멀티플레이 외 전 영역 (커밋 82%)",
+      duration: "7주"
+    },
+    featured: false,
+    image: "/punchmonkey-capsule.jpg",  // Steam 라이브러리 히어로 아트 크롭 (자체 제작). 로고 없는 판이라 STEAM 배지와 안 겹친다
+    details: [
+      "Godot 4 + C#, AI 코딩 에이전트 중심 개발 - 기술 검증마다 Go/No-Go 기준을 먼저 세우고 CPU·메모리를 실측해 판정",
+      "투명·항상 위·클릭 통과 오버레이 창 + 커서를 따라다니는 장식 창 (Win32 연동)",
+      "인터페이스·목 구현을 먼저 정의해 2인 병렬 개발 구조를 잡고, 게임 로직(레벨 곡선·상점/인벤토리/장착·도감·AI 에셋 파이프라인)까지 담당",
+      "Steamworks.NET 연동 - 도전과제 14종, 스팀 인벤토리 아이템, 빌드·Depot 업로드 파이프라인",
+      "Cloudflare Workers 경제 서버 - 마켓 거래 아이템의 재화 위조 방지를 위해 경제를 서버 권위로 이전",
+      "스토어 페이지·트레일러 제작, 검수 반려 4건 대응 후 $1.99 유료 출시 (한국어/영어)"
+    ],
+    // 출시작이라 소스 비공개 - GitHub 대신 스토어 링크만 노출
+    github: "",
+    steamUrl: "https://store.steampowered.com/app/5281130/PunchMonkey/"
+  },
+  {
     id: 4,
     slug: "gas-multiplay",
     title: "GAS를 활용한 멀티 플레이 게임",
@@ -191,6 +225,7 @@ export const projects = [
     period: "2026.01 - 현재",
     overview: { team: "1인 개발" },
     featured: false,
+    collapsed: true,  // 기간상 최근이지만 접힌 영역으로 내림 (펼치기 전 3장: PunchMonkey·게임잼·슈빌)
     youtubeId: "",
     details: [
       "GameplayAbilitySystem 기반 스킬 시스템",
@@ -312,8 +347,10 @@ export const signatureProjects = projects.filter(p => p.featured)
 export const archiveProjects = projects
   .filter(p => !p.featured)
   .sort((a, b) => periodStart(b) - periodStart(a))
-export const recentProjects = archiveProjects.filter(p => periodStart(p) >= 202400)
-export const olderProjects = archiveProjects.filter(p => periodStart(p) < 202400)
+// 2024년 이전이거나 collapsed: true면 "이전 프로젝트" 접힌 영역으로
+const isCollapsed = (p) => p.collapsed || periodStart(p) < 202400
+export const recentProjects = archiveProjects.filter(p => !isCollapsed(p))
+export const olderProjects = archiveProjects.filter(isCollapsed)
 
 // 번역된 프로젝트 데이터 (한국어 title이 locales의 키)
 export const translateProject = (project, t) => {

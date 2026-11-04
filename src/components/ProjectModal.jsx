@@ -205,6 +205,11 @@ function ProjectModal({ project, onClose }) {
                 {pressLabel} →
               </a>
             )}
+            {project.steamUrl && (
+              <a href={project.steamUrl} target="_blank" rel="noopener noreferrer">
+                {t.projects.viewSteam} →
+              </a>
+            )}
             {project.fabUrl && (
               <a href={project.fabUrl} target="_blank" rel="noopener noreferrer">
                 {t.projects.viewFab} →
