@@ -32,7 +32,7 @@ const ko = {
     title: 'About Me',
     greeting: '안녕하세요, 심우진입니다!',
     intro1: '1년 4개월의 MMORPG·모바일 게임 실무 경험에 더해, 크래프톤 정글 게임테크랩에서 14주간 DirectX11 자체 게임엔진을 주 설계자로 개발한 게임 클라이언트 프로그래머입니다. 현재는 펄어비스 신작개발실 인턴으로 붉은사막 DLC 「미지의 여정」 개발에 참여하고 있습니다. C++과 Unreal Engine을 주력으로 렌더링 파이프라인부터 퀘스트·UI·개발 도구까지 폭넓은 시스템을 설계하고 구현합니다.',
-    intro2: '유지보수 가능한 구조 설계와 팀 생산성을 높이는 도구 제작에 관심이 많으며, GPU 물리 플러그인 Dynamic Rope를 Fab 마켓플레이스에, Godot·C# 게임 PunchMonkey를 Steam에 유료로 출시하는 등 설계부터 출시까지 완결하는 개발을 지향합니다. PunchMonkey는 AI 코딩 에이전트로 개발하되 기술 판단은 실측으로 내렸고, 2인 팀으로 7주 만에 출시했습니다.',
+    intro2: '유지보수 가능한 구조 설계와 팀 생산성을 높이는 도구 제작에 관심이 많으며, GPU 물리 플러그인 Dynamic Rope를 Fab 마켓플레이스에, Godot·C# 게임 PunchMonkey를 Steam에 유료로 출시하는 등 설계부터 출시까지 완결하는 개발을 지향합니다.',
     skills: 'Skills',
     skillsCore: '핵심',
     skillsExperienced: '사용 경험',

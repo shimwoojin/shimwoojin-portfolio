@@ -32,7 +32,7 @@ const en = {
     title: 'About Me',
     greeting: "Hi, I'm Woojin Shim!",
     intro1: "I'm a game client programmer with 1 year and 4 months of professional MMORPG and mobile game experience, plus 14 weeks at KRAFTON JUNGLE GameTech Lab where I served as lead architect of a custom DirectX11 game engine. I'm currently an intern on Pearl Abyss's New Title Development team, contributing to a Crimson Desert DLC. Specializing in C++ and Unreal Engine, I design and build systems ranging from rendering pipelines to quest systems, UI, and development tools.",
-    intro2: 'I care about maintainable architecture and building tools that boost team productivity. I shipped Dynamic Rope, a GPU physics plugin, on the Fab marketplace and PunchMonkey, a Godot · C# game, as a paid title on Steam, carrying each project all the way from design to release. PunchMonkey was built with AI coding agents while every technical call was backed by measurements, and a team of two shipped it in seven weeks.',
+    intro2: 'I care about maintainable architecture and building tools that boost team productivity. I shipped Dynamic Rope, a GPU physics plugin, on the Fab marketplace and PunchMonkey, a Godot · C# game, as a paid title on Steam, carrying each project all the way from design to release.',
     skills: 'Skills',
     skillsCore: 'Core',
     skillsExperienced: 'Experienced with',
