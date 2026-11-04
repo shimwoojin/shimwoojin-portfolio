@@ -255,7 +255,7 @@ void ProcessCharacter(ICharacterComponentProvider& Provider)
 
         {/* 3. 퀘스트 시스템 */}
         <article id="ark-quest" className="project-task">
-          <h3>3. 퀘스트 시스템 설계 — UI·네트워크·게임 로직의 경계 분리</h3>
+          <h3>3. UI·네트워크·게임 로직의 경계를 분리한 퀘스트 시스템 설계</h3>
           <p className="task-headline">⭐ 네트워크 로직과 게임플레이를 독립적으로 수정할 수 있는 구조 확보</p>
 
           <div className="star-section situation">
@@ -344,7 +344,7 @@ class UQuestFactory : public UObject
 
         {/* 4. NPC 대화 시스템 */}
         <article id="ark-npc" className="project-task">
-          <h3>4. NPC 대화 시스템 — 자체 구현을 기각하고 플러그인 확장 선택</h3>
+          <h3>4. 자체 구현 대신 플러그인을 확장한 NPC 대화 시스템</h3>
           <p className="task-headline">⭐ 기획팀이 코드 수정 없이 노드 그래프로 대화 제작</p>
 
           <div className="star-section situation">
@@ -410,7 +410,7 @@ class UQuestFactory : public UObject
           <div className="task-category">
             <h4>에디터 확장 및 자동화</h4>
             <ul>
-              <li><strong>AreaGroupActor 시스템 개발</strong> — 레벨 디자이너가 NPC·Waypoint·Area를 에디터에서 배치하면 DB 추출과 서버-클라 위치 동기화까지 자동 처리되는 파이프라인 구축</li>
+              <li><strong>AreaGroupActor 시스템 개발</strong>: 레벨 디자이너가 NPC·Waypoint·Area를 에디터에서 배치하면 DB 추출과 서버-클라 위치 동기화까지 자동 처리되는 파이프라인 구축</li>
             </ul>
           </div>
 
@@ -446,7 +446,7 @@ class UQuestFactory : public UObject
             <h4>성능 최적화</h4>
             <ul>
               <li>로딩 시 병목 해결 (프로파일링 기반, 비동기 액터 배치)</li>
-              <li><strong>AreaGroup 우선순위 로딩 — 던전→일반맵 진입 시 3초 멈춤 → 0.1초로 개선</strong></li>
+              <li><strong>AreaGroup 우선순위 로딩으로 던전→일반맵 진입 시 3초 멈춤 → 0.1초로 개선</strong></li>
             </ul>
           </div>
         </article>
@@ -464,8 +464,8 @@ class UQuestFactory : public UObject
             </div>
           </div>
           <p className="project-desc">
-            라이브 서비스 중인 모바일 캐주얼 게임 유지보수 및 대규모 업데이트. 10명 내외 규모 — 기존 개발팀
-            인원 감소로 PROJECT ARK 팀이 대거 투입된 상황
+            라이브 서비스 중인 모바일 캐주얼 게임 유지보수 및 대규모 업데이트. 10명 내외 규모. 기존 개발팀
+            인원이 줄어 PROJECT ARK 팀이 대거 투입된 상황
           </p>
         </div>
 
@@ -502,7 +502,7 @@ class UQuestFactory : public UObject
 
         {/* 2. Unity 환경 적응 */}
         <article id="shuville-unity" className="project-task">
-          <h3>2. 라이브 서비스 대규모 업데이트 개발 — Unreal에서 Unity 전환</h3>
+          <h3>2. 라이브 서비스 대규모 업데이트 개발 (Unreal → Unity 전환)</h3>
           <p className="task-headline">⭐ 사활을 건 대규모 업데이트를 라이브 서비스에 사고 없이 출시</p>
 
           <div className="star-section situation">
@@ -539,7 +539,7 @@ class UQuestFactory : public UObject
           <div className="skill-category">
             <h3>시스템 설계 및 아키텍처</h3>
             <ul>
-              <li><a href="#ark-quest">퀘스트 시스템 — UI·네트워크·게임 로직 경계 분리 (State/Factory 패턴 활용)</a></li>
+              <li><a href="#ark-quest">UI·네트워크·게임 로직 경계를 분리한 퀘스트 시스템 (State/Factory 패턴 활용)</a></li>
               <li><a href="#ark-refactor">12,000줄 단일 클래스를 역할별 컴포넌트 6종으로 분리</a></li>
             </ul>
           </div>
@@ -555,7 +555,7 @@ class UQuestFactory : public UObject
           <div className="skill-category">
             <h3>개발 생산성 및 도구 제작</h3>
             <ul>
-              <li><a href="#ark-replay">패킷 녹화/재생 디버깅 시스템 — 맵 진입 시 자동 녹화</a></li>
+              <li><a href="#ark-replay">맵 진입 시 자동 녹화되는 패킷 녹화/재생 디버깅 시스템</a></li>
               <li><a href="#ark-worldmap">스플라인 기반 월드맵 자동 생성 에디터 도구</a></li>
               <li><a href="#shuville-reddot">레드닷 사용 위치 역추적 에디터 도구</a></li>
               <li><a href="#ark-npc">마켓플레이스 플러그인 비교 선정·커스텀 노드 확장</a></li>
@@ -565,7 +565,7 @@ class UQuestFactory : public UObject
           <div className="skill-category">
             <h3>네트워크</h3>
             <ul>
-              <li><a href="#ark-replay">서버 패킷 바이너리 직렬화/역직렬화 — 패킷 녹화/재생에 적용</a></li>
+              <li><a href="#ark-replay">패킷 녹화/재생에 적용한 서버 패킷 바이너리 직렬화/역직렬화</a></li>
               <li><a href="#ark-quest">서버 패킷 처리와 UI 갱신을 분리한 Subsystem 레이어 설계</a></li>
             </ul>
           </div>
