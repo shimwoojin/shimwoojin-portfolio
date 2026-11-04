@@ -14,11 +14,12 @@ const en = {
     eyebrow: 'Game Client Programmer',
     name: 'Woojin Shim',
     role: 'Game Client Programmer',
-    pitch: 'I have shipped on both a new MMORPG and a live-service mobile title. I build core client systems — quests, NPC dialogue, UI — and the development tools my team actually uses every day.',
+    pitch: 'From a new MMORPG to a live-service mobile title, and now Crimson Desert DLC at Pearl Abyss. I build game systems like quests and UI, a custom engine, and the tools my team uses every day — and I take what I build all the way to release.',
     highlights: [
       { value: 'Repro the unreproducible', label: 'Packet record/replay debugging system' },
       { value: 'Led Animation · Render', label: 'Custom DirectX11 game engine (KRAFTON JUNGLE)' },
-      { value: 'Shipped on the Fab marketplace', label: 'Dynamic Rope, a UE5 GPU physics plugin' }
+      { value: 'Shipped on Fab', label: 'Dynamic Rope, a UE5 GPU physics plugin' },
+      { value: 'Paid game on Steam', label: 'PunchMonkey, a two-person Godot · C# game' }
     ],
     ctaResume: 'View Resume →',
     ctaProjects: 'Browse Projects',

@@ -14,11 +14,12 @@ const ko = {
     eyebrow: 'Game Client Programmer',
     name: '심우진',
     role: '게임 클라이언트 프로그래머',
-    pitch: 'MMORPG 신규 개발과 모바일 라이브 서비스를 모두 거쳤습니다. 퀘스트·NPC 대화·UI 같은 핵심 시스템부터, 팀이 실제로 매일 쓰는 개발 도구까지 직접 만듭니다.',
+    pitch: 'MMORPG 신규 개발과 모바일 라이브 서비스를 거쳐, 지금은 펄어비스에서 붉은사막 DLC를 만들고 있습니다. 퀘스트·UI 같은 게임 시스템부터 자체 엔진, 팀이 매일 쓰는 개발 도구까지 — 만든 것은 출시까지 가져갑니다.',
     highlights: [
-      { value: '재현 불가 버그를 즉시 재현', label: '패킷 녹화/재생 디버깅 시스템 제작' },
+      { value: '재현 불가 버그 즉시 재현', label: '패킷 녹화/재생 디버깅 시스템 제작' },
       { value: 'Animation · Render 주도', label: 'DirectX11 자체 게임엔진 (크래프톤 정글)' },
-      { value: 'Fab 마켓플레이스 출시', label: 'UE5 GPU 물리 플러그인 Dynamic Rope' }
+      { value: 'Fab 마켓플레이스 출시', label: 'UE5 GPU 물리 플러그인 Dynamic Rope' },
+      { value: 'Steam 유료 게임 출시', label: 'Godot · C# 2인 개발 PunchMonkey' }
     ],
     ctaResume: '경력기술서 보기 →',
     ctaProjects: '프로젝트 둘러보기',
